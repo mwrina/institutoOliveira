@@ -1,0 +1,118 @@
+/* CONFIGS GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.body {
+    margin: 0;
+    font-family: "Fira Sans Condensed";
+}
+
+/* ================================================================= */
+/* NAVBAR */
+
+.navbar {
+    background-color: #000000;
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    justify-content: right;
+}
+
+.logo{
+    align-content: left;
+}
+
+.nav {
+    display: flex;
+
+    color: #FFFFFF;
+    /* topo direita inferior esquerda */
+    width: 1300px;
+    margin-left: 500px;
+}
+
+.navBarItems {
+    /* topo direita inferior esquerda */
+    padding: 7px 30px 0px 30px;
+    font-size: 13px;
+}
+
+#queroAjudar {
+    color: #FFFFFF;
+    background-color: #33E46D;
+    font-family: "Fira Sans Condensed";
+    font-size: 12px;
+    font-weight: 450;
+    border: 0;
+    /* topo direita inferior esquerda */
+    padding: 4px 7px 4px 7px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* ================================================================= */
+/* TOPO DA TELA */
+
+.top {
+    background-color: #FFF5EA;
+    box-sizing: border-box; 
+    display: flex;  
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    display:inline-block;
+    width: 100%;
+    /* topo direita inferior esquerda */
+    margin: 0;
+    padding: 0;
+}
+
+.cuidarAlemDaCura {
+    box-sizing: border-box;
+    /* topo direita inferior esquerda */
+    margin: 20
+    0px 0 0 0;
+    padding: 0;
+}
+
+.topCenterLin1 {
+    display: flex;
+    justify-content: center;
+    /* topo direita inferior esquerda */
+    margin: 0px 5px 0px 5px;
+}
+
+#cuidar {
+    font-family: "Chilanka";
+    font-size: 50px;
+    font-weight: 400;
+    color: #33E46D;
+}
+
+/* #cuidarImg {
+
+} */
+
+.topCenterLin2 {
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+    /* topo direita inferior esquerda */
+    margin: 0px 5px 0px 5px;
+}
+
+#eAlemDa {
+    font-weight: 450;
+}
+
+#cura {
+    font-family: "Chilanka";
+    color: #33E46D;
+    font-weight: 400;
+    padding-left: 7px;
+    padding-top: 5px;
+}
+
+/* ================================================================= */
