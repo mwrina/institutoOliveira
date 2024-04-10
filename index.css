@@ -20,17 +20,18 @@
     justify-content: right;
 }
 
-.logo{
-    align-content: left;
+#logoNavbar {
+    width: 95px;
+    height: 25px;
+    margin-left: 100px;
 }
 
 .nav {
     display: flex;
-
     color: #FFFFFF;
     /* topo direita inferior esquerda */
     width: 1300px;
-    margin-left: 500px;
+    margin-left: 375px;
 }
 
 .navBarItems {
@@ -59,29 +60,30 @@
     background-color: #FFF5EA;
     box-sizing: border-box; 
     display: flex;  
-    justify-content: center;
-    vertical-align: middle;
-    text-align: center;
-    display:inline-block;
+    justify-content: space-between;
     width: 100%;
     /* topo direita inferior esquerda */
     margin: 0;
     padding: 0;
 }
 
+#quadradosEsq {
+    width: 500px;
+    height: 500px;
+}
+
+#quadradosDir {
+    width: 250px;
+    height: 250px;
+}
+
 .cuidarAlemDaCura {
-    box-sizing: border-box;
-    /* topo direita inferior esquerda */
-    margin: 20
-    0px 0 0 0;
-    padding: 0;
+    margin-left: -100px;
 }
 
 .topCenterLin1 {
-    display: flex;
-    justify-content: center;
-    /* topo direita inferior esquerda */
-    margin: 0px 5px 0px 5px;
+    display: inline;
+    justify-content: space-between;
 }
 
 #cuidar {
@@ -89,18 +91,23 @@
     font-size: 50px;
     font-weight: 400;
     color: #33E46D;
+    padding-top: 200px;
+    margin-bottom: -125px;
 }
 
-/* #cuidarImg {
-
-} */
+#cuidarImg {
+    width: 55px;
+    height: 50px;
+    margin-top: 65px;
+    margin-left: 160px;
+}
 
 .topCenterLin2 {
     display: flex;
     justify-content: center;
     font-size: 45px;
     /* topo direita inferior esquerda */
-    margin: 0px 5px 0px 5px;
+    margin: -30px 50px -55px 0px;
 }
 
 #eAlemDa {
@@ -111,8 +118,12 @@
     font-family: "Chilanka";
     color: #33E46D;
     font-weight: 400;
+    font-size: 50px;
     padding-left: 7px;
-    padding-top: 5px;
+}
+
+#topSlogan {
+    font-weight: 400;
 }
 
 /* ================================================================= */
