@@ -38,52 +38,6 @@ body {
 }
 
 /* ================================================================= */
-/* NAVBAR */
-
-.navbar {
-    background-color: #000000;
-    display: flex;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    justify-content: right;
-}
-
-#logoNavbar {
-    width: 95px;
-    height: 25px;
-    margin-left: 100px;
-}
-
-.nav {
-    display: flex;
-    color: #FFFFFF;
-    /* topo direita inferior esquerda */
-    width: 1300px;
-    margin-left: 375px;
-}
-
-.navBarItems {
-    /* topo direita inferior esquerda */
-    padding: 7px 30px 0px 30px;
-    font-size: 13px;
-}
-
-#queroAjudar {
-    color: #FFFFFF;
-    background-color: #33E46D;
-    font-family: "Fira Sans Condensed";
-    font-size: 12px;
-    font-weight: 450;
-    border: 0;
-    /* topo direita inferior esquerda */
-    padding: 4px 7px 4px 7px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
-
-/* ================================================================= */
 /* TOPO DA TELA */
 
 .top {
@@ -532,4 +486,57 @@ body {
 #blogImg {
     width: 250px;
     height: 150px;
+    /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+    box-shadow: 7px 7px 0px 0px #33E46D;
+}
+
+#blogNome {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 20px 0 0 0;
+}
+
+#blogTxt {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* ================================================================= */
+/* VENHA FAZER SUA PARTE */
+
+.preFooter {
+    background-color: #33E46D;
+    text-align: center;
+    /* topo direita inferior esquerda */
+    padding: 60px 0 60px 0;
+}
+
+#logoPreFooter {
+    width: 290px;
+    height: 85px;
+}
+
+.VenhaFazerSuaParte {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+}
+
+#preFooterTxt {
+    font-size: 30px;
+    margin: 0;
+}
+
+#preFooterTxtDestacado {
+    font-size: 30px;
+    font-family: "Chilanka";
+    margin: 5px 0 0 7px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.preFooter  p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #FFFFFF;
 }
