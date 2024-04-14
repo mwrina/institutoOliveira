@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="headerFooter.css">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/headerFooter.css">
+    <link rel="stylesheet" href="style/botoes.css">
+    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <script src="js/index.js"></script>
     <title>Instituto Oliveira</title>
 </head>
 <body>
     
+    <!-- PADRÃO HEADER -->
+
     <header class="navbar">
         <img id="logoNavbar" src="imgs/icons/logoCompleta.png">
         <div class = "nav">
@@ -21,6 +26,7 @@
         </div>
     </header>
         
+    <!-- PÁGINA -->
 
     <div class="top">
 
@@ -66,15 +72,19 @@
                 </div>
     
             
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada<br>
-                    consectetur lectus. Quisque nulla tortor, consectetur a urna a, congue cursus enim. Etiam sit amet<br>
-                    tellus vestibulum lacus feugiat maximus. Etiam in ultrices neque. Ut urna turpis, feugiat id<br>
-                    molestie id, eleifend quis felis. Curabitur pharetra imperdiet urna, in convallis urna rutrum id.<br><br>
+                <p>Somos uma Instituição que acolhe e cuida de crianças e adolescentes com câncer, junto a <br>
+                    suas famílias, dando suporte físico, emocional e espiritual, complementando o tratamento <br>
+                    do câncer com uma equipe multiprofissional.
+
+                    <br><br>                    
         
-                    Suspendisse nec dapibus massa. Aenean at massa lacinia, finibus massa eu, molestie nisl. In et <br>
-                    felis quis justo pharetra tincidunt. Suspendisse sed risus libero. Phasellus malesuada diam nisi,<br>
-                    nec elementum lorem volutpat sed. Quisque scelerisque elit erat. Nulla commodo nisi nisl, nec<br>
-                    consectetur orci tristique ut.
+                    O instituto busca, ainda, auxiliar no processo de ressignificação da doença na vida de cada<br>
+                    membro do núcleo familiar.
+                    
+                    <br><br>
+
+                    Porque cuidar, é além da cura.
+
                 </p>
     
             </div>
@@ -84,7 +94,7 @@
         </div>
 
         <div class="btnContainer">
-            <button id="btn">Saiba mais</button>
+            <button onclick="redirectSobre()" class="btn" id="saibaMaisBtn">Saiba mais</button>
         </div>
                 
     </div>
@@ -134,51 +144,57 @@
             <div class="projDiv">
                 <img id="projImg" src="imgs/brechoOliveira.jpg" alt="Imagem de cabide de roupas próximo a uma estante com plantas e um porta-retato">
                 <p id="projTit">Brechó Oliveira</p>
-                <p id="projDesc">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Donec id <br>
-                    cursus neque, malesuada consectetur  <br>
-                    lectus. Quisque nulla tortor, consectetur <br>
-                    a urna a, congue cursus enim. 
+                <p id="projDesc">O Brechó Oliveira é um lindo movimento <br>
+                do voluntariado, ajudando na sustentabi- <br>
+                lidade do Instituto Oliveira e desenvol- <br>
+                vendo a cultura de moda sustentável <br>
+                com estilo. Permitindo à comunidade <br>
+                participar de forma ativa na <br>
+                construção do Projeto.
                 </p>
             </div>
 
             <div class="projDiv">
                 <img id="projImg" src="imgs/atendimentoMedico.png" alt="Dr. Hugo Oliveira, fundador do Instituto Oliveira, vestindo seu jaleco de médico e sorrindo">
-                <p id="projTit">Atendimento Médico</p>
-                <p id="projDesc">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Donec id <br>
-                    cursus neque, malesuada consectetur  <br>
-                    lectus. Quisque nulla tortor, consectetur <br>
-                    a urna a, congue cursus enim. 
+                <p id="projTit">Policlínica</p>
+                <p id="projDesc">Fizemos uma reforma e revitalização <br>
+                    do prédio em que estamos sediados, <br>
+                    com o objetivo de ampliar o número de <br>
+                    famílias atendidas, criar mais conexão <br>
+                    com as famílias e também propor- <br>
+                    cionar o estágio dos profissionais <br>
+                    de saúde recém formados.
                 </p>
             </div>
             
             <div class="projDiv">
                 <img id="projImg" src="imgs/eventosInstituto.png" alt="Foto da equipe do Instituto Oliveira sorrindo em frente a banner de divulgação de nosso trabalho.">
-                <p id="projTit">Eventos</p>
-                <p id="projDesc">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Donec id <br>
-                    cursus neque, malesuada consectetur  <br>
-                    lectus. Quisque nulla tortor, consectetur <br>
-                    a urna a, congue cursus enim. 
+                <p id="projTit">Cartilha</p>
+                <p id="projDesc">Material em formato de cartilha <br>
+                    trazendo informações sobre os sinais e <br>
+                    sintomas do câncer infanto juvenil de <br>
+                    uma forma interativa e lúdica, para a <br>
+                    distribuição nas escolas, empresas e <br>
+                    comunidade em geral. 
                 </p>
             </div>
 
             <div class="projDiv">
-                <img id="projImg" src="imgs/voluntarios.jpg" alt="Foto de múltiplas mãos segurando umas às outras, representando união.">
-                <p id="projTit">Voluntários</p>
-                <p id="projDesc">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Donec id <br>
-                    cursus neque, malesuada consectetur  <br>
-                    lectus. Quisque nulla tortor, consectetur <br>
-                    a urna a, congue cursus enim. 
+                <img id="projImg" src="imgs/palestras.jpg" alt="Imagem de uma plateia assistindo a uma palestra de um homem de roupa social, desfocado ao fundo.">
+                <p id="projTit">Palestras</p>
+                <p id="projDesc">Nossas palestras visam mobilizar<br>
+                    a sociedade e oferecer informações<br>
+                    sobre os sinais e sintomas do câncer<br>
+                    infanto juvenil em prol do diagnóstico<br>
+                    precoce e do enfrentamento à essa<br>
+                    doença ameaçadora da vida.
                 </p>
             </div>
 
         </div>
 
         <div class="btnContainer">
-            <button id="btn">Conheça mais projetos</button>
+            <button class="btn" id="projsBtn">Conheça mais projetos</button>
         </div>
     </div>
 
@@ -306,10 +322,12 @@
         </div>
 
         <div class="btnContainer">
-            <button id="btn">Veja mais posts no nosso blog!</button>
+            <button class="btn" id="blogBtn">Veja mais posts no nosso blog!</button>
         </div>
 
     </div>
+
+    <!-- PADRÃO FOOTER -->
 
     <div class="preFooter">
         <img id="logoPreFooter" src="imgs/icons/logoCompletaBranca.png">
@@ -320,8 +338,6 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur <br>
             purus non dui ultricies, vel commodo quam feugiat. Etiam ac feugiat ante, <br>
             pretium aliquet mi.</p>
-        
-        
     </div>
 
     <footer>
