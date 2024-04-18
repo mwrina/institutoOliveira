@@ -12,6 +12,7 @@
     font-family: "Fira Sans Condensed";
     background-color: #33E46D;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 #qroAjudarBtn {
@@ -22,4 +23,5 @@
     background-color: #33E46D;
     color: #FFFFFF;
     border: 0;
+    cursor: pointer;
 }
