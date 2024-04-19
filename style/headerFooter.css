@@ -1,3 +1,25 @@
+/* CONFIGS GERAIS */
+
+a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 /* NAVBAR */
 
 .navbar {
@@ -93,26 +115,6 @@ footer {
     text-align: center;
     padding: 40px 0 20px 0;
     line-height: 25px;
-}
-
-footer a:link {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-footer a:visited {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-footer a:active {
-    color: #FFFFFF;
-    text-decoration: none;
 }
 
 #footerLogo {
