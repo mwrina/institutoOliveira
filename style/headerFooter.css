@@ -1,3 +1,25 @@
+/* CONFIGS GERAIS */
+a:link {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:active {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
 /* NAVBAR */
 
 .navbar {
@@ -41,6 +63,7 @@
     padding: 4px 7px 4px 7px;
     margin-top: 3px;
     margin-bottom: 3px;
+    cursor: pointer;
 }
 
 /* ================================================================= */
@@ -50,7 +73,7 @@
     background-color: #33E46D;
     text-align: center;
     /* topo direita inferior esquerda */
-    padding: 60px 0 60px 0;
+    padding: 60px 30% 60px 30%;
 }
 
 #logoPreFooter {
@@ -93,26 +116,6 @@ footer {
     text-align: center;
     padding: 40px 0 20px 0;
     line-height: 25px;
-}
-
-footer a:link {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-footer a:visited {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-footer a:active {
-    color: #FFFFFF;
-    text-decoration: none;
 }
 
 #footerLogo {

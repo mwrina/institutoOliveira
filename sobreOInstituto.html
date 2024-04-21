@@ -18,12 +18,12 @@
     <header class="navbar">
         <img id="logoNavbar" src="imgs/icons/logoCompleta.png">
         <div class = "nav">
-            <a class="navBarItems">Menu</a>
-            <a class="navBarItems">Sobre o instituto</a>
+            <a class="navBarItems" href="index.html">Menu</a>
+            <a class="navBarItems" href="sobreOInstituto.html">Sobre o instituto</a>
             <a class="navBarItems">Projetos</a>
             <a class="navBarItems">Blog</a>
             <a class="navBarItems">Contato</a>
-            <button id="queroAjudar">QUERO AJUDAR</button>
+            <button id="queroAjudar" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
         </div>
     </header>
 
@@ -36,7 +36,7 @@
             <h1 id="topTitDestacado">instituto</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
-            <button id="qroAjudarBtn">QUERO AJUDAR</button>
+            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
         </div>
 
         <div class="topCentro">
@@ -213,11 +213,14 @@
             <h1 id="preFooterTxt">Venha fazer sua</h1>
             <h1 id="preFooterTxtDestacado">parte</h1>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur <br>
-            purus non dui ultricies, vel commodo quam feugiat. Etiam ac feugiat ante, <br>
-            pretium aliquet mi.</p>
-        
-        
+        <p>Acreditamos na transformação e evolução das pessoas, porque as elas não são
+            definidas pela enfermidade ou pelas dificuldades que estão enfrentando. O nosso olhar
+            não é somente para o câncer, mas para a cura da família como um todo. Vemos valor e
+            importância nas pessoas. Cremos que uma família “saudável e feliz” pode motivar e
+            impulsionar outras famílias a serem saudáveis e felizes.            
+            <br><br>
+            Seja um azeite, faça uma doação ou se voluntarie conosco.
+            </p>
     </div>
 
     <footer>
@@ -254,8 +257,8 @@
             </div>
 
             <div class="footerDivLinks">
-                <a id="link">Menu</a> <br>
-                <a id="link">Sobre o instituto</a> <br>
+                <a id="link" href="index.html">Menu</a> <br>
+                <a id="link" href="sobreOInstituto.html">Sobre o instituto</a> <br>
                 <a id="link">Projetos</a> <br>
                 <a id="link">Blog do instituto</a> <br>
                 <a id="link">Contatos</a>
@@ -263,8 +266,8 @@
 
             <div class="footerDiv">
                 <h1 id="footerTit">Faça sua parte</h1>
-                <a id="link">Quero ajudar</a> <br>
-                <a id="link">Seja um voluntário</a>
+                <a id="link" href="https://api.whatsapp.com/send?1=pt_BR&phone=554799605023">Quero ajudar</a> <br>
+                <a id="link" href="https://api.whatsapp.com/send?1=pt_BR&phone=554799605023">Seja um voluntário</a>
             </div>
 
         </div>
