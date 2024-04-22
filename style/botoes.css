@@ -25,3 +25,20 @@
     border: 0;
     cursor: pointer;
 }
+
+#saibaMaisBtn {
+    width: 200px;
+    height: 40px;
+    font-family: "Fira Sans Condensed";
+    font-weight: 600;
+    background-color: #33E46D;
+    color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+}
+
+#saibaMaisBtn img {
+    width: 24px;
+    height: 24px;
+}
+
