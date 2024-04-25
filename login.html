@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/headerFooter.css">
+    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <script src="js/index.js"></script>
+    <title>Instituto Oliveira</title>
+</head>
+<body>
+    
+    <!-- PADRÃO HEADER -->
+
+    <header class="navbar">
+        <img id="logoNavbar" src="imgs/icons/logoCompleta.png">
+        <div class = "nav">
+            <a class="navBarItems" href="index.html">Menu</a>
+            <a class="navBarItems" href="sobreOInstituto.html">Sobre o instituto</a>
+            <a class="navBarItems" href="projetos.html">Projetos</a>
+            <a class="navBarItems">Blog</a>
+            <a class="navBarItems">Contato</a>
+            <button id="queroAjudar" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+        </div>
+    </header>
+        
+    <!-- PÁGINA -->
+
+    <main>
+
+        <div class="backgroundImg">
+            <div class="loginContainer">
+
+                <form class="loginForm">
+                    <h1 id="loginTit">Login</h1>
+
+                    <div class="loginCampos">
+                        <div class="loginLin">
+                            <p id="nomeCampo">E-mail</p>
+                            <input type="email" class="loginCampo" id="email">
+                        </div>
+                        
+                        <div class="loginLin">
+                            <p id="nomeCampo">Senha</p>
+                            <input type="password" class="loginCampo" id="senha">
+                            <a href="" id="esqueceuSenha">Esqueceu sua senha?</a>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="btn">
+                        <button id="loginBtn">ENTRAR</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        
+
+    </main>
+
+
+</body>
