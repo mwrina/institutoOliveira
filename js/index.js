@@ -6,6 +6,10 @@ function redirectWhatsapp() {
     window.location.href = "https://api.whatsapp.com/send?1=pt_BR&phone=554799605023"
 }
 
+function redirectProjetos() {
+    window.location.href = "projetos.html";
+}
+
 function redirectSaibaVoluntarios() {
 
 }
