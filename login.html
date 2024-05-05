@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style/login.css">
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
-    <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
     <title>Instituto Oliveira</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
             <a class="navBarItems" href="sobreOInstituto.html">Sobre o instituto</a>
             <a class="navBarItems" href="projetos.html">Projetos</a>
             <a class="navBarItems">Blog</a>
-            <a class="navBarItems">Contato</a>
+            <a class="navBarItems" href="https://api.whatsapp.com/send?1=pt_BR&phone=554799605023">Contato</a>
             <button id="queroAjudar" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
         </div>
     </header>
@@ -50,7 +50,7 @@
                     </div>
                     
                     <div class="btn">
-                        <button id="loginBtn">ENTRAR</button>
+                        <button onclick="redirectLogin()" id="loginBtn">ENTRAR</button>
                     </div>
 
                 </form>
