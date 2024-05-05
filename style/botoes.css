@@ -26,19 +26,23 @@
     cursor: pointer;
 }
 
-#saibaMaisBtn {
-    width: 200px;
-    height: 40px;
+
+#voltar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 141px;
+    height: 35px;
     font-family: "Fira Sans Condensed";
-    font-weight: 600;
     background-color: #33E46D;
     color: #FFFFFF;
     border: 0;
     cursor: pointer;
 }
 
-#saibaMaisBtn img {
-    width: 24px;
-    height: 24px;
+#voltar img {
+    width: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+    height: 17.5px; /* Ajuste o tamanho do ícone conforme necessário */
+    margin-right: 5px; /* Adiciona um espaço entre o ícone e o texto do botão */
+    vertical-align: middle;
 }
-
