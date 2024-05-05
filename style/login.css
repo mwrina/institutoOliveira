@@ -11,11 +11,22 @@ body {
 }
 
 #backgroundImg {
-    background-image: url("imgs/icons/logoBranca.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 100px;
+    display: block;
+    position: relative;
+}
+
+#backgroundImg::after {
+    content: "";
+    background:url(https://www.google.co.in/images/srpr/logo11w.png);
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;  
 }
 
 .loginContainer {

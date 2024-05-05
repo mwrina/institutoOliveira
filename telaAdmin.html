@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/sidebar.css">
+    <link rel="stylesheet" href="style/telaAdmin.css">
+    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <title>Instituto Oliveira - Administração</title>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar-container">
+
+        <div class="sidebarLogo">
+            <img src="imgs/icons/logo.png" id="logo">
+            <img src="imgs/icons/logoTxtVerde.png" id="logoTxt">
+        </div>
+        
+        <div class="sidebarContent">
+
+            <button class="collapsible">
+                Usuários cadastrados
+            </button>
+            <div class="content">
+                <a>Usuários existentes</a> <br>
+                <a>Criar novo usuário</a>
+            </div>
+
+            <button class="collapsible">
+                Alterar projetos
+            </button>
+            <div class="content">
+                <a>Projetos existentes</a>
+                <a>Criar projeto</a>
+            </div>
+            
+            <button class="collapsible">
+                Alterar contato
+            </button>
+            <div class="content">
+                <a>Contatos existentes</a>
+                <a>Criar novo contato</a>""
+            </div>
+            
+            <button class="collapsible">
+                Blog
+            </button>
+            <div class="content">
+                <a>Postagens existentes</a>
+                <a>Criar nova postagem</a>
+            </div>
+
+        </div>
+
+        <div class="logout-container">
+            <button id="logout">Voltar ao site</button>
+        </div>
+
+        <div class="usuLogado">
+            <img src="imgs/icons/usuLogadoIcon.png" id="usuLogadoIcon">
+            <p id="usuLogadoTxt">Usuário logado: </p>
+        </div>
+    </aside>
+        
+    <main>
+
+        
+
+    </main>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    }
+</script>
+
+</body>
