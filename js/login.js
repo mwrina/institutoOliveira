@@ -1,4 +1,4 @@
 function redirectLogin() {
-    window.location.href = "telaAdmin.html";
+    window.location.href = "../telaAdmin.html";
 }
 
