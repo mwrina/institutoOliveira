@@ -1,6 +1,27 @@
+.sidebar-container a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-container a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-container a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-container a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .sidebar-container {
     background-color: #000000;
     position: fixed;
+    left: 0;
     height: 100%;
     overflow: auto;
     width: 20%;
