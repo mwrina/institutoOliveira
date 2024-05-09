@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
-    <link rel="stylesheet" href="style/admUsu.css">
+    <link rel="stylesheet" href="style/criarUsu.css">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
@@ -27,7 +27,7 @@
             </button>
             <div class="content">
                 <a href="admUsu.html">Usuários existentes</a> <br>
-                <a href="criarUsu.html">Criar novo usuário</a>
+                <a>Criar novo usuário</a>
             </div>
 
             <button class="collapsible">
@@ -69,38 +69,38 @@
     <main>
 
         <div class="container">
-            <h1 id="containerTit">Lista de Usuários</h1>
 
-            <div class="containerLista">
-                <div class="listaLinha">
-                    <span id="col1">
-                        <p class="nome" id="nome1">Nome: </p>
-                        <p class="ultimoAcesso" id="ultimoAcesso1">Último acesso: </p>
-                        <div class="crudBtns">
-                            <button class="crudBtn" id="editar">Editar Usuário</button>
-                            <button class="crudBtn" id="apagar">Apagar Usuário</button>
-                        </div>
-                    </span>
-                    <span id="col2">
-                        <p class="tipoUsu" id="tipoUsu1">Administrador</p>
-                    </span>
+            <h1 id="containerTit">Cadastro de Usuário</h1>
+
+            <form class="cadastroUsu">
+                
+                <div class="lin">
+                    <label for="email">Nome de usuário:</label> <br>
+                    <input type="email" id="email" placeholder="Digite seu usuário...">
                 </div>
-                <div class="listaLinha">
-                    <span id="col1">
-                        <p class="nome" id="nome2">Nome: </p>
-                        <p class="ultimoAcesso" id="ultimoAcesso2">Último acesso: </p>
-                        <div class="crudBtns">
-                            <button class="crudBtn" id="editar">Editar Usuário</button>
-                            <button class="crudBtn" id="apagar">Apagar Usuário</button>
-                        </div>
-                    </span>
-                    <span id="col2">
-                        <p class="tipoUsu" id="tipoUsu2">Usuário</p>
-                    </span>
+
+                <div class="lin">
+                    <label for="email">E-mail:</label> <br>
+                    <input type="email" id="email" placeholder="Digite seu e-mail...">
                 </div>
-            </div>
+                
+                <div class="lin">
+                    <label for="senha">Senha:</label> <br>
+                    <input type="password" id="senha" placeholder="Digite sua senha...">
+                </div>
+
+                <div class="lin">
+                    <label for="confirmaSenha">Confirme sua senha:</label> <br>
+                    <input type="password" id="confirmaSenha" placeholder="Digite sua senha novamente...">
+                </div>
+
+                <div class="btn">
+                    <input type="submit" id="confirmBtn" value="Confirmar cadastro">
+                </div>
+                
+            </form>
+
         </div>
-
     </main>
 
     <script src="js/sidebar.js"></script>

@@ -35,12 +35,12 @@
 
                 <div class="loginCampos">
                     <div class="loginLin">
-                        <p id="nomeCampo">E-mail</p>
+                        <label for="email" id="nomeCampo">E-mail</label>
                         <input type="email" class="loginCampo" id="email">
                     </div>
                     
                     <div class="loginLin">
-                        <p id="nomeCampo">Senha</p>
+                        <label for="senha" id="nomeCampo">Senha</label>
                         <input type="password" class="loginCampo" id="senha">
                         <a href="" id="esqueceuSenha">Esqueceu sua senha?</a>
                     </div>
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="btn">
-                    <button onclick="redirectLogin()" id="loginBtn">ENTRAR</button>
+                    <input type="submit" onclick="redirectLogin()" id="loginBtn" value="ENTRAR">
                 </div>
 
             </form>
