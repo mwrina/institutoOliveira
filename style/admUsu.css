@@ -1,0 +1,120 @@
+/* CONFIGS GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Fira Sans Condensed";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #FFF5EA;
+}
+
+main {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    background-image: url("../imgs/icons/logoBranca.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45% 60%;
+}
+
+/* =================================================================== */
+/* CONTAINER DA LISTA */
+
+.container {
+    box-sizing: border-box;
+    background-blend-mode:pass-through;
+    margin-top: 5%;
+    padding: 3%;
+    height: 80%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#containerTit {
+    font-size: 26px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.containerLista {
+    box-sizing: border-box;
+    margin: 10% 5% 5% 5%;
+    padding: 10% 3% 3% 3%;
+    height: 70%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: rgb(217,217,217, 0.8);
+}
+
+.listaLinha {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    margin: 1% 0 1% 0;
+}
+
+#col1 {
+    box-sizing: border-box;
+    display: flex;
+    font-size: 12px;
+    font-weight: 400;
+    width: 80%;
+    padding: 0 1% 0 1%;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.nome {
+    width: 35%;
+    height: 100%;
+}
+
+.ultimoAcesso {
+    width: 30%;
+    height: 100%;
+}
+
+.crudBtns {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    height: 100%;
+    margin: 1% 0 0 0;
+}
+
+.crudBtn {
+    border: none;
+    background-color: #D20000;
+    color: #FFFFFF;
+    font-family: "Fira Sans Condensed";
+    font-size: 11px;
+    font-weight: 300;
+    border-radius: 2px;
+    padding: 2%;
+    width: 45%;
+    height: 70%;
+}
+
+#col2 {
+    box-sizing: border-box;
+    width: 15%;
+    display: flex;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 0 1% 0 1%;
+    background-color: #FFFFFF;
+}
+
+.tipoUsu {
+    font-size: 12px;
+}
