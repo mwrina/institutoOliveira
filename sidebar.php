@@ -38,16 +38,31 @@
                 <a href="admBlog.html">Postagens existentes</a>
                 <a href="criarBlog.html">Criar nova postagem</a>
             </div>
+            <a href="alterarNums.php"><button class="collapsible">
+                Alterar números do Instituto
+            </button></a>
+            <div class="content">
+                <a href="admBlog.html">Postagens existentes</a>
+                <a href="criarBlog.html">Criar nova postagem</a>
+            </div>
 
         </div>
 
         <div class="logout-container">
-            <button id="logout">Voltar ao site</button>
+            <button id="logout" onclick="logout()">Voltar ao site</button>
         </div>
 
         <div class="usuLogado">
             <img src="imgs/icons/usuLogadoIcon.png" id="usuLogadoIcon">
-            <p id="usuLogadoTxt">Usuário logado: </p>
+            <p id="usuLogadoTxt">Usuário logado:
+            <?php 
+                session_start();
+                if(isset($_SESSION['nome'])) {
+                    echo $_SESSION['nome'];
+                } else {
+                    echo "Usuário não logado, algo deu errado";
+                }
+            ?></p>
         </div>
     </aside>
 
@@ -55,4 +70,5 @@
 
 <html>
     <script src="js/sidebar.js"></script>
+    <script src="js/logout.js"></script>
 </html>

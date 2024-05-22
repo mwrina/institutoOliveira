@@ -1,5 +1,5 @@
 function redirectSobre (){
-    window.location.href = "sobreOInstituto.html";
+    window.location.href = "sobreOInstituto.php";
 };
 
 function redirectWhatsapp() {
@@ -7,23 +7,11 @@ function redirectWhatsapp() {
 }
 
 function redirectProjetos() {
-    window.location.href = "projetos.html";
+    window.location.href = "projetos.php";
 }
 
-function redirectSaibaVoluntarios() {
-
-}
-
-function redirectSaibaEventos() {
-
-}
-
-function redirectSaibaAtendimentoMedico() {
-
-}
-
-function redirectSaibaBrechoOliveira() {
-    
+function redirectBlog() {
+    window.location.href = "blog.php";
 }
 
 

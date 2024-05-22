@@ -5,6 +5,7 @@ L<?php
 
     $email = '';
     $senha = '';
+    $nome = '';
     $id = '';
     $entrar = '';
     $confirmEmail = '';
@@ -23,7 +24,7 @@ L<?php
     }
 
     if(!empty($email) && !empty($senha)){
-        $sql = "SELECT idUsu, email, senha FROM usuarios WHERE email = ? LIMIT 1";
+        $sql = "SELECT * FROM usuarios WHERE email = ? LIMIT 1";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "s", $email);
         mysqli_stmt_execute($stmt);
@@ -34,6 +35,7 @@ L<?php
             $confirmEmail = $row['email'];
             $confirmSenha = $row['senha'];
             $id = $row['idUsu'];
+            $nome = $row['nome'];
 
             if($senha == $confirmSenha){
                 // Atualizar o último acesso
@@ -44,6 +46,7 @@ L<?php
 
                 $_SESSION['id'] = $id;
                 $_SESSION['email'] = $confirmEmail;
+                $_SESSION['nome'] = $nome;
                 $_SESSION['conectado'] = true;
                 
                 header("Location: \institutooliveira-main\adm.php");
