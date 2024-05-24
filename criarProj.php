@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
-    <link rel="stylesheet" href="style/criarProj.css">
+    <link rel="stylesheet" href="style/criarProjetos.css">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
@@ -19,31 +19,52 @@
         
     <main>
 
-        <div class="container">
+        <div class="containerPaginaAdm" style="width:80%">
 
-            <h1 id="containerTit">Cadastro de Projeto</h1>
+            <h1 id="containerTit">Cadastro de Projetos</h1>
 
-            <form class="cadastroUsu">
-                
-                <div class="lin1">
-                    <label for="nome">Nome do projeto:</label> <br>
-                    <input type="text" id="nome" placeholder="Digite o nome do projeto...">
+            <form class="form" method="post" action="bd/criarProj.php">
+
+                <div class="formCol">
+                    <div class="lin">
+                        <label for="nomeProj">Nome do Projeto: </label> <br>
+
+                        <input type="text" name="nomeProj" id="nomeProj">
+                    </div>
+
+                    <div class="lin">
+                        <label for="descProj">Descrição do Projeto:</label>
+
+                        <textarea name="descProj" id="descProj">Digite a descrição do projeto aqui</textarea>
+                    </div>
                 </div>
 
-                <div class="lin2">
-                    <label for="desc">Descrição do projeto:</label> <br>
-                    <input type="text" id="desc" placeholder="Digite a descrição do projeto...">
+                <div class="formCol">
+                    <input type="image">
                 </div>
 
-                <div class="btn">
-                    <input type="submit" id="confirmBtn" value="Confirmar cadastro">
-                </div>
-                
             </form>
 
         </div>
+    
     </main>
 
-    <script src="js/sidebar.js"></script>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+    <script type="text/javascript">
+        new nicEditor(
+            {buttonList : [
+                'bold',
+                'italic',
+                'underline',
+                'strikeThrough',
+                'ol',
+                'ul',
+                'subscript',
+                'superscript',
+                'indent',
+                'outdent',
+                'removeformat']}
+        ).panelInstance('descProj');
+    </script>
 
 </body>
