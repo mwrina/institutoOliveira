@@ -1,3 +1,25 @@
+<?php
+    include("bd/connect.php");
+
+    function buscarUsuarios($conn) {
+
+        $sql = "SELECT idUsu, nome, ultimoAcesso, tipoUsu FROM usuarios";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $usuarios[] = $row;
+            }
+        } else {
+            echo "Erro ao buscar os usuários: " . mysqli_error($conn);
+        }
+
+        return $usuarios;
+    }
+
+    $usuarios = buscarUsuarios($conn);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,41 +41,44 @@
         
     <main>
 
-        <div class="container">
+    <div class="container">
             <h1 id="containerTit">Lista de Usuários Cadastrados</h1>
 
             <div class="containerLista">
+                
+                <?php
+                    foreach ($usuarios as $usuario): 
+                ?>
+
                 <div class="listaLinha">
                     <span id="col1">
-                        <p class="nome" id="nome1">Nome: </p>
-                        <p class="ultimoAcesso" id="ultimoAcesso1">Último acesso: </p>
+                        <p class="nome">Nome: <?= $usuario['nome']; ?></p>
+                        <p class="ultimoAcesso">Último acesso: <?= $usuario['ultimoAcesso']; ?></p>
                         <div class="crudBtns">
-                            <button class="crudBtn" id="editar">Editar Usuário</button>
+                        <a href="editarUsuarios.php?id=<?= $usuario['idUsu']; ?>">
+                            <button class="crudBtn">Editar Usuário></button>
+                        </a>
                             <button class="crudBtn" id="apagar">Apagar Usuário</button>
                         </div>
                     </span>
                     <span id="col2">
-                        <p class="tipoUsu" id="tipoUsu1">Administrador</p>
+                        <p class="tipoUsu">Tipo: <?= $usuario['tipoUsu']; ?></p>
                     </span>
                 </div>
-                <div class="listaLinha">
-                    <span id="col1">
-                        <p class="nome" id="nome2">Nome: </p>
-                        <p class="ultimoAcesso" id="ultimoAcesso2">Último acesso: </p>
-                        <div class="crudBtns">
-                            <button class="crudBtn" id="editar">Editar Usuário</button>
-                            <button class="crudBtn" id="apagar">Apagar Usuário</button>
-                        </div>
-                    </span>
-                    <span id="col2">
-                        <p class="tipoUsu" id="tipoUsu2">Usuário</p>
-                    </span>
-                </div>
+
+                <?php 
+                    endforeach;
+                ?>
+
             </div>
         </div>
 
     </main>
-
-    <script src="js/sidebar.js"></script>
+    
+    <script>
+        function editarUsuario(id) {
+            window.location.href = "editarUsu.php?id=" + id;
+        }
+    </script>
 
 </body>
