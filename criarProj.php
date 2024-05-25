@@ -19,29 +19,40 @@
         
     <main>
 
-        <div class="containerPaginaAdm" style="width:80%">
+        <div class="containerPaginaAdm">
 
             <h1 id="containerTit">Cadastro de Projetos</h1>
 
             <form class="form" method="post" action="bd/criarProj.php">
 
-                <div class="formCol">
-                    <div class="lin">
-                        <label for="nomeProj">Nome do Projeto: </label> <br>
+                <div class="formInputs">
 
-                        <input type="text" name="nomeProj" id="nomeProj">
+                    <div class="formCol">
+                        <div class="linNome">
+                            <label for="nomeProj">Nome do Projeto: </label> <br>
+
+                            <input type="text" name="nomeProj" id="nomeProj">
+                        </div>
+
+                        <div class="linDesc">
+                            <label for="descProj">Descrição do Projeto:</label>
+
+                            <textarea name="descProj" id="descProj">Digite a descrição do projeto aqui</textarea>
+                        </div>
                     </div>
 
-                    <div class="lin">
-                        <label for="descProj">Descrição do Projeto:</label>
+                    <div class="formCol">
+                        <label for="inserirImg">Escolha uma imagem:</label>
 
-                        <textarea name="descProj" id="descProj">Digite a descrição do projeto aqui</textarea>
+                        <input type="file" id="inserirImg">
+                        <button onclick="document.getElementById('inserirImg').click();" id="btnImg">
+                            <img src="imgs/icons/imgIcon.png" id="imgBtn">
+                        </button>
                     </div>
-                </div>
 
-                <div class="formCol">
-                    <input type="image">
-                </div>
+                </div>             
+
+                <input type="submit" id="submitBtn" value="Criar projeto">
 
             </form>
 
@@ -50,21 +61,6 @@
     </main>
 
     <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
-    <script type="text/javascript">
-        new nicEditor(
-            {buttonList : [
-                'bold',
-                'italic',
-                'underline',
-                'strikeThrough',
-                'ol',
-                'ul',
-                'subscript',
-                'superscript',
-                'indent',
-                'outdent',
-                'removeformat']}
-        ).panelInstance('descProj');
-    </script>
+    <script type="text/javascript" src="js/nicedit.js"></script>
 
 </body>

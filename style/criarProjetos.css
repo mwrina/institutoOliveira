@@ -30,7 +30,7 @@ main {
 
 .containerPaginaAdm {
     box-sizing: border-box;
-    margin-top: 5%;
+    margin: 3% 0 0 0;
     padding: 3%;
     height: 90%;
     width: 90%;
@@ -46,9 +46,10 @@ main {
 .form {
     box-sizing: border-box;
     display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    margin: 5% 5% 5% 5%;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3% 5% 5% 5%;
     padding: 3%;
     height: 85%;
     width: 90%;
@@ -56,28 +57,71 @@ main {
     background-color: rgb(217,217,217, 0.8);
 }
 
+.formInputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80%;
+}
+
 .formCol {
     width: 45%;
+    height: 80%;
+    line-height: 35px;
 }
 
-.lin {
+.linNome {
     margin: 2% 0 2% 0;
-    line-height: 30px;
+    height: 25%;
 }
 
-.lin label {
-    font-size: 16px;
+.linDesc {
+    margin: 2% 0 2% 0;
+    height: 75%;
+}
+
+.formCol label {
+    font-size: 17px;
     font-weight: 400;
 }
 
 #nomeProj {
     width: 100%;
+    height: 30%;
+    border: 1px solid #000000;
+    border-radius: 5px;
 }
 
 #descProj {
     width: 100%;
-    min-height: 100px;
-    border: 1px solid #000000;
+    height: 200px;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-family: 'Fira Sans Condensed';
     background-color: #FFFFFF;
-    font-size: 13px;
+  }
+
+#inserirImg {
+    display: none;
+}
+
+#btnImg {
+    border: none;
+    background-color: rgb(217,217,217, 0);
+}
+
+#imgBtn {
+    width: 100%;
+    height: 100%;
+}
+
+#submitBtn {
+    background-color: #33E46D;
+    font-family: 'Fira Sans Condensed';
+    color: #FFFFFF;
+    border: 0;
+    width: 40%;
+    height: 10%;
+    font-size: 16px;
+    font-weight: 500;
 }

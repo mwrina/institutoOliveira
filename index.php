@@ -97,17 +97,29 @@
         <div class="numsDivs">
 
             <div class="numDiv">
-                <p id="num">123</p>
+                <p id="num"><?php
+                    include("bd/nums.php");
+                    getAtendimentos($conn);
+                    echo isset($_SESSION['atendimentosAtual']) ? $_SESSION['atendimentosAtual'] : '';
+                ?></p>
                 <p id="descNum">Atendimentos</p>
             </div>
     
             <div class="numDiv">
-                <p id="num">456</p>
+                <p id="num"><?php
+                    include("bd/nums.php");
+                    getDoadores($conn);
+                    echo isset($_SESSION['doadoresAtual']) ? $_SESSION['doadoresAtual'] : '';
+                ?></p>
                 <p id="descNum">Doadores ativos</p>
             </div>
     
             <div class="numDiv">
-                <p id="num">789</p>
+                <p id="num"><?php
+                    include("bd/nums.php");
+                    getFamilias($conn);
+                    echo isset($_SESSION['familiasAtual']) ? $_SESSION['familiasAtual'] : '';
+                ?></p>
                 <p id="descNum">Famílias acolhidas</p>
             </div>
     

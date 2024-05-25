@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,7 +22,7 @@
 
             <h1 id="containerTit">Cadastro de Usuário</h1>
 
-            <form class="cadastroUsu" method="post" action="bd/criarUsuario.php">
+            <form class="cadastroUsu" method="post" action="bd/usu.php">
                 
                 <div class="lin">
                     <label for="nome">Nome de usuário:</label> <br>
@@ -45,13 +44,23 @@
                     <input type="password" id="confirmaSenha" name="confirmaSenha" placeholder="Digite sua senha novamente...">
                 </div>
 
-                <div class="btn">
-                    <input type="submit" id="confirmBtn" value="Confirmar cadastro">
+                <div class="lin">
+                    <label for="tipoUsu">Tipo de Usuário:</label> <br>
+                    <select id="tipoUsu" name="tipoUsu">
+                        <option value="adm">Administrador</option>
+                        <option value="usu">Usuário</option>
+                    </select>
+
                 </div>
-                
+
+                <div class="btn">
+                    <input type="submit" id="confirmBtn" name="criarUsuario" value="Confirmar cadastro">
+                </div>
+      
             </form>
 
         </div>
     </main>
 
 </body>
+</html>
