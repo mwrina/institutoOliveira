@@ -33,8 +33,8 @@ main {
     background-blend-mode:pass-through;
     margin-top: 5%;
     padding: 3%;
-    height: 80%;
-    width: 80%;
+    height: 90%;
+    width: 90%;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -46,16 +46,18 @@ main {
 
 .cadastroUsu {
     box-sizing: border-box;
-    margin: 10% 5% 5% 5%;
+    align-items: center;
+    margin: 5%;
     padding: 3%;
-    height: 70%;
+    height: 80%;
     width: 90%;
     border-radius: 20px;
     background-color: rgb(217,217,217, 0.8);
 }
 
 .lin {
-    margin: 0 0 2% 0;
+    margin: 1% 2% 1% 2%;
+    width: 95%;
     line-height: 30px;
 }
 
@@ -67,8 +69,17 @@ main {
 .lin input {
     font-family: "Fira Sans Condensed";
     font-size: 14px;
-    width: 97%;
-    padding: 0.5%;
+    width: 100%;
+    padding: 1%;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+
+#tipoUsu {
+    font-family: "Fira Sans Condensed";
+    font-size: 14px;
+    width: 101%;
+    padding: 1%;
     border-radius: 5px;
     border: 1px solid #000000;
 }
@@ -79,7 +90,7 @@ main {
 }
 
 #confirmBtn {
-    margin-top: 2%;
+    margin-top: 1%;
     padding: 1.5%;
     border-radius: 5px;
     font-weight: 400;

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,44 +22,58 @@
 
             <h1 id="containerTit">Cadastro de Projetos</h1>
 
-            <form class="form" method="post" action="bd/criarProj.php">
+            <form class="form" method="post" action="bd/proj.php" enctype="multipart/form-data">
 
                 <div class="formInputs">
 
-                    <div class="formCol">
-                        <div class="linNome">
-                            <label for="nomeProj">Nome do Projeto: </label> <br>
+                    <div class="formCols">
 
-                            <input type="text" name="nomeProj" id="nomeProj">
+                        <div class="formCol">
+                            <div class="linNome">
+                                <label for="nomeProj">Nome do projeto: </label> <br>
+
+                                <input type="text" name="nomeProj" id="nomeProj">
+                            </div>
+
+                            <div class="linBDesc">
+                                <label for="descBProj">Descrição breve do projeto:</label> <br>
+
+                                <textarea name="descBreve" id="descBProj" placeholder="Digite aqui a descrição do projeto"></textarea>
+                            </div>
                         </div>
 
-                        <div class="linDesc">
-                            <label for="descProj">Descrição do Projeto:</label>
+                        <div class="formCol">
+                            <label for="inserirImg">Escolha uma imagem:</label>
 
-                            <textarea name="descProj" id="descProj">Digite a descrição do projeto aqui</textarea>
+                            <input type="file" name="imgProj" id="inserirImg">
+                            <button type="button" id="btnImg">
+                                <img src="imgs/icons/imgIcon.png" id="imgBtn">
+                            </button>
                         </div>
+
+                    </div>  
+
+                    <div class="lin">
+                        <label for="descCProj">Mais informações do projeto (texto a ser exibido na página de "Saiba mais"):</label> <br>
+
+                        <textarea name="maisInfo" id="descCProj" placeholder="Digite aqui a descrição do projeto"></textarea>
                     </div>
 
-                    <div class="formCol">
-                        <label for="inserirImg">Escolha uma imagem:</label>
-
-                        <input type="file" id="inserirImg">
-                        <button onclick="document.getElementById('inserirImg').click();" id="btnImg">
-                            <img src="imgs/icons/imgIcon.png" id="imgBtn">
-                        </button>
+                    <div class="btn">
+                        <input type="submit" id="submitBtn" name="criarProjeto" value="Criar projeto">
                     </div>
-
-                </div>             
-
-                <input type="submit" id="submitBtn" value="Criar projeto">
-
+                </div>  
             </form>
 
         </div>
     
     </main>
 
-    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
-    <script type="text/javascript" src="js/nicedit.js"></script>
+    <script>
+        document.getElementById('btnImg').addEventListener('click', function() {
+            document.getElementById('inserirImg').click();
+        });
+
+    </script>
 
 </body>
