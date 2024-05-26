@@ -9,12 +9,20 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    background-color: #FFF5EA;
 }
 
 main {
-    display: block;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    right: 0;
     width: 80%;
+    height: 100%;
     background-image: url("../imgs/icons/logoBranca.png");
-    background-repeat: no repeat scroll;
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45% 60%;
 }
+
