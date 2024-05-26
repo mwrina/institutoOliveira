@@ -1,10 +1,3 @@
-<?php
-    include("bd/connect.php");
-    include("bd/proj.php");
-
-    $projetos = buscarProjetos($conn);
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/projetos.css">
     <link rel="stylesheet" href="style/headerFooter.css">
+    <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
     <title>Projetos - Instituto Oliveira</title>
 </head>
@@ -56,60 +49,105 @@
 
 <!--=================================================================================================================================-->
 
+
     <!-- PÁGINA -->
     <div class="projetosDivTxtImg">
 
-        <?php
-            foreach ($projetos as $projeto):
-        ?>
+        <!-- VOLUNTÁRIOS -->
+        <div class="voluntariosDivTxtImg">
 
-        <div class="divTxtImg">
-
-            <div class="img">
-                <img src="imgs/<?= $projeto['imgProj'] ?>" id="imgVoluntarios">
-            </div>
+            <img src="imgs/projetoVoluntarios.png" id="imgVoluntarios">
             
-            <div class="txtProj">
+            <div class="txt">
 
-                <h1 id="projTit"><?= $projeto['nomeProj'] ?></h1>
+                <div class="tit">
+                    <h1 id="voluntariosTit">Voluntários</h1>
+                </div>
 
-                <p id=descProj><?= $projeto['breveDescProj'] ?></p>
-
-                <button type="button" class="saibaMaisBtn" data-projeto-id="<?= $projeto['idProj'] ?>">
-                    <div class="txtBtn">Saiba Mais</div>
-                    <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
-                </button>
+                <p id="txt">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
+                    Quisque nulla tortor, consectetur a urna a, congue cursus enim.
+                </p>
+                
+                <div class="saibaMais">
+                    <button id="saibaMaisBtn" onclick="redirectSaibaVoluntarios()">Saiba Mais <img src="imgs/icons/iconShare.png"></button>
+                </div>
 
             </div>
+        </div>
+        
+        <!-- EVENTOS -->
+        <div class="eventosDivTxtImg">
 
+            <img src="imgs/projetoEventos.png" id="imgEventos">
+            
+            <div class="txt">
+
+                <div class="tit">
+                    <h1 id="voluntariosTit">Eventos</h1>
+                </div>
+
+                <p id="txt"> 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
+                    Quisque nulla tortor, consectetur a urna a, congue cursus enim.
+                </p>
+                
+                <div class="saibaMais">
+                    <button id="saibaMaisBtn" onclick="redirectSaibaEventos()">Saiba Mais <img src="imgs/icons/iconShare.png"></button>
+                </div>
+
+            </div>
         </div>
 
-        <?php 
-            endforeach;
-        ?>
-        
+        <!-- ATENDIMENTO MÉDICO -->
+        <div class="atendimentoMedicoDivTxtImg">
+
+            <img src="imgs/projetoAtendimentoMedico.png" id="imgAtendimentoMedico">
+
+            <div class="txt">
+
+                    <div class="tit">
+                        <h1 id="voluntariosTit">Atendimento Médico</h1>
+                    </div>
+
+                    <p id="txt"> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
+                        Quisque nulla tortor, consectetur a urna a, congue cursus enim.
+                    </p>
+                    
+                    <div class="saibaMais">
+                        <button id="saibaMaisBtn" onclick="redirectSaibaAtendimentoMedico()">Saiba Mais <img src="imgs/icons/iconShare.png"></button>
+                    </div>
+
+            </div>
+        </div>
+
+        <!-- BRECHÓ OLIVEIRA -->
+        <div class="BrechoDivTxtImg">
+
+            <img src="imgs/projetoBrechoOliveira.png" id="imgBrechoOliveira">
+
+            <div class="txt">
+
+                <div class="tit">
+                    <h1 id="voluntariosTit">Brechó Oliveira</h1>
+                </div>
+
+                <p id="txt"> 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
+                    Quisque nulla tortor, consectetur a urna a, congue cursus enim.
+                </p>
+                
+                <div class="saibaMais">
+                    <button id="saibaMaisBtn" onclick="redirectSaibaBrechoOliveira()">Saiba Mais <img src="imgs/icons/iconShare.png"></button>
+
+            </div>
+            
+        </div>
     </div>
 
     <?php
         include("footer.php");
     ?>
-
-    <script>
-         document.addEventListener("DOMContentLoaded", function() {
-        // Obtém todos os botões "Saiba Mais"
-        var saibaMaisBtns = document.querySelectorAll('.saibaMaisBtn');
-
-        // Adiciona um ouvinte de evento de clique a cada botão
-        saibaMaisBtns.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                // Obtém o ID do projeto do atributo data
-                var projetoId = this.getAttribute('data-projeto-id');
-
-                // Redireciona para a página do projeto com o ID como parâmetro
-                window.location.href = 'paginaProj.php?id=' + projetoId;
-            });
-        });
-    });
-    </script>
 
 </body>
