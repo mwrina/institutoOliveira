@@ -27,18 +27,22 @@
 }
 
 #saibaMaisBtn {
+    display: flex; 
+    align-items: center; /*centralizar os itens verticalmente */
+    justify-content: center; /*centralizar os itens horizontalmente */
     width: 200px;
     height: 40px;
     font-family: "Fira Sans Condensed";
     font-weight: 600;
+    font-size: 18px;
     background-color: #33E46D;
     color: #FFFFFF;
     border: 0;
-    cursor: pointer;
 }
 
 #saibaMaisBtn img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 16px;
+    margin-left: 8px;
 }
 

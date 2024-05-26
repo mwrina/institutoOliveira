@@ -25,9 +25,10 @@ body {
 }
 
 #imgVoluntarios {
-    width: 300px;
+    width: 400px;
+    height: 250px;
     /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
-    box-shadow: 7px 7px 0px 0px #33E46D;
+    /*box-shadow: 7px 7px 0px 0px #33E46D;*/
     margin-left: 10%;
     padding: 0;
 }
@@ -69,9 +70,10 @@ body {
 }
 
 #imgEventos {
-    width: 360px;
+    width: 400px;
+    height: 250px;
     /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
-    box-shadow: 7px 7px 0px 0px #33E46D;
+    /*box-shadow: 7px 7px 0px 0px #33E46D;*/
     margin-left: 10%;
     padding: 0;
 }
@@ -113,9 +115,10 @@ body {
 }
 
 #imgAtendimentoMedico {
-    width: 305px;
+    width: 400px;
+    height: 250px;
     /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
-    box-shadow: 7px 7px 0px 0px #33E46D;
+    /*box-shadow: 7px 7px 0px 0px #33E46D;*/
     margin-left: 10%;
     padding: 0;
 }
@@ -157,9 +160,10 @@ body {
 }
 
 #imgBrechoOliveira {
-    width: 305px;
+    width: 400px;
+    height: 250px;
     /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
-    box-shadow: 7px 7px 0px 0px #33E46D;
+    /*box-shadow: 7px 7px 0px 0px #33E46D;*/
     margin-left: 10%;
     padding: 0;
 }
