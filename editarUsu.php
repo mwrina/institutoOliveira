@@ -2,11 +2,11 @@
     include("bd/connect.php");
 
     // Verifica se o ID do usuário foi passado pela URL
-    if(isset($_GET['idUsu'])) {
-        $idUsu = $_GET['idUsu'];
+    if(isset($_GET['editIdUsu'])) {
+        $idUsu = $_GET['editIdUsu'];
 
         // Query para selecionar os dados do usuário com base no ID
-        $sql = "SELECT nome, ultimoAcesso, tipoUsu FROM usuarios WHERE idUsu = $idUsu";
+        $sql = "SELECT nome, email, senha, tipoUsu, ultimoAcesso FROM usuarios WHERE idUsu = $idUsu";
 
         // Executa a query
         $result = mysqli_query($conn, $sql);
@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="style/sidebar.css">
     <link rel="stylesheet" href="style/editarUsu.css">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
-    <title>Instituto Oliveira - Editar Usuário</title>
+    <title>Instituto Oliveira - Administração</title>
 </head>
 <body>
 
@@ -55,21 +55,34 @@
         <div class="container">
             <h1 id="containerTit">Editar Usuário</h1>
             
-            <form action="atualizarUsuario.php" method="post">
+            <form class="form" action="bd/usu.php" method="post">
                 <input type="hidden" name="idUsu" value="<?= $idUsu ?>">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
+                <div class="lin">
+                    <label for="nome">Nome:</label> <br>
                     <input type="text" id="nome" name="nome" value="<?= $usuario['nome']; ?>">
                 </div>
-                <div class="form-group">
-                    <label for="ultimoAcesso">Último Acesso:</label>
-                    <input type="text" id="ultimoAcesso" name="ultimoAcesso" value="<?= $usuario['ultimoAcesso']; ?>">
+                <div class="lin">
+                    <label for="nome">E-mail:</label> <br>
+                    <input type="email" id="email" name="email" value="<?= $usuario['email']; ?>">
                 </div>
-                <div class="form-group">
-                    <label for="tipoUsu">Tipo:</label>
-                    <input type="text" id="tipoUsu" name="tipoUsu" value="<?= $usuario['tipoUsu']; ?>">
+                <div class="lin">
+                    <label for="nome">Senha:</label> <br>
+                    <input type="text" id="senha" name="senha" value="<?= $usuario['senha']; ?>">
                 </div>
-                <button type="submit">Salvar Alterações</button>
+                <div class="lin">
+                    <label for="nome">Confirmar senha:</label> <br>
+                    <input type="text" id="senha" name="confirmSenha">
+                </div>
+                <div class="lin">
+                    <label for="tipoUsu">Tipo:</label> <br>
+                    <select id="tipoUsu" name="tipoUsu" value="<?= $usuario['tipoUsu']; ?>">
+                        <option value="adm">Administrador</option>
+                        <option value="usu">Usuário</option>
+                    </select>
+                </div>
+                <div class="btn">
+                    <input type="submit" id="confirmBtn" name="editarUsuario" value="Salvar alterações">
+                </div>
             </form>
         </div>
     </main>

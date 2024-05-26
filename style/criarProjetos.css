@@ -49,6 +49,7 @@ main {
     flex-flow: column;
     justify-content: space-evenly;
     align-items: center;
+    overflow-y: scroll;
     margin: 3% 5% 5% 5%;
     padding: 3%;
     height: 85%;
@@ -58,26 +59,36 @@ main {
 }
 
 .formInputs {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.formCols {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
     height: 80%;
 }
 
 .formCol {
     width: 45%;
-    height: 80%;
+    height: 100%;
     line-height: 35px;
 }
 
 .linNome {
     margin: 2% 0 2% 0;
-    height: 25%;
+    width: 100%;
+    height: 20%;
 }
 
-.linDesc {
+.linBDesc {
     margin: 2% 0 2% 0;
-    height: 75%;
+    width: 100%;
+    height: 70%;
 }
 
 .formCol label {
@@ -86,20 +97,27 @@ main {
 }
 
 #nomeProj {
+    font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    font-weight: 400;
     width: 100%;
     height: 30%;
     border: 1px solid #000000;
     border-radius: 5px;
 }
 
-#descProj {
-    width: 100%;
-    height: 200px;
-    border: 3px solid #cccccc;
-    padding: 5px;
+#descBProj {
     font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    text-align: left;
+    overflow-y: scroll;
+    width: 100%;
+    height: 80%;
+    padding: 1%;
+    border: 1px solid #000000;
     background-color: #FFFFFF;
-  }
+    border-radius: 5px 5px 0 0;
+}
 
 #inserirImg {
     display: none;
@@ -115,13 +133,47 @@ main {
     height: 100%;
 }
 
+.lin {
+    width: 100%;
+    height: 50%;
+    line-height: 35px;
+}
+
+.lin label {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+#descCProj {
+    font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    text-align: left;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+.btn {
+    padding: 10% 0 5% 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+
 #submitBtn {
     background-color: #33E46D;
     font-family: 'Fira Sans Condensed';
     color: #FFFFFF;
     border: 0;
+    margin: 0;
     width: 40%;
-    height: 10%;
+    height: 100%;
     font-size: 16px;
     font-weight: 500;
+    position:relative;
 }
