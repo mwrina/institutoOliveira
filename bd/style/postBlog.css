@@ -1,0 +1,25 @@
+.post1 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.titPost1 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#imgPost1 {
+    margin: auto;
+    display: block;
+    width: 521px;
+    height: 230px;
+}
+
+#voltar{
+    margin: auto;
+    display: block;
+}
