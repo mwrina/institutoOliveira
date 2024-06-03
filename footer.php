@@ -29,7 +29,7 @@
                 <h1 id="footerTit">Redes sociais</h1>
 
                 <div class="redesSociaisLin">
-                    <img id="redesSociaisIcon" src="imgs/icons/iconIg.png">
+                    <img id="redesSociaisIcon" src="/imgs/icons/iconIg.png">
                     <a id="redesSociaisLink" href="https://www.instagram.com/institutooliveirasc/">institutooliveirasc</a>
                 </div>
                 

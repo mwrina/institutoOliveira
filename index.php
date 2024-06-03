@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <script src="js/index.js"></script>
     <title>Instituto Oliveira</title>
 </head>

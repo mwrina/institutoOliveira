@@ -1,3 +1,11 @@
+<?php
+    include("bd/connect.php");
+    include("bd/blog.php");
+
+    $blogs = buscarBlogs($conn);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,17 +42,17 @@
         </div>
 
         <div class="topCentro">
-            <img id="topLogoBranca" src="imgs/icons/logoBranca.png">
+            <img id="topLogoBranca" src="../private/imgs/icons/logoBranca.png">
         </div>
 
         <div class="topDir">
-            <img id="topQuadradosDir" src="imgs/quadradosDir.png">
+            <img id="topQuadradosDir" src="../private/imgs/quadradosDir.png">
         </div>
 
     </div>
 
     <div class="breveDesc">
-        <img id="breveDescLogo" src="imgs/icons/logo.png">
+        <img id="breveDescLogo" src="../private/imgs/icons/logo.png">
         <p>Últimas postagens</p>
     </div>
 <!-- ----------------------------------------------------------------------------------------------------------------- -->
@@ -53,28 +61,27 @@
 
     <div class="pageBlogDivTxtImg">
 
-        <!-- Como falar de câncer com crianças? -->
-        <div class="imgPost1">
-
-            <img src="imgs/blog01.png" id="imgPost1">
-            
-            <div class="txt">
-
-                <div class="tit">
-                    <h1 id="postTit1">Como falar de câncer com crianças?</h1>
+    <div class="blogDivTxtImg">
+        <?php if (!empty($blogs)): ?>
+            <?php foreach ($blogs as $blog): ?>
+                <div class="divTxtImg">
+                    <div class="img">
+                        <img src="<?= htmlspecialchars($projeto['imgBlog']) ?>" id="img">
+                    </div>
+                    <div class="txtProj">
+                        <h1 id="projTit"><?= htmlspecialchars($projeto['nomeProj']) ?></h1>
+                        <p id="descProj"><?= $projeto['breveDescProj'] ?></p>
+                        <button type="button" class="projBtn" data-projeto-id="<?= htmlspecialchars($projeto['idProj']) ?>">
+                            <div class="txtBtn">Saiba Mais</div>
+                            <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
+                        </button>
+                    </div>
                 </div>
-
-                <p id="txt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
-                    Quisque nulla tortor, consectetur a urna a, congue cursus enim.
-                </p>
-                
-                <div class="saibaMais">
-                    <button id="saibaMaisBtn" onclick="redirectSaibaVoluntarios()">Saiba Mais <img src="imgs/icons/shareButton.png"></button>
-                </div>
-
-            </div>
-        </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Nenhum blog encontrado.</p>
+        <?php endif; ?>
+    </div>
         
         <!-- POST 2 -->
         <div class="imgPost2">
@@ -149,5 +156,24 @@
     <?php
         include("footer.php");
     ?>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtém todos os botões "Saiba Mais"
+            var saibaMaisBtns = document.querySelectorAll('.projBtn');
+
+            // Adiciona um ouvinte de evento de clique a cada botão
+            saibaMaisBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    // Obtém o ID do projeto do atributo data
+                    var projetoId = this.getAttribute('data-projeto-id');
+                    console.log("ID do Projeto para redirecionamento: " + projetoId);
+
+                    // Redireciona para a página do projeto com o ID como parâmetro
+                    window.location.href = 'paginaProj.php?projetoId=' + projetoId;
+                });
+            });
+        });
+    </script>
 
 </body>

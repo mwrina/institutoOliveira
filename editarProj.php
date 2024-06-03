@@ -1,29 +1,28 @@
 <?php
     include("bd/connect.php");
 
-    if(isset($_GET['editIdProj'])) {
-        $idProj = $_GET['editIdProj'];
-
-        $sql = "SELECT nomeProj, descProj, imgProj, FROM projetos WHERE idProj = $idProj";
-
-        $result = mysqli_query($conn, $sql);
-
-        if ($result) {
-            if(mysqli_num_rows($result) > 0) {
-                $projeto = mysqli_fetch_assoc($result);
-            } else {
-                header("Location: admProj.php");
-                exit();
-            }
+    if (isset($_GET['editIdProj'])) {
+        $id = $_GET['editIdProj'];
+    
+        $sql = "SELECT nome, breveDesc, secao01, secao02 FROM projetos WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        if ($result && $result->num_rows > 0) {
+            $projeto = $result->fetch_assoc();
         } else {
-            echo "Erro ao buscar o usuário: " . mysqli_error($conn);
+            header("Location: admProj.php");
+            exit();
         }
     } else {
         header("Location: admProj.php");
         exit();
     }
+    
 ?>
-
+    
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -43,41 +42,86 @@
     ?>
         
     <main>
-        <div class="container">
-            <h1 id="containerTit">Editar Usuário</h1>
-            
+
+        <div class="containerPaginaAdm">
+
+            <h1 id="containerTit">Edição de Projetos</h1>
+
             <form class="form" method="post" action="bd/proj.php" enctype="multipart/form-data">
+
+                <input type="hidden" name="editIdProj" value="<?= htmlspecialchars($id) ?>">
 
                 <div class="formInputs">
 
-                    <div class="formCol">
-                        <div class="linNome">
-                            <label for="nomeProj">Nome do Projeto: </label> <br>
+                    <div class="formCols">
 
-                            <input type="text" name="nomeProj" id="nomeProj">
+                        <div class="formCol">
+                            <div class="linNome">
+                                <label for="nome">Nome do projeto: </label> <br>
+
+                                <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($projeto['nome']); ?>">
+                            </div>
+
+                            <div class="linBDesc">
+                                <label for="breveDesc">Descrição breve do projeto:</label> <br>
+
+                                <textarea name="breveDesc" id="breveDesc"><?= htmlspecialchars(str_replace('<br>', "\n", $projeto['breveDesc'])); ?></textarea>
+                            </div>
                         </div>
 
-                        <div class="linDesc">
-                            <label for="descProj">Descrição do Projeto:</label> <br>
+                        <div class="formCol">
+                            <label for="inserirImg">Escolha uma imagem:</label>
 
-                            <textarea name="descProj" id="descProj" contenteditable="true" placeholder="Digite aqui a descrição do projeto"></textarea>
+                            <input type="file" name="img01" id="inserirImg01">
+                            <button type="button" id="btnImg01">
+                                <img src="imgs/icons/imgIcon.png" id="imgBtn">
+                            </button>
+                        </div>
+
+                    </div>  
+
+                    <div class="lin">
+                        <label for="secao">Texto para a primeira seção do projeto:</label> <br>
+
+                        <textarea name="secao01" id="secao01" placeholder="Digite aqui a descrição do projeto"><?= htmlspecialchars(str_replace('<br>', "\n", $projeto['secao01'])); ?></textarea>
+                    </div>
+
+                    <div class="formCols2">
+                        <div class="formCol">
+                            <label for="inserirImg">Escolha uma imagem (opcional):</label>
+
+                            <input type="file" name="img02" id="inserirImg02">
+                            <button type="button" id="btnImg02">
+                                <img src="imgs/icons/imgIcon.png" id="imgBtn">
+                            </button>
+                        </div>
+
+                        <div class="formCol">
+                            <label for="secao02">Texto para a segunda seção do projeto (opcional):</label> <br>
+
+                            <textarea name="secao02" id="secao02"><?= htmlspecialchars(str_replace('<br>', "\n", $projeto['secao02'])); ?></textarea>
                         </div>
                     </div>
 
-                    <div class="formCol">
-                        <label for="inserirImg">Escolha uma imagem:</label>
-
-                        <input type="file" name="imgProj" id="inserirImg">
-                        <button type="button" id="btnImg">
-                            <img src="imgs/icons/imgIcon.png" id="imgBtn">
-                        </button>
+                    <div class="btn">
+                        <input type="submit" id="submitBtn" name="editarProjeto" value="Editar projeto">
                     </div>
-
                 </div>  
-                
             </form>
+
         </div>
+
     </main>
+
+    <script>
+        document.getElementById('btnImg01').addEventListener('click', function() {
+            document.getElementById('inserirImg01').click();
+        });
+        
+        document.getElementById('btnImg02').addEventListener('click', function() {
+            document.getElementById('inserirImg02').click();
+        });
+    </script>
 
 </body>
 </html>

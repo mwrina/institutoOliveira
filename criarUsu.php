@@ -46,7 +46,7 @@
 
                 <div class="lin">
                     <label for="tipoUsu">Tipo de Usuário:</label> <br>
-                    <select id="tipoUsu" name="tipoUsu">
+                    <select id="tipoUsu" name="tipoUsuario">
                         <option value="adm">Administrador</option>
                         <option value="usu">Usuário</option>
                     </select>

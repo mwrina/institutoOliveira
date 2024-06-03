@@ -51,6 +51,4 @@
 
     </main>
 
-    <script src="js/login.js"></script>
-
 </body>

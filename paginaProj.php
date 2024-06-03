@@ -2,7 +2,46 @@
     include("bd/connect.php");
     include("bd/proj.php");
 
-    $projetos = buscarProjetos($conn);
+    // Inicia o buffer de saída
+    ob_start();
+
+    if (isset($_GET['projetoId'])) {
+        $idProj = intval($_GET['projetoId']);
+
+
+        $sql = "SELECT nomeProj, breveDescProj, maisInfoProj, imgProj, dataCriacao FROM projetos WHERE idProj = ?";
+        
+        $stmt = mysqli_prepare($conn, $sql);
+        if (!$stmt) {
+            echo "Erro ao preparar a consulta: " . mysqli_error($conn) . "<br>";
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "i", $idProj);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                $projeto = mysqli_fetch_assoc($result);
+            } else {
+                ob_end_flush();
+                header("Location: projetos.php");
+                exit();
+            }
+        } else {
+            echo "Erro ao buscar o projeto: " . mysqli_error($conn) . "<br>";
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        ob_end_flush();
+        header("Location: projetos.php");
+        exit();
+    }
+
+    // Envia os dados do buffer de saída
+    ob_end_flush();
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +49,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/projetos.css">
+    <link rel="stylesheet" href="style/paginaProj.css">
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
@@ -56,3 +95,29 @@
 
 <!-- Página -->
 
+    <main>
+
+        <div class="titContainer">
+            <div class="tit">
+                <h1 id="projTit"><?= $projeto['nomeProj'] ?></h1>
+                <h5 id="descProj"><?= $projeto['breveDescProj'] ?></h5>
+            </div>
+        </div>
+
+        <div class="imgTxt">
+
+            <div class="imgProj">
+                <img id="imgProj" src="<?= $projeto['imgProj'] ?>">
+            </div>
+
+            <div class="txt">
+                <p id="txt"><?= $projeto['maisInfoProj'] ?></p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <?php
+        include('footer.php');
+    ?>

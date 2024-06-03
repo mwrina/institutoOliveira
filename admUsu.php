@@ -3,7 +3,7 @@
 
     function buscarUsuarios($conn) {
 
-        $sql = "SELECT idUsu, nome, ultimoAcesso, tipoUsu FROM usuarios";
+        $sql = "SELECT id, nome, ultimoAcesso, tipoUsuario FROM usuarios";
 
         $result = mysqli_query($conn, $sql);
 
@@ -19,7 +19,7 @@
     }
 
     function contUsuarios($conn) {
-        $sql = "SELECT COUNT(idUsu) AS total FROM usuarios";
+        $sql = "SELECT COUNT(id) AS total FROM usuarios";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         return $row['total'];
@@ -65,14 +65,14 @@
                         <p id="ultimoAcesso">Último acesso: <?= $usuario['ultimoAcesso']; ?></p>
                         
                         <div class="crudBtns">
-                            <button onclick="editarUsuario(<?= $usuario['idUsu']; ?>)" class="crudBtn" id="editar">Editar Usuário</button>
+                            <button onclick="editarUsuario(<?= $usuario['id']; ?>)" class="crudBtn" id="editar">Editar Usuário</button>
                             
-                            <button onclick="confirmaExclusao(<?= $usuario['idUsu']; ?>)" class="crudBtn" id="apagar">Apagar Usuário</button>
+                            <button onclick="confirmaExclusao(<?= $usuario['id']; ?>)" class="crudBtn" id="apagar">Apagar Usuário</button>
                         </div>
 
                     </span>
                     <span id="col2">
-                        <p id="tipoUsu">Tipo: <?= $usuario['tipoUsu']; ?></p>
+                        <p id="tipoUsu">Tipo: <?= $usuario['tipoUsuario']; ?></p>
                     </span>
                 </div>
 
@@ -86,13 +86,14 @@
     </main>
     
     <script>
+        
         function editarUsuario(id) {
             if (confirm("Tem certeza de que deseja editar este usuário?")) {
                 window.location.href = "editarUsu.php?editIdUsu=" + id;
             }
         }
 
-        function confirmaExclusao(idUsu) {
+        function confirmaExclusao(id) {
                     
             if(confirm("Tem certeza de que deseja apagar este usuário?")) {
                 if(<?php echo $qtdUsu; ?> > 1) {
@@ -109,7 +110,7 @@
                     };
                     xhr.open('POST', 'bd/usu.php', true); // Caminho para o arquivo usu.php
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    xhr.send('deleteIdUsu=' + idUsu);
+                    xhr.send('deleteIdUsu=' + id);
                 } else {
                     alert("Impossível realizar exclusão. Só há um usuário cadastrado, se ele for eliminado não será possível fazer login no sistema posteriormente.");
                 }

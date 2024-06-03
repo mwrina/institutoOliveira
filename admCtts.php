@@ -1,17 +1,9 @@
 
 <?php
     include("bd/connect.php");
-    include("bd/proj.php");
+    include("bd/contatos.php");
 
-    function contProjs($conn) {
-        $sql = "SELECT COUNT(id) AS total FROM projetos";
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        return $row['total'];
-    }
-
-    $projetos = buscarProjetos($conn);
-    $qtdProjs = contProjs($conn);
+    $enderecos = buscarEnd($conn);
 
 ?>
 
@@ -21,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
-    <link rel="stylesheet" href="style/admProj.css">
+    <link rel="stylesheet" href="style/admCtts.css">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
@@ -41,28 +33,27 @@
             <div class="containerLista">
 
                 <?php
-                    if(!empty($projetos)) {
-                        foreach ($projetos as $projeto):
+                    if(!empty($enderecos)) {
+                        foreach ($enderecos as $endereco):
                 ?>
 
                 <div class="listaLinha">
-                        <p id="nome">Nome do Projeto: <?= $projeto['nome']; ?></p>
+                        <p id="endereco"><b id="nomeCampo">Endereço</b>: <?= $endereco['endereco']; ?> - <?= $endereco['cidade']; ?> - <?= $endereco['estado']; ?> - CEP <?= $endereco['cep']; ?></p>
 
-                        <p id="dataCriacao">Data de Criação: <?= $projeto['dataCriacao']; ?></p>
-                        
                         <div class="crudBtns">
-                            <button onclick="editarProjeto(<?= $projeto['id']; ?>)" class="crudBtn" id="editar">Editar Projeto</button>
-                            
-                            <button onclick="confirmaExclusao(<?= $projeto['id']; ?>)" class="crudBtn" id="apagar">Apagar Projeto</button>
+                            <button onclick="editarEndereco(<?= $endereco['id']; ?>)" class="crudBtn" id="editar">Editar Projeto</button>                            
                         </div>
                 </div>
 
                 <?php 
                         endforeach;
                     } else {
-                        echo('<p id="arrayVazio">Não há projetos cadastrados.</p>');
+                        echo('<p id="arrayVazio">Não há endereços cadastrados.</p>');
                     }
                 ?>
+
+                
+
             </div>
         </div>
 

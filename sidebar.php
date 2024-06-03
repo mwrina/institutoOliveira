@@ -23,13 +23,9 @@
                 <a href="criarProj.php">Criar projeto</a>
             </div>
             
-            <button class="collapsible">
-                Alterar contato
-            </button>
-            <div class="content">
-                <a href="admContato.php">Contatos existentes</a> <br>
-                <a href="criarContato.php">Criar novo contato</a>
-            </div>
+            <a href="admCtts.php"><button class="collapsible">
+                Alterar informações de contato
+            </button></a>
             
             <button class="collapsible">
                 Blog
