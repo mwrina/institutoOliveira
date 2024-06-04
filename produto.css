@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Khand";
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* ============================================================================================== */
+/* NAVBAR */
+
+nav {
+    display: flex;
+    width: 80%;
+    font-size: 20px;
+    /* TOPO DIREITA BAIXO ESQUERDA */
+    margin: 2% 10% 0 10%;
+    justify-content: space-evenly;
+}
+
+.retNavbar {
+    background-color: #AC5D00;
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#logo {
+    width: 100;
+    height: 100px;
+    border-radius: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================================================== */
+/* MENU */
+
+.menu {
+    width: 100%;
+    padding-top: 50px;
+    /* TOPO DIREITA BAIXO ESQUERDA */
+    margin: 0 10% 0px 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infosDrt {
+    width: 40%;
+    margin: 0;
+}
+
+#info {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+#nomeProduto {
+    display: flex;
+    
+}
+
+#precoProduto {
+    display: flex;
+}
+
+#descProduto {
+    display: flex;
+}
+
+.menuEsq {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+#imgBackground {
+    width: 450px;
+    height: 370px;
+}
+
+#imgBurger {
+    width: 320px;
+    height: 320px;
+    margin-left: -400px;
+    margin-top: 20px;
+    border-radius: 1000px;
+}
+
+
+
+/* ============================================================================================== */
+/* CONTATO */
+
+#siganosDiv {
+    width: 100%;
+    height: 30%;
+    padding: 3% 0 5% 3%;
+    margin: 3% 0 0 0;
+    text-align: left;
+    background-image: url("bgShape03.png");
+    background-repeat: no-repeat;
+    background-size: 25% 100%;
+}
+
+#siganos {
+    font-family: "Khand";
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.redesSociais {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 0 5% 5% 5%;
+}
+
+#redesIcon {
+    width: 9%;
+    height: 9%;
+}
+
+/* ============================================================================================== */
+/* FOOTER */
+
+footer {
+    background-color: #AC5D00;
+    display: flex;
+    justify-content: right;
+}
+
+#footerIcons {
+    width: 3%;
+    height: 3%;
+    margin: 0 1% 0 1%;
+}
