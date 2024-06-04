@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Khand";
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ============================================================================================== */
+/* NAVBAR */
+
+.mobileSidebar {
+    display: none;
+}
+
+.desktopNavbar {
+    display: flex;
+    width: 85%;
+    font-size: 20px;
+    /* TOPO DIREITA BAIXO ESQUERDA */
+    padding: 2% 7.5% 0 7.5%;
+    justify-content: space-evenly;
+}
+
+.retNavbar {
+    background-color: #AC5D00;
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    padding: 0.2%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#retNavbarEsq {
+    border-radius: 10px 0 0 10px;
+}
+
+#retNavbarDir {
+    border-radius: 0 10px 10px 0;
+}
+
+#logo {
+    width: 100;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================================================== */
+/* MENU */
+
+.menu {
+    width: 85%;
+    padding-top: 50px;
+    /* TOPO DIREITA BAIXO ESQUERDA */
+    padding: 2.5% 7.5% 0px 7.5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menuEsq {
+    width: 60%;
+    margin: 0;
+}
+
+#sloganLin1 {
+    display: flex;
+    margin-bottom: -40px;
+}
+
+#sloganLin2 {
+    display: flex;
+}
+
+#sloganNormal {
+    padding-left: 5px;
+    font-weight: 400;
+}
+
+#sloganDestacado {
+    padding-left: 5px;
+    font-weight: 700;
+}
+
+.locHor {
+    margin: 0;
+    line-height: 40px;
+}
+
+.loc {
+    margin-bottom: 10px;
+}
+
+#locHorLin {
+    display: flex;
+    justify-content: left;
+    margin: 0;
+}
+
+#locVector {
+    width: 15px;
+    height: 20px;
+    margin: 1.7% 1% 0 0;
+}
+
+#locHorTit {
+    font-weight: 600;
+    margin: 0;
+}
+
+#locHorTxt {
+    font-weight: 300;
+    font-size: 17px;
+    margin: 0;
+}
+
+#hor {
+    margin-bottom: -25px;
+}
+
+#horVector {
+    width: 17px;
+    height: 17px;
+    margin: 2% 1% 0 0;
+}
+
+.menuDir {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    background-image: url('imgs/bgShape01.png');
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+#menuBurger {
+    width: 80%;
+    height: 95%;
+    margin: 2% 0 0 0;
+    border-radius: 1000px;
+}
+
+/* ============================================================================================== */
+/* CARDÁPIO */
+
+.cardapio {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.cardTitNav {
+    background-image: url("imgs/bgShape02.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position-x: -5%;
+    padding: 5% 0 7% 0;
+    justify-content: center;
+}
+
+#cardTit {
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.navCardapio {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, .5);
+    margin: 0 10% 0 10%;
+    padding: 5px 0 5px 0;
+    width: 80%;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.cardBurger {
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin: 5% 10% 0 10%;
+    background-color: rgba(155, 155, 155, .1);
+}
+
+.txtCardapio {
+    text-align: justify;
+    padding: 2% 3% 2% 3%;
+}
+
+#cardapioItm {
+    width: 100%;
+} 
+
+#cardItmLin1 {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+    padding-bottom: -10px;
+}
+
+#linha {
+    font-weight: 300;
+}
+
+#cardItmLin2 {
+    text-align: left;
+    color: #C5C5C5;
+    font-weight: 300;
+    font-size: 16px;
+    margin: -30px 0 0 0;
+}
+
+/* ============================================================================================== */
+/* CONTATO */
+
+#siganosDiv {
+    width: 100%;
+    height: 30%;
+    padding: 3% 0 5% 3%;
+    margin: 3% 0 0 0;
+    text-align: left;
+    background-image: url("imgs/bgShape03.png");
+    background-repeat: no-repeat;
+    background-size: 25% 100%;
+}
+
+#siganos {
+    padding-left: 5%;
+    font-family: "Khand";
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.redesSociais {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 0 5% 5% 5%;
+}
+
+#redesIcon {
+    width: 6%;
+    height: 6%;
+}
+
+/* ============================================================================================== */
+/* FOOTER */
+
+.footer {
+    background-color: #AC5D00;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    height: 30px;
+    padding: 0.3% 3% 0.3% 0;
+    margin: 0;
+}
+
+.footerIcons {
+    width: 30%;
+    height: 100%;
+    margin: 0;
+}
+
+#footerIcons {
+    width: 7%;
+    height: 100%;
+    margin: 0 5% 0 5%;
+}

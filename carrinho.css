@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Khand";
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* ============================================================================================== */
+/* NAVBAR */
+
+nav {
+    display: flex;
+    width: 80%;
+    font-size: 20px;
+    /* TOPO DIREITA BAIXO ESQUERDA */
+    margin: 2% 10% 0 10%;
+    justify-content: space-evenly;
+}
+
+.retNavbar {
+    background-color: #AC5D00;
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#logo {
+    width: 100;
+    height: 100px;
+    border-radius: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================================================== */
+/* CARRINHO */
+
+/* PRODUTO 1 */
+.carrinho {
+    display: flex;
+    margin: 2% 10% 0 10%;
+    align-items: flex-start;
+}
+
+#imgProd1 {
+   width: 158px;
+   height: 158px; 
+}
+
+.produto1 {
+    display: block;
+    margin-left: 30px;
+}
+
+#produtoTit {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+#qtd {
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: 0;
+}
+
+.preco1 {
+    display: flex;
+    align-items: center;
+}
+
+#preco {
+    margin-left: 150px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+#botaoAdd {
+    margin-left: 30px;
+}
+
+#botaoRemove {
+    margin-left: 25px;
+}
