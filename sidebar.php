@@ -23,24 +23,19 @@
                 <a href="criarProj.php">Criar projeto</a>
             </div>
             
-            <a href="admCtts.php"><button class="collapsible">
-                Alterar informações de contato
-            </button></a>
-            
             <button class="collapsible">
                 Blog
             </button>
             <div class="content">
-                <a href="admBlog.html">Postagens existentes</a>
+                <a href="admBlog.html">Postagens existentes</a> <br>
                 <a href="criarBlog.html">Criar nova postagem</a>
             </div>
+            <a href="admCtts.php"><button class="collapsible">
+                Informações de contato
+            </button></a>
             <a href="alterarNums.php"><button class="collapsible">
                 Alterar números do Instituto
             </button></a>
-            <div class="content">
-                <a href="admBlog.html">Postagens existentes</a>
-                <a href="criarBlog.html">Criar nova postagem</a>
-            </div>
 
         </div>
 
@@ -56,7 +51,7 @@
                 if(isset($_SESSION['nome'])) {
                     echo $_SESSION['nome'];
                 } else {
-                    echo "Usuário não logado, algo deu errado";
+                    header("Location: login.php");
                 }
             ?></p>
         </div>

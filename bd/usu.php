@@ -7,7 +7,7 @@
         $email = '';
         $senha = '';
         $confirmSenha = '';
-        $tipoUsu = '';
+        $tipoUsuario = '';
 
         if (!empty($_POST['nome'])) {
             $nome = $_POST['nome'];
@@ -25,17 +25,17 @@
             $confirmSenha = $_POST['confirmaSenha'];
         }
 
-        if (!empty($_POST['tipoUsu'])) {
-            $tipoUsu = $_POST['tipoUsu'];
+        if (!empty($_POST['tipoUsuario'])) {
+            $tipoUsuario = $_POST['tipoUsuario'];
         }
 
         $ultimoAcesso = "Nunca acessado";
         
         if ($senha == $confirmSenha) {
             // Usando prepared statement para evitar injeção de SQL
-            $sql = "INSERT INTO usuarios (nome, email, senha, tipoUsu, ultimoAcesso) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO usuarios (nome, email, senha, tipoUsuario, ultimoAcesso) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "sssss", $nome, $email, $senha, $tipoUsu, $ultimoAcesso);
+            mysqli_stmt_bind_param($stmt, "sssss", $nome, $email, $senha, $tipoUsuario, $ultimoAcesso);
             
             if (mysqli_stmt_execute($stmt)) {
                 header("Location: ../admUsu.php");
@@ -50,62 +50,48 @@
     }
 
     function editarUsuario($conn) {
-        // Verifica se os dados foram enviados via método POST
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Verifica se os campos necessários foram preenchidos
-            if (!empty($_POST['idUsu']) && !empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['senha']) && !empty($_POST['confirmSenha']) && !empty($_POST['tipoUsu'])) {
-                // Obtém os dados do formulário
-                $idUsu = $_POST['idUsu'];
-                $nome = $_POST['nome'];
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-                $confirmSenha = $_POST['confirmSenha'];
-                $tipoUsu = $_POST['tipoUsu'];
-    
-                // Verifica se as senhas coincidem
-                if ($senha === $confirmSenha) {
-                    // Atualiza os dados do usuário no banco de dados
-                    $sql = "UPDATE usuarios SET nome = ?, email = ?, senha = ?, tipoUsu = ? WHERE idUsu = ?";
-                    $stmt = mysqli_prepare($conn, $sql);
-                    mysqli_stmt_bind_param($stmt, "ssssi", $nome, $email, $senha, $tipoUsu, $idUsu);
-    
-                    if (mysqli_stmt_execute($stmt)) {
-                        // Se a atualização for bem-sucedida, redireciona de volta para a página de administração
-                        header("Location: ../admUsu.php");
-                        exit();
-                    } else {
-                        // Se ocorrer um erro na atualização, exibe uma mensagem de erro
-                        echo "Erro ao atualizar o usuário: " . mysqli_error($conn);
-                    }
-    
-                    mysqli_stmt_close($stmt);
-                } else {
-                    // Se as senhas não coincidirem, exibe uma mensagem de erro
-                    echo "As senhas não coincidem. Tente novamente.";
-                }
-            } else {
-                // Se algum campo estiver vazio, exibe uma mensagem de erro
-                echo "Todos os campos são obrigatórios.";
-            }
-        }
-    }
+        // Verifica se os campos necessários foram preenchidos
+        if (!empty($_POST['editIdUsu']) && !empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['senha']) && !empty($_POST['confirmSenha']) && !empty($_POST['tipoUsu'])) {
+            // Obtém os dados do formulário
+            $id = $_POST['editIdUsu'];
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
+            $confirmSenha = $_POST['confirmSenha'];
+            $tipoUsuario = $_POST['tipoUsu'];
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['deleteIdUsu'])) {
-            // Se o parâmetro deleteIdUsu estiver presente, chama a função para deletar o usuário
-            deletarUsuario($conn, $_POST['deleteIdUsu']);
-        } elseif (isset($_POST['idUsu'])) {
-            // Se o parâmetro idUsu estiver presente, chama a função para editar o usuário
-            editarUsuario($conn, $_POST['editIdUsu']);
+            // Verifica se as senhas coincidem
+            if ($senha === $confirmSenha) {
+                // Atualiza os dados do usuário no banco de dados
+                $sql = "UPDATE usuarios SET nome = ?, email = ?, senha = ?, tipoUsuario = ? WHERE id = ?";
+                $stmt = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt, "ssssi", $nome, $email, $senha, $tipoUsuario, $id);
+
+                if (mysqli_stmt_execute($stmt)) {
+                    // Se a atualização for bem-sucedida, redireciona de volta para a página de administração
+                    header("Location: ../admUsu.php");
+                    exit();
+                } else {
+                    // Se ocorrer um erro na atualização, exibe uma mensagem de erro
+                    echo "Erro ao atualizar o usuário: " . mysqli_error($conn);
+                }
+
+                mysqli_stmt_close($stmt);
+            } else {
+                // Se as senhas não coincidirem, exibe uma mensagem de erro
+                echo "As senhas não coincidem. Tente novamente.";
+            }
         } else {
-            echo "Nenhum parâmetro válido enviado.";
+            // Se algum campo estiver vazio, exibe uma mensagem de erro
+            echo "Todos os campos são obrigatórios.";
         }
     }
     
-    function deletarUsuario($conn, $idUsu) {
-        $sql = "DELETE FROM usuarios WHERE idUsu = ?";
+
+    function deletarUsuario($conn, $id) {
+        $sql = "DELETE FROM usuarios WHERE id = ?";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "i", $idUsu);
+        mysqli_stmt_bind_param($stmt, "i", $id);
                         
         if (mysqli_stmt_execute($stmt)) {
             // Se a exclusão for bem-sucedida, retorne um status 200 (OK)
@@ -118,6 +104,17 @@
         
         mysqli_stmt_close($stmt);
     }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['deleteIdUsu'])) {
+            deletarUsuario($conn, $_POST['deleteIdUsu']);
+        } elseif (isset($_POST['editIdUsu'])) {
+            editarUsuario($conn);
+        } else {
+            echo "Nenhum parâmetro válido enviado.";
+        }
+    }
+    
 
     if (isset($_POST['criarUsuario'])) {
         criarUsuario($conn);

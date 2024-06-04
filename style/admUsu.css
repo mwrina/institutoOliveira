@@ -46,6 +46,7 @@ main {
 
 .containerLista {
     box-sizing: border-box;
+    overflow-y: scroll;
     margin: 5%;
     padding: 7% 3% 3% 3%;
     height: 80%;

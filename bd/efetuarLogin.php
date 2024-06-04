@@ -34,12 +34,12 @@ L<?php
             $row = mysqli_fetch_assoc($result);
             $confirmEmail = $row['email'];
             $confirmSenha = $row['senha'];
-            $id = $row['idUsu'];
+            $id = $row['id'];
             $nome = $row['nome'];
 
             if($senha == $confirmSenha){
                 // Atualizar o último acesso
-                $sql_update = "UPDATE usuarios SET ultimoAcesso = CURRENT_TIMESTAMP() WHERE idUsu = ?";
+                $sql_update = "UPDATE usuarios SET ultimoAcesso = CURRENT_TIMESTAMP() WHERE id = ?";
                 $stmt_update = mysqli_prepare($conn, $sql_update);
                 mysqli_stmt_bind_param($stmt_update, "i", $id);
                 mysqli_stmt_execute($stmt_update);
@@ -49,16 +49,16 @@ L<?php
                 $_SESSION['nome'] = $nome;
                 $_SESSION['conectado'] = true;
                 
-                header("Location: \institutooliveira-main\adm.php");
+                header("Location: ../adm.php");
                 exit(); // Termina o script após redirecionamento
             } else {
                 $_SESSION['conectado'] = false;
-                header("Location: \institutooliveira-main\login.php");
+                header("Location: ../login.php");
                 exit();
             }
         } else {
             $_SESSION['conectado'] = false;
-            header("Location: \institutooliveira-main\login.php");
+            header("Location: ../login.php");
             exit();
         }
 }

@@ -49,12 +49,12 @@
             <?php foreach ($projetos as $projeto): ?>
                 <div class="divTxtImg">
                     <div class="img">
-                        <img src="<?= htmlspecialchars($projeto['imgProj']) ?>" id="img">
+                        <img src="<?= htmlspecialchars($projeto['img01']) ?>" id="img">
                     </div>
                     <div class="txtProj">
-                        <h1 id="projTit"><?= htmlspecialchars($projeto['nomeProj']) ?></h1>
-                        <p id="descProj"><?= $projeto['breveDescProj'] ?></p>
-                        <button type="button" class="projBtn" data-projeto-id="<?= htmlspecialchars($projeto['idProj']) ?>">
+                        <h1 id="projTit"><?= htmlspecialchars($projeto['nome']) ?></h1>
+                        <p id="descProj"><?= $projeto['breveDesc'] ?></p>
+                        <button type="button" class="projBtn" data-projeto-id="<?= htmlspecialchars($projeto['id']) ?>">
                             <div class="txtBtn">Saiba Mais</div>
                             <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
                         </button>

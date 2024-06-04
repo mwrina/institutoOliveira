@@ -9,7 +9,7 @@
         $idProj = intval($_GET['projetoId']);
 
 
-        $sql = "SELECT nomeProj, breveDescProj, maisInfoProj, imgProj, dataCriacao FROM projetos WHERE idProj = ?";
+        $sql = "SELECT nome, breveDesc, secao01, secao02, img01, img02 FROM projetos WHERE id = ?";
         
         $stmt = mysqli_prepare($conn, $sql);
         if (!$stmt) {
@@ -59,8 +59,6 @@
 
 <body>
 
-    <!-- PADRÃO HEADER -->
-
     <?php
         include("navbar.php");
     ?>
@@ -99,22 +97,37 @@
 
         <div class="titContainer">
             <div class="tit">
-                <h1 id="projTit"><?= $projeto['nomeProj'] ?></h1>
-                <h5 id="descProj"><?= $projeto['breveDescProj'] ?></h5>
+                <h1 id="projTit"><?= $projeto['nome'] ?></h1>
+                <h5 id="descProj"><?= $projeto['breveDesc'] ?></h5>
             </div>
         </div>
 
         <div class="imgTxt">
 
             <div class="imgProj">
-                <img id="imgProj" src="<?= $projeto['imgProj'] ?>">
+                <img id="imgProj" src="<?= $projeto['img01'] ?>">
             </div>
 
             <div class="txt">
-                <p id="txt"><?= $projeto['maisInfoProj'] ?></p>
+                <p id="txt"><?= $projeto['secao01'] ?></p>
             </div>
 
         </div>
+
+        <?php if (!empty($projeto['secao02']) || !empty($projeto['img02'])): ?>
+            <div class="imgTxt">
+                <?php if (!empty($projeto['secao02'])): ?>
+                    <div class="txt">
+                        <p id="txt"><?= $projeto['secao02'] ?></p>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($projeto['img02'])): ?>
+                    <div class="imgProj">
+                        <img id="imgProj" src="<?= htmlspecialchars($projeto['img02']) ?>">
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
 
     </main>
 

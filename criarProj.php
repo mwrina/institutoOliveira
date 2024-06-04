@@ -32,20 +32,20 @@
                             <div class="linNome">
                                 <label for="nome">Nome do projeto: </label> <br>
 
-                                <input type="text" name="nome" id="nome">
+                                <input type="text" name="nome" id="nome" required>
                             </div>
 
                             <div class="linBDesc">
                                 <label for="breveDesc">Descrição breve do projeto:</label> <br>
 
-                                <textarea name="breveDesc" id="breveDesc" placeholder="Digite aqui a descrição do projeto"></textarea>
+                                <textarea name="breveDesc" id="breveDesc" placeholder="Digite aqui a descrição do projeto" required></textarea>
                             </div>
                         </div>
 
                         <div class="formCol">
                             <label for="inserirImg">Escolha uma imagem:</label>
 
-                            <input type="file" name="img01" id="inserirImg01">
+                            <input type="file" name="img01" id="inserirImg01" required>
                             <button type="button" id="btnImg01">
                                 <img src="imgs/icons/imgIcon.png" id="imgBtn">
                             </button>
@@ -56,7 +56,7 @@
                     <div class="lin">
                         <label for="secao">Texto para a primeira seção do projeto:</label> <br>
 
-                        <textarea name="secao01" id="secao01" placeholder="Digite aqui a descrição do projeto"></textarea>
+                        <textarea name="secao01" id="secao01" placeholder="Digite aqui a descrição do projeto" required></textarea>
                     </div>
 
                     <div class="formCols2">

@@ -47,7 +47,7 @@
             <h1 id="containerTit">Editar Usuário</h1>
             
             <form class="form" action="bd/usu.php" method="post">
-                <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="hidden" name="editIdUsu" value="<?= $id ?>">
                 <div class="lin">
                     <label for="nome">Nome:</label> <br>
                     <input type="text" id="nome" name="nome" value="<?= $usuario['nome']; ?>">
