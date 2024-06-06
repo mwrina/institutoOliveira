@@ -68,13 +68,13 @@
 
                             <div class="formEndCampo">
                                 <label for="endereco" id="formEndLabel">Estado: </label>
-                                <input type="text" id="formEndInput" name="endereco" value="<?= $endereco['estado']; ?>">
+                                <input type="text" id="formEndInput" name="estado" value="<?= $endereco['estado']; ?>">
                             </div>
 
                         </div>
                         
                         <div class="btn-container">
-                            <input type="submit" class="editarBtn" id="editarEnd">                            
+                            <input type="submit" name="editarEndereco" class="editarBtn" id="editarEnd">                            
                         </div>
                     </form>
 
@@ -127,6 +127,13 @@
             }
 
         }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (window.location.search.includes('alert=1')) {
+                alert("Endereço atualizado com sucesso.");
+                window.history.replaceState(null, null, window.location.pathname);
+            }
+        });
 
         document.querySelector("#addRede").addEventListener('click', function(){
             window.location.href = "criarRede.php";
