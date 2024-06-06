@@ -1,6 +1,6 @@
 <?php
 
-    include("connect.php");
+    include("connect.php"); 
 
     if (!function_exists('getAtendimentos')) {
         function getAtendimentos($conn) {
