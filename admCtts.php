@@ -33,7 +33,7 @@
 
             <div class="containerLista">
 
-                <div class="nomeCriar-container">
+                <div class="nomeSecao-container">
                     <h3 id="nomeSecao">Endereço:</h3>
                 </div>
 
@@ -85,7 +85,7 @@
                     }
                 ?>
                 
-                <div class="nomeCriar-container">
+                <div class="nomeSecao-container">
                     <h3 id="nomeSecao">Redes sociais:</h3>
                     <button class="add" id="addRede">+</button>
                 </div>

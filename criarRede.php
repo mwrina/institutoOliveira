@@ -22,7 +22,7 @@
 
             <h1 id="containerTit">Cadastro de Rede Social</h1>
 
-            <form class="form" method="post" action="bd/proj.php" enctype="multipart/form-data">
+            <form class="form" method="post" action="bd/contatos.php" enctype="multipart/form-data">
 
                 <div class="formInputs">
 
@@ -56,7 +56,7 @@
                 </div>  
 
                 <div class="btn">
-                    <input type="submit" id="submitBtn" name="criarProjeto" value="Criar projeto">
+                    <input type="submit" id="submitBtn" name="criarRede" value="Criar rede">
                 </div>
                     
             </form>
