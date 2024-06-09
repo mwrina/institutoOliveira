@@ -4,6 +4,12 @@ include("bd/contatos.php");
 if (!isset($_SESSION['endereco'])) {
     buscarEnd($conn);
 }
+
+if(!isset($_SESSION['redessociais'])){
+    buscarRedes($conn);
+}
+
+
 ?>
 
 <div class="preFooter">
@@ -34,15 +40,18 @@ if (!isset($_SESSION['endereco'])) {
 
             <h1 id="footerTit">Redes sociais</h1>
 
+            <?php
+                foreach($_SESSION['redessociais'] as $redessocial): 
+            ?>
+
             <div class="redesSociaisLin">
-                <img id="redesSociaisIcon" src="/imgs/icons/iconIg.png">
-                <a id="redesSociaisLink" href="https://www.instagram.com/institutooliveirasc/">institutooliveirasc</a>
+                <img id="redesSociaisIcon" src="<?= $redessocial['icon'] ?>">
+                <a id="redesSociaisLink" href="<?= $redessocial['link'] ?>"><?= $redessocial['nome'] ?></a>
             </div>
-            
-            <div class="redesSociaisLin">
-                <img id="redesSociaisIcon" src="imgs/icons/iconFb.png">
-                <a id="redesSociaisLink" href="https://m.facebook.com/institutooliveirasc">Instituto Oliveira</a>
-            </div>
+
+            <?php
+                endforeach;
+            ?>
         
         </div>
         

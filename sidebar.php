@@ -27,8 +27,8 @@
                 Blog
             </button>
             <div class="content">
-                <a href="admBlog.html">Postagens existentes</a> <br>
-                <a href="criarBlog.html">Criar nova postagem</a>
+                <a href="admBlog.php">Postagens existentes</a> <br>
+                <a href="criarBlog.php">Criar nova postagem</a>
             </div>
             <a href="admCtts.php"><button class="collapsible">
                 Informações de contato

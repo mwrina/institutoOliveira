@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
-    <link rel="stylesheet" href="style/pageBlog.css">
+    <link rel="stylesheet" href="style/blogs.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
     <title>Sobre o Instituto - Instituto Oliveira</title>
     <link rel="shortcut icon" href="ico/logo.ico" type="image/x-icon">
@@ -42,115 +43,52 @@
         </div>
 
         <div class="topCentro">
-            <img id="topLogoBranca" src="../private/imgs/icons/logoBranca.png">
+            <img id="topLogoBranca" src="imgs/icons/logoBranca.png">
         </div>
 
         <div class="topDir">
-            <img id="topQuadradosDir" src="../private/imgs/quadradosDir.png">
+            <img id="topQuadradosDir" src="imgs/quadradosDir.png">
         </div>
 
     </div>
 
     <div class="breveDesc">
-        <img id="breveDescLogo" src="../private/imgs/icons/logo.png">
+        <img id="breveDescLogo" src="imgs/icons/logo.png">
         <p>Últimas postagens</p>
     </div>
-<!-- ----------------------------------------------------------------------------------------------------------------- -->
+
+    <!-- ----------------------------------------------------------------------------------------------------------------- -->
 
     <!-- PÁGINA -->
 
-    <div class="pageBlogDivTxtImg">
-
     <div class="blogDivTxtImg">
+        
         <?php if (!empty($blogs)): ?>
+        
             <?php foreach ($blogs as $blog): ?>
+
                 <div class="divTxtImg">
                     <div class="img">
-                        <img src="<?= htmlspecialchars($projeto['imgBlog']) ?>" id="img">
+                        <img src="<?= $blog['img'] ?>" id="img">
                     </div>
-                    <div class="txtProj">
-                        <h1 id="projTit"><?= htmlspecialchars($projeto['nomeProj']) ?></h1>
-                        <p id="descProj"><?= $projeto['breveDescProj'] ?></p>
-                        <button type="button" class="projBtn" data-projeto-id="<?= htmlspecialchars($projeto['idProj']) ?>">
+                    <div class="txtBlog">
+                        <h1 id="blogTit"><?= $blog['titulo'] ?></h1>
+                        <p id="criadoEm">Criado em: <?= $blog['dataCriacao'] ?></p>
+                        <p id="blogDesc"><?= $blog['breveDesc'] ?></p>
+                        <button type="button" class="blogBtn" data-projeto-id="<?= $blog['id'] ?>">
                             <div class="txtBtn">Saiba Mais</div>
                             <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
                         </button>
                     </div>
                 </div>
+
             <?php endforeach; ?>
-        <?php else: ?>
-            <p>Nenhum blog encontrado.</p>
-        <?php endif; ?>
-    </div>
         
-        <!-- POST 2 -->
-        <div class="imgPost2">
-
-            <img src="imgs/blog02.png" id="imgPost2">
-            
-            <div class="txt">
-
-                <div class="tit">
-                    <h1 id="postTit2">Lorem ipsum</h1>
-                </div>
-
-                <p id="txt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
-                    Quisque nulla tortor, consectetur a urna a, congue cursus enim.
-                </p>
-                
-                <div class="saibaMais">
-                    <button id="saibaMaisBtn" onclick="redirectSaibaVoluntarios()">Saiba Mais <img src="imgs/icons/shareButton.png"></button>
-                </div>
-
-            </div>
-        </div>
-
-         <!-- POST 3 -->
-         <div class="imgPost3">
-
-            <img src="imgs/blog03.png" id="imgPost3">
-            
-            <div class="txt">
-
-                <div class="tit">
-                    <h1 id="postTit3">Lorem ipsum</h1>
-                </div>
-
-                <p id="txt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
-                    Quisque nulla tortor, consectetur a urna a, congue cursus enim.
-                </p>
-                
-                <div class="saibaMais">
-                    <button id="saibaMaisBtn" onclick="redirectSaibaVoluntarios()">Saiba Mais <img src="imgs/icons/shareButton.png"></button>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- POST 4 -->
-        <div class="imgPost4">
-
-            <img src="imgs/blog04.png" id="imgPost4">
-            
-            <div class="txt">
-
-                <div class="tit">
-                    <h1 id="postTit4">Lorem ipsum</h1>
-                </div>
-
-                <p id="txt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. 
-                    Quisque nulla tortor, consectetur a urna a, congue cursus enim.
-                </p>
-                
-                <div class="saibaMais">
-                    <button id="saibaMaisBtn" onclick="redirectSaibaVoluntarios()">Saiba Mais <img src="imgs/icons/shareButton.png"></button>
-                </div>
-
-            </div>
-        </div>
+        <?php else: ?>
+        
+            <p>Nenhum blog encontrado.</p>
+        
+        <?php endif; ?>
     </div>
 
     <?php

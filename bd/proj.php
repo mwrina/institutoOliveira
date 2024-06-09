@@ -4,52 +4,41 @@
 
     function criarProjeto($conn) {
         
-        $nome = '';
-        $breveDesc = '';
-        $secao01 = '';
-        $secao02 = '';
-    
-        $file_name01 = $_FILES['img01']['name'];
-        $tempname01 = $_FILES['img01']['tmp_name'];
-        $folder01 = 'imgs/' . $file_name01;
+        if(!empty($_POST["nome"]) && !empty($_POST["breveDesc"]) && !empty($_POST["secao01"]) && !empty($_POST["secao02"]) && !empty($_FILE["img01"]["name"]) && !empty($_FILE["img01"]["name"])) {
 
-        $file_name02 = $_FILES['img02']['name'];
-        $tempname02 = $_FILES['img02']['tmp_name'];
-        $folder02 = 'imgs/' . $file_name02;
-    
-        if (!empty($_POST['nome'])) {
             $nome = $_POST['nome'];
-        }
-    
-        if (!empty($_POST['breveDesc'])) {
             $breveDesc = $_POST['breveDesc'];
-        }
-        
-        if (!empty($_POST['secao01'])) {
             $secao01 = $_POST['secao01'];
-        }
-
-        if (!empty($_POST['secao02'])) {
             $secao02 = $_POST['secao02'];
-        }
 
-        $breveDescConv = str_replace(array("\r\n", "\r", "\n"), "<br>", $breveDesc);
-        $secao01Conv = str_replace(array("\r\n", "\r", "\n"), "<br>", $secao01);
-        $secao02Conv = str_replace(array("\r\n", "\r", "\n"), "<br>", $secao02);
-    
-        $sql = "INSERT INTO projetos (nome, breveDesc, secao01, secao02, img01, img02, dataCriacao) VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP())";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ssssss", $nome, $breveDescConv, $secao01Conv, $secao02Conv, $folder01, $folder02);
-    
-        if (mysqli_stmt_execute($stmt)) {
-            move_uploaded_file($tempname01, $folder01);
-            move_uploaded_file($tempname02, $folder02);
-            header("Location: ../admProj.php");
+            $file_name01 = $_FILES['img01']['name'];
+            $tempname01 = $_FILES['img01']['tmp_name'];
+            $folder01 = 'imgs/' . $file_name01;
+
+            $file_name02 = $_FILES['img02']['name'];
+            $tempname02 = $_FILES['img02']['tmp_name'];
+            $folder02 = 'imgs/' . $file_name02;
+
+            $breveDescConv = str_replace(array("\r\n", "\r", "\n"), "<br>", $breveDesc);
+            $secao01Conv = str_replace(array("\r\n", "\r", "\n"), "<br>", $secao01);
+            $secao02Conv = str_replace(array("\r\n", "\r", "\n"), "<br>", $secao02);
+        
+            $sql = "INSERT INTO projetos (nome, breveDesc, secao01, secao02, img01, img02, dataCriacao) VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP())";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "ssssss", $nome, $breveDescConv, $secao01Conv, $secao02Conv, $folder01, $folder02);
+        
+            if (mysqli_stmt_execute($stmt)) {
+                move_uploaded_file($tempname01, $folder01);
+                move_uploaded_file($tempname02, $folder02);
+                header("Location: ../admProj.php");
+            } else {
+                echo "Erro: " . mysqli_error($conn);
+            }
+        
+            mysqli_stmt_close($stmt);
         } else {
-            echo "Error: " . mysqli_error($conn);
+            echo "Nem todos os campos necessários foram preenchidos.";
         }
-    
-        mysqli_stmt_close($stmt);
     }
 
     function editarProjeto($conn) {
