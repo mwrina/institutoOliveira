@@ -73,12 +73,12 @@
         function editarProjeto(id) {
 
             if (confirm("Tem certeza de que deseja editar este projeto?")) {
-                window.location.href = "editarProj.php?editIdProj=" + id;
+                window.location.href = "editarBlog.php?editIdBlog=" + id;
             }
 
         }
 
-        function confirmaExclusao(idProj) {
+        function confirmaExclusao(id) {
                     
             if(confirm("Tem certeza de que deseja apagar este projeto?")) {
                 var xhr = new XMLHttpRequest();
@@ -92,9 +92,9 @@
                         }
                     }
                 };
-                xhr.open('POST', 'bd/proj.php', true);
+                xhr.open('POST', 'bd/blog.php', true);
                 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.send('deleteIdProj=' + idProj);
+                xhr.send('deleteIdBlog=' + id);
             }
         }
 

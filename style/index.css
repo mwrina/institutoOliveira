@@ -221,30 +221,46 @@ body {
 }
 
 .projDivs {
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.projBtn {
+    background-color: #FFFFFF;
+    border: none;
+    padding: 0;
 }
 
 .projDiv {
+    width: 20%;
+    height: 70%;
+    flex: 0 0 auto;
+    margin: 0 2.5% 1% 2.5%; 
     text-align: center;
 }
 
 #projImg {
-    width: 250px;
-    height: 180px;
+    width: 100%;
+    height: 50%;
     /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
     box-shadow: 7px 7px 0px 0px #33E46D;
 }
 
 #projTit {
+    width: 100%;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 0;
 }
 
 #projDesc {
+    width: 100%;
+    height: 30%;
     font-size: 16px;
     font-weight: 400;
+    white-space: normal;
 }
 
 /* ================================================================= */

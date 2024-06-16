@@ -77,17 +77,28 @@ function criarRede($conn) {
             $nome = $_POST['nome'];
             $link = $_POST['link'];
 
-            $file_name = $_FILES['img']['name'];
+            $file_name = basename($_FILES['img']['name']);
             $tempname = $_FILES['img']['tmp_name'];
-            $folder = 'imgs/icons/' . $file_name;
+            $folder = 'imgs/ctts/' . $file_name; 
+
+            $allowed_types = ['image/jpeg', 'image/png'];
+            $file_type = mime_content_type($tempname);
+
+            if (!in_array($file_type, $allowed_types)) {
+                echo "Tipo de arquivo não permitido. Apenas JPEG e PNG são permitidos.";
+                return;
+            }
 
             $sql = "INSERT INTO redessociais (icon, nome, link) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "sss", $folder, $nome, $link);
 
             if (mysqli_stmt_execute($stmt)) {
-                move_uploaded_file($tempname, $folder);
-                header("Location: ../admCtts.php");
+                if (move_uploaded_file($tempname, '../'.$folder)) {
+                    header("Location: ../admCtts.php");
+                } else {
+                    echo "Erro ao mover o arquivo para a pasta de destino.";
+                }
             } else {
                 echo "Erro ao inserir no banco de dados: " . mysqli_error($conn);
             }
@@ -105,16 +116,58 @@ function editarRede($conn) {
     if (isset($_POST['editIdRede'])) {
         $id = $_POST['editIdRede'];
 
-        if (!empty($_POST['nome']) && !empty($_POST['link']) && !empty($_FILES['img']['name'])){
+        if (!empty($_POST['nome']) && !empty($_POST['link'])) {
             $nome = $_POST['nome'];
             $link = $_POST['link'];
+            $nova_imagem = !empty($_FILES['img']['name']);
 
-            $file_name = $_FILES['img']['name'];
-            $tempname = $_FILES['img']['tmp_name'];
-            $folder = 'imgs/icons/' . $file_name;
+            // Buscar o caminho da imagem antiga
+            $sql = "SELECT icon FROM redessociais WHERE id = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "i", $id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $imagem_antiga);
+            mysqli_stmt_fetch($stmt);
+            mysqli_stmt_close($stmt);
 
+            $folder = $imagem_antiga;
+
+            if ($nova_imagem) {
+                $file_name = basename($_FILES['img']['name']);
+                $tempname = $_FILES['img']['tmp_name'];
+                $folder = 'imgs/ctts/' . $file_name;
+
+                $allowed_types = ['image/jpeg', 'image/png'];
+                $file_type = mime_content_type($tempname);
+
+                if (!in_array($file_type, $allowed_types)) {
+                    echo "Tipo de arquivo não permitido. Apenas JPEG e PNG são permitidos.";
+                    return;
+                }
+
+                if (file_exists('../'.$imagem_antiga)) {
+                    if (!unlink('../'.$imagem_antiga)) {
+                        echo "Erro ao deletar a imagem antiga: $imagem_antiga";
+                        return;
+                    }
+                } else {
+                    echo "A imagem antiga não existe: $imagem_antiga";
+                }
+
+                // Mover a nova imagem para o servidor
+                if (!move_uploaded_file($tempname, '../'.$folder)) {
+                    echo "Erro ao mover o arquivo para a pasta de destino.";
+                    return;
+                }
+            }
+
+            // Atualizar o registro no banco de dados
             $sql = "UPDATE redessociais SET icon = ?, nome = ?, link = ? WHERE id = ?";
             $stmt = mysqli_prepare($conn, $sql);
+            if (!$stmt) {
+                die("Erro na preparação da consulta: " . mysqli_error($conn));
+            }
+
             mysqli_stmt_bind_param($stmt, "sssi", $folder, $nome, $link, $id);
 
             if (mysqli_stmt_execute($stmt)) {
@@ -133,6 +186,27 @@ function editarRede($conn) {
 }
 
 function deletarRede($conn, $id) {
+    $sql = "SELECT icon FROM redessociais WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $icon);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($icon) {
+        if (file_exists('../'.$icon)) {
+            if (!unlink('../'.$icon)) {
+                echo "Erro ao deletar a imagem: $icon";
+                return;
+            }
+        } else {
+            echo "A imagem não existe: $icon";
+        }
+    } else {
+        echo "Imagem não encontrada para o ID fornecido.";
+    }
+
     $sql = "DELETE FROM redessociais WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "i", $id);
@@ -141,7 +215,7 @@ function deletarRede($conn, $id) {
         http_response_code(200);
     } else {
         http_response_code(500);
-        echo "Error: " . mysqli_error($conn);
+        echo "Erro ao deletar o registro: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);

@@ -1,20 +1,64 @@
+<?php
+    include("bd/connect.php");
+    include("bd/proj.php");
+
+    // Inicia o buffer de saída
+    ob_start();
+
+    if (isset($_GET['blogId'])) {
+        $idBlog = intval($_GET['blogId']);
+
+
+        $sql = "SELECT dataCriacao, titulo, breveDesc, texto, img FROM blogs WHERE id = ?";
+        
+        $stmt = mysqli_prepare($conn, $sql);
+        if (!$stmt) {
+            echo "Erro ao preparar a consulta: " . mysqli_error($conn) . "<br>";
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "i", $idBlog);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                $blog = mysqli_fetch_assoc($result);
+            } else {
+                ob_end_flush();
+                header("Location: blog.php");
+                exit();
+            }
+        } else {
+            echo "Erro ao buscar o projeto: " . mysqli_error($conn) . "<br>";
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        ob_end_flush();
+        header("Location: blog.php");
+        exit();
+    }
+
+    // Envia os dados do buffer de saída
+    ob_end_flush();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/postBlog.css">
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
-    <link rel="stylesheet" href="style/postBlog.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
-    <title>Blog - Instituto Oliveira</title>
-    <link rel="shortcut icon" href="ico/logo.ico" type="image/x-icon">
+    <title>Projetos - Instituto Oliveira</title>
 </head>
 
 <body>
-    <!-- PADRÃO HEADER -->
 
     <?php
         include("navbar.php");
@@ -44,47 +88,42 @@
 
     <div class="breveDesc">
         <img id="breveDescLogo" src="imgs/icons/logo.png">
-        <p>Últimas postagens</p>
+        <p>O <b>Instituto Oliveira</b> é um empreendimento social sem fins lucrativos, que <br>
+        <b>apoia famílias</b> com histórico de <b>câncer infantojuvenil</b></p>
     </div>
-    
-    <!-- PÁGINA -->
 
-    <div class="post1">
+<!-- Página -->
 
-        <div class="txt">
+    <main>
 
-            <div class="titPost1">
+        <div class="titContainer">
+            <div class="tit">
+                <h1 id="titBlog"><?= $blog['titulo'] ?></h1>
+                <h5 id="descBlog"><?= $blog['breveDesc'] ?></h5>
+            </div>
+        </div>
 
-                <h1 id="titPost1">Como falar de câncer com crianças?</h1>
+        <div class="imgTxt">
 
+            <div class="imgProj">
+                <img id="imgProj" src="<?= $blog['img'] ?>">
             </div>
 
-            <p id="txt1Post1">
+            <div class="txt">
+                <p id="txt"><?= $blog['texto'] ?></p>
+            </div>
 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima natus aliquid nobis, explicabo officiis praesentium non animi assumenda unde ipsa debitis earum obcaecati, vitae minus. Vel quasi ut maxime dolorum!
-                
-                <br><br>
+        </div>
 
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At laborum explicabo, provident laboriosam incidunt dolor vitae odit, sint mollitia iste, commodi ab beatae quidem rerum. Magni ipsa sequi veritatis tenetur.
+        <div class="botaoVoltarContainer">
+            <button class="voltar">
+                <i class="material-icons" id="voltarIcon">arrow_back_ios</i>
+                <p id="btnTxt">Voltar</p>
+            </button>
+        </div>
 
-            </p>
-            
-            <br>
+    </main>
 
-        </div> 
-    
-    </div> 
-
-    <img id="imgPost1" src="imgs/blog01.png" alt="Imagem 01">
-
-    <br><br>
-
-    <button id="voltar"> <img src="ico/share.ico" alt="share"> Voltar </button>
-
-    <br><br><br>
-   
     <?php
-        include("footer.php");
+        include('footer.php');
     ?>
-
-</body>

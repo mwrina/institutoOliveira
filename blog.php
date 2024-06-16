@@ -75,7 +75,7 @@
                         <h1 id="blogTit"><?= $blog['titulo'] ?></h1>
                         <p id="criadoEm">Criado em: <?= $blog['dataCriacao'] ?></p>
                         <p id="blogDesc"><?= $blog['breveDesc'] ?></p>
-                        <button type="button" class="blogBtn" data-projeto-id="<?= $blog['id'] ?>">
+                        <button type="button" class="blogBtn" data-blog-id="<?= $blog['id'] ?>">
                             <div class="txtBtn">Saiba Mais</div>
                             <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
                         </button>
@@ -96,22 +96,16 @@
     ?>
 
 <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Obtém todos os botões "Saiba Mais"
-            var saibaMaisBtns = document.querySelectorAll('.projBtn');
+    document.addEventListener("DOMContentLoaded", function() {
+    var saibaMaisBtns = document.querySelectorAll('.blogBtn');
 
-            // Adiciona um ouvinte de evento de clique a cada botão
-            saibaMaisBtns.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    // Obtém o ID do projeto do atributo data
-                    var projetoId = this.getAttribute('data-projeto-id');
-                    console.log("ID do Projeto para redirecionamento: " + projetoId);
-
-                    // Redireciona para a página do projeto com o ID como parâmetro
-                    window.location.href = 'paginaProj.php?projetoId=' + projetoId;
-                });
+        saibaMaisBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var blogId = this.getAttribute('data-blog-id');
+                window.location.href = 'postBlog.php?blogId=' + blogId;
             });
         });
+    });
     </script>
 
 </body>

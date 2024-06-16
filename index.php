@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <script src="js/index.js"></script>
     <title>Instituto Oliveira</title>
@@ -141,57 +142,48 @@
 
         <div class="projDivs">
 
-            <div class="projDiv">
-                <img id="projImg" src="imgs/brechoOliveira.jpg" alt="Imagem de cabide de roupas próximo a uma estante com plantas e um porta-retato">
-                <p id="projTit">Brechó Oliveira</p>
-                <p id="projDesc">O Brechó Oliveira é um lindo movimento <br>
-                do voluntariado, ajudando na sustentabi- <br>
-                lidade do Instituto Oliveira e desenvol- <br>
-                vendo a cultura de moda sustentável <br>
-                com estilo. Permitindo à comunidade <br>
-                participar de forma ativa na <br>
-                construção do Projeto.
-                </p>
-            </div>
+            <?php
+
+                include('bd/proj.php');
+                $projetos = buscarProjetos($conn);
+
+                if (!empty($projetos)):
+                    foreach($projetos as $projeto):
+            ?>
 
             <div class="projDiv">
-                <img id="projImg" src="imgs/atendimentoMedico.png" alt="Dr. Hugo Oliveira, fundador do Instituto Oliveira, vestindo seu jaleco de médico e sorrindo">
-                <p id="projTit">Policlínica</p>
-                <p id="projDesc">Fizemos uma reforma e revitalização <br>
-                    do prédio em que estamos sediados, <br>
-                    com o objetivo de ampliar o número de <br>
-                    famílias atendidas, criar mais conexão <br>
-                    com as famílias e também propor- <br>
-                    cionar o estágio dos profissionais <br>
-                    de saúde recém formados.
-                </p>
-            </div>
-            
-            <div class="projDiv">
-                <img id="projImg" src="imgs/eventosInstituto.png" alt="Foto da equipe do Instituto Oliveira sorrindo em frente a banner de divulgação de nosso trabalho.">
-                <p id="projTit">Cartilha</p>
-                <p id="projDesc">Material em formato de cartilha <br>
-                    trazendo informações sobre os sinais e <br>
-                    sintomas do câncer infanto juvenil de <br>
-                    uma forma interativa e lúdica, para a <br>
-                    distribuição nas escolas, empresas e <br>
-                    comunidade em geral. 
-                </p>
+                <button type="button" class="projBtn" data-projeto-id="<?= htmlspecialchars($projeto['id']) ?>">
+                    <img id="projImg" src="<?= $projeto['img01']; ?>">
+                    <p id="projTit"><?= $projeto['nome'] ?></p>
+                    <p id="projDesc"><?= $projeto['breveDesc'] ?></p>
+                </button>
             </div>
 
-            <div class="projDiv">
-                <img id="projImg" src="imgs/palestras.jpg" alt="Imagem de uma plateia assistindo a uma palestra de um homem de roupa social, desfocado ao fundo.">
-                <p id="projTit">Palestras</p>
-                <p id="projDesc">Nossas palestras visam mobilizar<br>
-                    a sociedade e oferecer informações<br>
-                    sobre os sinais e sintomas do câncer<br>
-                    infanto juvenil em prol do diagnóstico<br>
-                    precoce e do enfrentamento à essa<br>
-                    doença ameaçadora da vida.
-                </p>
-            </div>
+            <?php
+                    endforeach;
+                endif;
+            ?>
 
         </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Obtém todos os botões "Saiba Mais"
+                var saibaMaisBtns = document.querySelectorAll('.projBtn');
+
+                // Adiciona um ouvinte de evento de clique a cada botão
+                saibaMaisBtns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        // Obtém o ID do projeto do atributo data
+                        var projetoId = this.getAttribute('data-projeto-id');
+                        console.log("ID do Projeto para redirecionamento: " + projetoId);
+
+                        // Redireciona para a página do projeto com o ID como parâmetro
+                        window.location.href = 'paginaProj.php?projetoId=' + projetoId;
+                    });
+                });
+            });
+        </script>
 
         <div class="btnContainer">
             <button class="btn" onclick="redirectProjetos()">Conheça mais projetos</button>
