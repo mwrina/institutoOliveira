@@ -35,15 +35,11 @@
     <div class="top">
         
         <div class="topEsq">
-            <h1 id="topTit">Sobre o</h1>
-            <h1 id="topTitDestacado">Instituto</h1>
+            <h1 id="topTit">Blog</h1>
+            <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
             <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
-        </div>
-
-        <div class="topCentro">
-            <img id="topLogoBranca" src="imgs/icons/logoBranca.png">
         </div>
 
         <div class="topDir">
@@ -72,9 +68,11 @@
                         <img src="<?= $blog['img'] ?>" id="img">
                     </div>
                     <div class="txtBlog">
-                        <h1 id="blogTit"><?= $blog['titulo'] ?></h1>
-                        <p id="criadoEm">Criado em: <?= $blog['dataCriacao'] ?></p>
-                        <p id="blogDesc"><?= $blog['breveDesc'] ?></p>
+                        <div class="titDesc">
+                            <h1 id="blogTit"><?= $blog['titulo'] ?></h1>
+                            <p id="criadoEm">Criado em: <?= $blog['dataCriacao'] ?></p>
+                            <p id="blogDesc"><?= $blog['breveDesc'] ?></p>
+                        </div>
                         <button type="button" class="blogBtn" data-blog-id="<?= $blog['id'] ?>">
                             <div class="txtBtn">Saiba Mais</div>
                             <i class="material-icons" id="saibaMaisIcon">open_in_new</i>

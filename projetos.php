@@ -30,9 +30,6 @@
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
             <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
         </div>
-        <div class="topCentro">
-            <img id="topLogoBranca" src="imgs/icons/logoBranca.png">
-        </div>
         <div class="topDir">
             <img id="topQuadradosDir" src="imgs/quadradosDir.png">
         </div>

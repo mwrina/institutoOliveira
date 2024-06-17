@@ -6,6 +6,10 @@
 .top {
     display: flex;
     justify-content: space-between;
+    background-image: url("../imgs/icons/logoBranca.png");
+    background-size: 25% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
     background-color: #FFF5EA;
     /* TOPO DIREITA BAIXO ESQUERDA */
@@ -38,19 +42,6 @@
     margin: 0 0 20px 0;
     font-size: 16px;
     font-weight: 400;
-}
-
-.topCentro {
-    box-sizing: border-box;
-    text-align: center;
-    padding-right: 5%;
-    width: 35%;
-    height: 50%;
-}
-
-#topLogoBranca {
-    width: 300px;
-    height: 300px;
 }
 
 .topDir {

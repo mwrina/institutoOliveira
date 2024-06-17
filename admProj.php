@@ -3,15 +3,7 @@
     include("bd/connect.php");
     include("bd/proj.php");
 
-    function contProjs($conn) {
-        $sql = "SELECT COUNT(id) AS total FROM projetos";
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        return $row['total'];
-    }
-
     $projetos = buscarProjetos($conn);
-    $qtdProjs = contProjs($conn);
 
 ?>
 
@@ -21,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
-    <link rel="stylesheet" href="style/admProj.css">
+    <link rel="stylesheet" href="style/admGeral.css">
     <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>

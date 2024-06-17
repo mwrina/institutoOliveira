@@ -30,10 +30,17 @@
                 <a href="admBlog.php">Postagens existentes</a> <br>
                 <a href="criarBlog.php">Criar nova postagem</a>
             </div>
+            <button class="collapsible">
+                Sobre o Instituto
+            </button>
+            <div class="content">
+                <a href="admSobre.php">Seções existentes</a> <br>
+                <a href="criarSobre.php">Criar nova seção</a>
+            </div>
             <a href="admCtts.php"><button class="collapsible">
                 Informações de contato
             </button></a>
-            <a href="alterarNums.php"><button class="collapsible">
+            <a href="admNums.php"><button class="collapsible">
                 Alterar números do Instituto
             </button></a>
 

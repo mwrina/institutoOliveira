@@ -1,9 +1,8 @@
-
 <?php
     include("bd/connect.php");
-    include("bd/blog.php");
+    include("bd/sobre.php");
 
-    $blogs = buscarBlogs($conn);
+    $secoes = buscarSecoes($conn);
 
 ?>
 
@@ -28,31 +27,33 @@
     <main>
 
         <div class="container">
-            <h1 id="containerTit">Lista de Projetos Cadastrados</h1>
+            <h1 id="containerTit">Lista de Seções - Sobre o Instituto</h1>
 
             <div class="containerLista">
 
                 <?php
-                    if(!empty($blogs)) {
-                        foreach ($blogs as $blog):
+                    if(!empty($secoes)) {
+                        foreach ($secoes as $secao):
                 ?>
 
                 <div class="listaLinha">
-                        <p id="titulo">Título: <?= $blog['titulo']; ?></p>
+                        <p id="titulo">Título: <?= $secao['titulo01']; ?></p>
 
-                        <p id="dataCriacao">Data de Criação: <?= $blog['dataCriacao']; ?></p>
+                        <?php if(!empty ($secao['titulo02'])): ?>
+                            <p id="titulo">Data de Criação: <?= $secao['titulo02']; ?></p>
+                        <?php endif; ?>
                         
                         <div class="crudBtns">
-                            <button onclick="editarProjeto(<?= $blog['id']; ?>)" class="crudBtn" id="editar">Editar Projeto</button>
+                            <button onclick="editarSecao(<?= $secao['id']; ?>)" class="crudBtn" id="editar">Editar Projeto</button>
                             
-                            <button onclick="confirmaExclusao(<?= $blog['id']; ?>)" class="crudBtn" id="apagar">Apagar Projeto</button>
+                            <button onclick="confirmaExclusao(<?= $secao['id']; ?>)" class="crudBtn" id="apagar">Apagar Projeto</button>
                         </div>
                 </div>
 
                 <?php 
                         endforeach;
                     } else {
-                        echo('<p id="arrayVazio">Não há postagens cadastradas.</p>');
+                        echo('<p id="arrayVazio">Não há nada aqui ainda.</p>');
                     }
                 ?>
             </div>
@@ -62,31 +63,31 @@
 
     <script>
 
-        function editarProjeto(id) {
+        function editarSecao(id) {
 
-            if (confirm("Tem certeza de que deseja editar este projeto?")) {
-                window.location.href = "editarBlog.php?editIdBlog=" + id;
+            if (confirm("Tem certeza de que deseja editar esta seção?")) {
+                window.location.href = "editarSecao.php?editIdSecao=" + id;
             }
 
         }
 
         function confirmaExclusao(id) {
                     
-            if(confirm("Tem certeza de que deseja apagar este projeto?")) {
+            if(confirm("Tem certeza de que deseja apagar esta seção?")) {
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == XMLHttpRequest.DONE) {
                         if (xhr.status == 200) {
-                            console.log("Projeto excluído com sucesso.");
+                            console.log("Seção excluída com sucesso.");
                             location.reload();
                         } else {
                             console.error('Ocorreu um erro na solicitação.');
                         }
                     }
                 };
-                xhr.open('POST', 'bd/blog.php', true);
+                xhr.open('POST', 'bd/sobre.php', true);
                 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.send('deleteIdBlog=' + id);
+                xhr.send('deleteIdSecao=' + id);
             }
         }
 
