@@ -55,59 +55,90 @@ main {
     background-color: rgb(217,217,217, 0.8);
 }
 
-.formCols {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.formInputs {
     width: 100%;
-    height: 65%;
-    margin: 0;
+    height: 200%;
+    display: flex;
+    flex-direction: column;
 }
 
-.formCol {
-    width: 45%;
-    height: 100%;
-    line-height: 35px;
-}
-
-.linTit01 {
+.formInputs label {
+    font-size: 16px;
+    font-weight: 400;
     margin: 2% 0 2% 0;
+}
+
+.tipoOrdem {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.colTipoOrdem {
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+}
+
+#select {
+    width: 100%;
+    height: 40%;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+.txt01Img {
+    width: 100%;
+    height: 40%;
+}
+
+.cols {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col {
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.linTit {
     width: 100%;
     height: 20%;
+    display: flex;
+    flex-direction: column;
 }
 
-.linTxt01 {
-    margin: 2% 0 2% 0;
-    width: 100%;
-    height: 70%;
-}
-
-.formCol label {
-    font-size: 17px;
-    font-weight: 400;
-}
-
-#titulo {
+#titulo01 {
     font-family: 'Fira Sans Condensed';
-    font-size: 14px;
-    font-weight: 400;
-    width: 100%;
-    height: 30%;
     border: 1px solid #000000;
     border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.linTxt {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
 }
 
 #texto01 {
     font-family: 'Fira Sans Condensed';
-    font-size: 14px;
-    text-align: left;
-    overflow-y: auto;
-    width: 100%;
-    height: 85%;
-    padding: 1%;
     border: 1px solid #000000;
-    background-color: #FFFFFF;
     border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #inserirImg {
@@ -116,7 +147,9 @@ main {
 
 #btnImg {
     border: none;
-    background-color: rgb(217,217,217, 0);
+    background: none;
+    height: 100%;
+    width: 100%;
 }
 
 #imgBtn {
@@ -124,28 +157,65 @@ main {
     height: 100%;
 }
 
-.lin {
+
+.lins {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0 0 0;
     width: 100%;
-    height: 50%;
-    line-height: 35px;
+    height: 45%;
 }
 
-.lin label {
-    font-size: 17px;
-    font-weight: 400;
+.linTit02 {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#titulo02 {
+    font-family: 'Fira Sans Condensed';
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.linTxt02 {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
 }
 
 #texto02 {
     font-family: 'Fira Sans Condensed';
-    font-size: 14px;
-    text-align: left;
-    overflow-y: scroll;
-    width: 100%;
-    height: 85%;
-    padding: 1%;
     border: 1px solid #000000;
-    background-color: #FFFFFF;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+
+#submitBtn {
+    background-color: #33E46D;
+    font-family: 'Fira Sans Condensed';
+    color: #FFFFFF;
+    border: 0;
+    margin: 0;
+    width: 40%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 500;
+}
 

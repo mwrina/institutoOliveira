@@ -47,6 +47,7 @@ main {
 .containerLista {
     box-sizing: border-box;
     overflow-y: scroll;
+    overflow-x: hidden;
     margin: 5%;
     padding: 7% 3% 3% 3%;
     height: 80%;
@@ -57,7 +58,7 @@ main {
 
 .listaLinha {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     background-color: #FFFFFF;
     font-size: 12px;
     font-weight: 400;
@@ -66,6 +67,12 @@ main {
     margin: 1% 0 1% 0;
     padding: 1% 1% 0 1%;
     border-radius: 5px;
+}
+
+.infos {
+    display: flex;
+    justify-content: left;
+    width: 60%;
 }
 
 .listaLinha p {

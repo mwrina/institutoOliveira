@@ -86,42 +86,43 @@
         </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            if (window.location.search.includes('alert=1')) {
-                alert("Endereço atualizado com sucesso.");
-                window.history.replaceState(null, null, window.location.pathname);
-            }
-        });
-
-        document.querySelector("#addRede").addEventListener('click', function(){
-            window.location.href = "criarRede.php";
-        });
-
-        function editarRede(id) {
-            if (confirm("Tem certeza de que deseja editar esta rede social?")) {
-                window.location.href = "editarRede.php?editIdRede=" + id;
-            }
-        }
-
-        function deletarRede(id) {
-            if (confirm("Tem certeza de que deseja apagar esta rede social?")) {
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState == XMLHttpRequest.DONE) {
-                        if (xhr.status == 200) {
-                            console.log("Rede social excluída com sucesso.");
-                            location.reload();
-                        } else {
-                            console.error('Ocorreu um erro na solicitação.');
-                        }
-                    }
-                };
-                xhr.open('POST', 'bd/contatos.php', true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.send('deleteIdRede=' + id);
-            }
-        }
-    </script>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        if (window.location.search.includes('alert=1')) {
+            alert("Endereço atualizado com sucesso.");
+            window.history.replaceState(null, null, window.location.pathname);
+        }
+    });
+
+    document.querySelector("#addRede").addEventListener('click', function(){
+        window.location.href = "criarRede.php";
+    });
+
+    function editarRede(id) {
+        if (confirm("Tem certeza de que deseja editar esta rede social?")) {
+            window.location.href = "editarRede.php?editIdRede=" + id;
+        }
+    }
+
+    function deletarRede(id) {
+        if (confirm("Tem certeza de que deseja apagar esta rede social?")) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        console.log("Rede social excluída com sucesso.");
+                        location.reload();
+                    } else {
+                        console.error('Ocorreu um erro na solicitação.');
+                    }
+                }
+            };
+            xhr.open('POST', 'bd/contatos.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send('deleteIdRede=' + id);
+        }
+    }
+</script>
 </html>

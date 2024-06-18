@@ -37,17 +37,20 @@
                 ?>
 
                 <div class="listaLinha">
-                        <p id="titulo">Título: <?= $secao['titulo01']; ?></p>
 
-                        <?php if(!empty ($secao['titulo02'])): ?>
-                            <p id="titulo">Data de Criação: <?= $secao['titulo02']; ?></p>
-                        <?php endif; ?>
+                    <div class="infos">
+                        <p id="id">ID: <?= $secao['id'] ?> </p>
+
+                        <p id="posicao">Posição: <?= $secao['ordem'] ?></p>
+
+                        <p id="titulo">Título: <?= $secao['titulo01']; ?></p>
+                    </div>
                         
-                        <div class="crudBtns">
-                            <button onclick="editarSecao(<?= $secao['id']; ?>)" class="crudBtn" id="editar">Editar Projeto</button>
-                            
-                            <button onclick="confirmaExclusao(<?= $secao['id']; ?>)" class="crudBtn" id="apagar">Apagar Projeto</button>
-                        </div>
+                    <div class="crudBtns">
+                        <button onclick="editarSecao(<?= $secao['id']; ?>)" class="crudBtn" id="editar">Editar Projeto</button>
+                        
+                        <button onclick="confirmaExclusao(<?= $secao['id']; ?>)" class="crudBtn" id="apagar">Apagar Projeto</button>
+                    </div>
                 </div>
 
                 <?php 
