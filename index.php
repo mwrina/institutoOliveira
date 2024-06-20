@@ -18,28 +18,35 @@
     ?>
 
     <div class="top">
+        <div class="topEsq">
+            <img id="quadradosEsq" src="imgs/quadradosEsq.png">
+        </div>
 
-        <img id="quadradosEsq" src="imgs/quadradosEsq.png">
-        
-        <div class="topCuidarAlemDaCura">
+        <div class="topCentro">
 
-            <div id = "topCenterLin1">
-                <p id="topCuidar">Cuidar</p>
-                <img id="cuidarImg" src="imgs/icons/borboletinha.png">
+            <div class="topSlogan">
+
+                <div class="topSlogan01">
+                    <h1 id="topCuidar">Cuidar</h1>
+                    <img id="topCuidarImg" src="imgs/icons/borboletinha.png">
+                </div>
+                <div class="topSlogan02">
+                    <h1 id="topEAlemDa">é além da</h1>
+                    <h1 id="topCura">cura</h1>
+                </div>
+                <div class="btnContainer">
+                    <button type="button" id="qroAjudarBtn">QUERO AJUDAR</button>
+                </div>
             </div>
+
             
-            <div class = "topCenterLin2">
-                <p id="topEAlemDa">é além da</p>
-                <p id="topCura">cura!</p>
-            </div>
-
-            <p id="topSlogan">Seja um azeite. Faça a sua doação.</p>
-
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
 
         </div>
-        
-        <img id="quadradosDir" src="imgs/quadradosDir.png">
+    
+
+        <div class="topDir">
+            <img id="quadradosDir" src="imgs/quadradosDir.png">
+        </div>
 
     </div>
 
@@ -61,24 +68,18 @@
                 </div>
     
             
-                <p>Somos uma Instituição que acolhe e cuida de crianças e adolescentes com câncer, junto a <br>
-                    suas famílias, dando suporte físico, emocional e espiritual, complementando o tratamento <br>
-                    do câncer com uma equipe multiprofissional.
+                <p><?php
+                
+                    include("bd/sobre.php");
+                    $secoesSobre = buscarSecoes($conn);
 
-                    <br><br>                    
-        
-                    O instituto busca, ainda, auxiliar no processo de ressignificação da doença na vida de cada<br>
-                    membro do núcleo familiar.
+                    echo $secoesSobre[0]["texto01"];             
                     
-                    <br><br>
-
-                    Porque cuidar, é além da cura.
-
-                </p>
+                    ?></p>
     
             </div>
     
-            <img id="sobreImg" src="imgs/sobreOInstituto.png">
+            <img id="sobreImg" src="<?= $secoesSobre[0]["img"] ?>">
 
         </div>
 
@@ -103,29 +104,34 @@
                     getAtendimentos($conn);
                     echo isset($_SESSION['atendimentosAtual']) ? $_SESSION['atendimentosAtual'] : '';
                 ?></p>
+                
                 <p id="descNum">Atendimentos</p>
             </div>
-    
+
             <div class="numDiv">
+            
                 <p id="num"><?php
                     include("bd/nums.php");
                     getDoadores($conn);
                     echo isset($_SESSION['doadoresAtual']) ? $_SESSION['doadoresAtual'] : '';
                 ?></p>
+                
                 <p id="descNum">Doadores ativos</p>
             </div>
-    
+            
             <div class="numDiv">
                 <p id="num"><?php
                     include("bd/nums.php");
                     getFamilias($conn);
                     echo isset($_SESSION['familiasAtual']) ? $_SESSION['familiasAtual'] : '';
                 ?></p>
+            
                 <p id="descNum">Famílias acolhidas</p>
             </div>
-    
+
             <div class="numDiv">
                 <img id="numInfinito" src="imgs/icons/infinito.png">
+                
                 <p id="descNum">Abraços dados</p>
             </div>
 
@@ -145,7 +151,7 @@
             <?php
 
                 include('bd/proj.php');
-                $projetos = buscarProjetos($conn);
+                $projetos = buscar4Projetos($conn);
 
                 if (!empty($projetos)):
                     foreach($projetos as $projeto):
@@ -161,29 +167,16 @@
 
             <?php
                     endforeach;
+                else:
+            ?>
+                <p>Nada para ver aqui ainda.</p>
+            <?php
                 endif;
             ?>
 
         </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Obtém todos os botões "Saiba Mais"
-                var saibaMaisBtns = document.querySelectorAll('.projBtn');
-
-                // Adiciona um ouvinte de evento de clique a cada botão
-                saibaMaisBtns.forEach(function(btn) {
-                    btn.addEventListener('click', function() {
-                        // Obtém o ID do projeto do atributo data
-                        var projetoId = this.getAttribute('data-projeto-id');
-                        console.log("ID do Projeto para redirecionamento: " + projetoId);
-
-                        // Redireciona para a página do projeto com o ID como parâmetro
-                        window.location.href = 'paginaProj.php?projetoId=' + projetoId;
-                    });
-                });
-            });
-        </script>
+        
 
         <div class="btnContainer">
             <button class="btn" onclick="redirectProjetos()">Conheça mais projetos</button>
@@ -259,57 +252,37 @@
 
         <div class="blogDivs">
 
-            <div class="blogDiv">
-                <div class="blogImgs">
-                    <img id="blogImg" src="imgs/blog01.png" alt="Criança com câncer usando um lenço na cabeça e abraçando sua mãe. Ambas sorrindo.">
-                    <img id="coracaoBlog" src="imgs/icons/coracao.png">
-                </div>
-                <p id="blogNome">Lorem Ipsum</p>
-                <p id="blogTxt">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Nullam <br>
-                    efficitur purus non dui ultricies, vel <br>
-                    commodo quam feugiat. Etiam ac <br>
-                    feugiat ante, pretium aliquet mi.</p>
-            </div>
+        <?php
+
+            include('bd/blog.php');
+            $blogs = buscar4Blogs($conn);
+
+            if (!empty($blogs)):
+                foreach($blogs as $blog):
+        ?>
 
             <div class="blogDiv">
-                <div class="blogImgs">
-                    <img id="blogImg" src="imgs/blog02.png" alt="Criança com câncer usando um lenço na cabeça e abraçando sua mãe. Ambas sorrindo.">
-                    <img id="coracaoBlog" src="imgs/icons/coracao.png">
-                </div>
-                <p id="blogNome">Lorem Ipsum</p>
-                <p id="blogTxt">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Nullam <br>
-                    efficitur purus non dui ultricies, vel <br>
-                    commodo quam feugiat. Etiam ac <br>
-                    feugiat ante, pretium aliquet mi.</p>
+                <button type="button" class="blogBtn" data-blog-id="<?= htmlspecialchars($blog['id']) ?>">
+                    <div class="blogImgs">
+                        <img id="blogImg" src="<?= $blog['img'] ?>" alt="Criança com câncer usando um lenço na cabeça e abraçando sua mãe. Ambas sorrindo.">
+                        <img id="coracaoBlog" src="imgs/icons/coracao.png">
+                    </div>
+                    <p id="blogNome"><?= $blog['titulo'] ?></p>
+                    <p id="blogTxt"><?= $blog['breveDesc'] ?></p>
+                </button>
             </div>
 
-            <div class="blogDiv">
-                <div class="blogImgs">
-                    <img id="blogImg" src="imgs/blog03.png" alt="Criança com câncer usando um lenço na cabeça e abraçando sua mãe. Ambas sorrindo.">
-                    <img id="coracaoBlog" src="imgs/icons/coracao.png">
-                </div>
-                <p id="blogNome">Lorem Ipsum</p>
-                <p id="blogTxt">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Nullam <br>
-                    efficitur purus non dui ultricies, vel <br>
-                    commodo quam feugiat. Etiam ac <br>
-                    feugiat ante, pretium aliquet mi.</p>
-            </div>
+        <?php
+                endforeach;
+            else:
 
-            <div class="blogDiv">
-                <div class="blogImgs">
-                    <img id="blogImg" src="imgs/blog04.png" alt="Criança com câncer usando um lenço na cabeça e abraçando sua mãe. Ambas sorrindo.">
-                    <img id="coracaoBlog" src="imgs/icons/coracao.png">
-                </div>
-                <p id="blogNome">Lorem Ipsum</p>
-                <p id="blogTxt">Lorem ipsum dolor sit amet, <br>
-                    consectetur adipiscing elit. Nullam <br>
-                    efficitur purus non dui ultricies, vel <br>
-                    commodo quam feugiat. Etiam ac <br>
-                    feugiat ante, pretium aliquet mi.</p>
-            </div>
+        ?>
+
+            <p>Nada para ver aqui ainda.</p>
+
+        <?php
+            endif;
+        ?>
 
         </div>
 
@@ -324,4 +297,33 @@
     ?>
     
 </body>
+
+<script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Obtém todos os botões "Saiba Mais"
+                var projBtn = document.querySelectorAll('.projBtn');
+
+                // Adiciona um ouvinte de evento de clique a cada botão
+                projBtn.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        // Obtém o ID do projeto do atributo data
+                        var projetoId = this.getAttribute('data-projeto-id');
+                        console.log("ID do Projeto para redirecionamento: " + projetoId);
+
+                        // Redireciona para a página do projeto com o ID como parâmetro
+                        window.location.href = 'paginaProj.php?projetoId=' + projetoId;
+                    });
+                });
+
+                var blogBtn = document.querySelectorAll('.blogBtn');
+
+                    blogBtn.forEach(function(btn) {
+                        btn.addEventListener('click', function() {
+                            var blogId = this.getAttribute('data-blog-id');
+                            window.location.href = 'postBlog.php?blogId=' + blogId;
+                        });
+                    });
+
+            });
+        </script>
 </html>

@@ -23,13 +23,14 @@
     position: fixed;
     left: 0;
     height: 100%;
-    overflow: auto;
     width: 20%;
     color: #FFFFFF;
     font-family: "Fira Sans Condensed";
 }
 
 .sidebarLogo {
+    width: 100%;
+    height: 15%;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -37,13 +38,20 @@
 }
 
 #logo {
-    width: 50px;
-    height: 50px;
+    width: 20%;
+    height: 50%;
 }
 
 #logoTxt {
-    width: 120px;
-    height: 60px;
+    width: 50%;
+    height: 50%;
+}
+
+.sidebarContent {
+    width: 100%;
+    height: 60%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .collapsible {
@@ -87,6 +95,7 @@
     bottom: 10%;
     margin: 0 25% 0 25%;
     width: 50%;
+    height: 5%;
 }
 
 #logout {

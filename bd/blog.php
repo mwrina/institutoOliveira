@@ -4,7 +4,23 @@ include('connect.php');
 
 function buscarBlogs($conn) {
     $blogs = [];
-    $sql = "SELECT * FROM blogs";
+    $sql = "SELECT * FROM blogs ORDER BY dataCriacao DESC";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $blogs[] = $row;
+        }
+    } else {
+        echo "Erro ao buscar os blogs: " . mysqli_error($conn);
+    }
+
+    return $blogs;
+}
+
+function buscar4Blogs($conn) {
+    $blogs = [];
+    $sql = "SELECT * FROM blogs ORDER BY dataCriacao DESC LIMIT 4";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {

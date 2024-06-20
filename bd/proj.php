@@ -180,7 +180,23 @@ function deletarProjeto($conn, $id) {
 
 function buscarProjetos($conn) {
     $projetos = [];
-    $sql = "SELECT * FROM projetos";
+    $sql = "SELECT * FROM projetos ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $projetos[] = $row;
+        }
+    } else {
+        echo "Erro ao buscar os projetos: " . mysqli_error($conn);
+    }
+
+    return $projetos;
+}
+
+function buscar4Projetos($conn) {
+    $projetos = [];
+    $sql = "SELECT * FROM projetos ORDER BY id DESC LIMIT 4";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {

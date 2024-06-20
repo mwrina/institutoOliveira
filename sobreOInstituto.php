@@ -50,119 +50,122 @@
 
     <!-- PÁGINA -->
 
-    <?php foreach($secoes as $secao): ?>
+    <?php if(!empty($secoes)): ?>
+        <?php foreach($secoes as $secao): ?>
 
-        <?php if($secao['tiposecao'] == 1): ?>
+            <?php if($secao['tiposecao'] == 1): ?>
 
-            <div class="sobreDivTxtImg">
-                <div class="txt">
+                <div class="sobreDivTxtImg">
+                    <div class="txt">
 
-                    <div class="tit">
-                        <h1 id="titDestacado"><?php
-                            echo substr($secao['titulo01'], 0, strpos($secao['titulo01'], ' '));
-                        ?></h1>
-                        <h1 id="tit"><?php
-                            echo substr($secao['titulo01'], strpos($secao['titulo01'], ' ') + 1);
-                        ?></h1>
-                    </div>
+                        <div class="tit">
+                            <h1 id="titDestacado"><?php
+                                echo substr($secao['titulo01'], 0, strpos($secao['titulo01'], ' '));
+                            ?></h1>
+                            <h1 id="tit"><?php
+                                echo substr($secao['titulo01'], strpos($secao['titulo01'], ' ') + 1);
+                            ?></h1>
+                        </div>
 
-                    <p id="txt"><?= $secao['texto01'] ?></p>
-            
-                    <?php
-                        if(!empty($secao['titulo02']) && !empty($secao['texto02'])):
-                    ?>
-
-                    <div class="tit">
-                        <h1 id="titulo02Tit"><?php
-                            echo substr($secao['titulo02'], 0, strpos($secao['titulo02'], ' '));
-                        ?></h1>
-                        <h1 id="titulo02TitDestacado"><?php
-                            echo substr($secao['titulo02'], strpos($secao['titulo02'], ' ') + 1);
-                        ?></h1>
-                    </div>
-
-                    <p id="txt"><?= $secao['texto01'] ?></p>
-                    
-                    <?php endif; ?>
-
-                </div>
+                        <p id="txt"><?= $secao['texto01'] ?></p>
                 
-                <img src="<?= $secao['img'] ?>" id="img">
+                        <?php
+                            if(!empty($secao['titulo02']) && !empty($secao['texto02'])):
+                        ?>
 
-            </div>
+                        <div class="tit">
+                            <h1 id="titulo02Tit"><?php
+                                echo substr($secao['titulo02'], 0, strpos($secao['titulo02'], ' '));
+                            ?></h1>
+                            <h1 id="titulo02TitDestacado"><?php
+                                echo substr($secao['titulo02'], strpos($secao['titulo02'], ' ') + 1);
+                            ?></h1>
+                        </div>
 
-        <?php elseif($secao['tiposecao'] == 2): ?>
+                        <p id="txt"><?= $secao['texto01'] ?></p>
+                        
+                        <?php endif; ?>
 
-            <div class="sobreDivTxtImg">
+                    </div>
+                    
+                    <img src="<?= $secao['img'] ?>" id="img">
 
-                <img src="<?= $secao['img'] ?>" id="img">
+                </div>
 
-                <div class="txt">
+            <?php elseif($secao['tiposecao'] == 2): ?>
 
+                <div class="sobreDivTxtImg">
+
+                    <img src="<?= $secao['img'] ?>" id="img">
+
+                    <div class="txt">
+
+                        <div class="tit">
+                            <h1 id="titDestacado"><?php
+                                echo substr($secao['titulo01'], 0, strpos($secao['titulo01'], ' '));
+                            ?></h1>
+                            <h1 id="tit"><?php
+                                echo substr($secao['titulo01'], strpos($secao['titulo01'], ' ') + 1);
+                            ?></h1>
+                        </div>
+
+                        <p id="txt"><?= $secao['texto01'] ?></p>
+
+                        <?php
+                            if(!empty($secao['titulo02']) && !empty($secao['texto02'])):
+                        ?>
+
+                        <div class="tit">
+                            <h1 id="titulo02Tit"><?php
+                                echo substr($secao['titulo02'], 0, strpos($secao['titulo02'], ' '));
+                            ?></h1>
+                            <h1 id="titulo02TitDestacado"><?php
+                                echo substr($secao['titulo02'], strpos($secao['titulo02'], ' ') + 1);
+                            ?></h1>
+                        </div>
+
+                        <p id="txt"><?= $secao['texto02'] ?></p>
+                        
+                        <?php endif; ?>
+
+                    </div>
+
+                </div>
+
+            <?php elseif( $secao['tiposecao'] == 3): ?>
+
+                <div class="realidadeDiv">
                     <div class="tit">
-                        <h1 id="titDestacado"><?php
-                            echo substr($secao['titulo01'], 0, strpos($secao['titulo01'], ' '));
-                        ?></h1>
-                        <h1 id="tit"><?php
-                            echo substr($secao['titulo01'], strpos($secao['titulo01'], ' ') + 1);
-                        ?></h1>
+                        <h1 id="realidadeTit"><?= $secao['titulo01'] ?></h1>
                     </div>
 
                     <p id="txt"><?= $secao['texto01'] ?></p>
-
-                    <?php
-                        if(!empty($secao['titulo02']) && !empty($secao['texto02'])):
-                    ?>
-
-                    <div class="tit">
-                        <h1 id="titulo02Tit"><?php
-                            echo substr($secao['titulo02'], 0, strpos($secao['titulo02'], ' '));
-                        ?></h1>
-                        <h1 id="titulo02TitDestacado"><?php
-                            echo substr($secao['titulo02'], strpos($secao['titulo02'], ' ') + 1);
-                        ?></h1>
-                    </div>
-
-                    <p id="txt"><?= $secao['texto02'] ?></p>
-                    
-                    <?php endif; ?>
-
                 </div>
 
-            </div>
+            <?php elseif( $secao['tiposecao'] == 4): ?>
 
-        <?php elseif( $secao['tiposecao'] == 3): ?>
+                <div class="sobreDiv">
 
-            <div class="realidadeDiv">
                 <div class="tit">
-                    <h1 id="realidadeTit"><?= $secao['titulo01'] ?></h1>
+                    <h1 id="titulo02Tit">Nossas</h1>
+                    <h1 id="titulo02TitDestacado">conquistas</h1>
                 </div>
 
-                <p id="txt"><?= $secao['texto01'] ?></p>
-            </div>
+                <p id="txt">
+                    <b>Qualificação e Registros UTILIDADE PÚBLICA MUNICIPAL</b> em 15 de setembro de 2023,
+                    através da Lei nº 9.467 foi declarado de Utilidade Pública pelo prefeito municipal Adriano
+                    Bornschein Silva.
+                    <br>
+                    <b>Inscrição no Conselho Municipal dos Direitos da Criança e do Adolescente - CMDCA</b> de
+                    Joinville, registro sob nº 117, em 14 de dezembro de 2023.
+                </p>
 
-        <?php elseif( $secao['tiposecao'] == 4): ?>
+        </div>
 
-            <div class="sobreDiv">
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
 
-            <div class="tit">
-                <h1 id="titulo02Tit">Nossas</h1>
-                <h1 id="titulo02TitDestacado">conquistas</h1>
-            </div>
-
-            <p id="txt">
-                <b>Qualificação e Registros UTILIDADE PÚBLICA MUNICIPAL</b> em 15 de setembro de 2023,
-                através da Lei nº 9.467 foi declarado de Utilidade Pública pelo prefeito municipal Adriano
-                Bornschein Silva.
-                <br>
-                <b>Inscrição no Conselho Municipal dos Direitos da Criança e do Adolescente - CMDCA</b> de
-                Joinville, registro sob nº 117, em 14 de dezembro de 2023.
-            </p>
-
-    </div>
-
-        <?php endif; ?>
-    <?php endforeach; ?>
 
     <?php
         include("footer.php");
