@@ -53,7 +53,7 @@
     <?php if(!empty($secoes)): ?>
         <?php foreach($secoes as $secao): ?>
 
-            <?php if($secao['tiposecao'] == 1): ?>
+            <?php if($secao['idTipo'] == 1): ?>
 
                 <div class="sobreDivTxtImg">
                     <div class="txt">
@@ -67,7 +67,7 @@
                             ?></h1>
                         </div>
 
-                        <p id="txt"><?= $secao['texto01'] ?></p>
+                        <p id="txt"><?= htmlspecialchars_decode($secao['texto01']) ?></p>
                 
                         <?php
                             if(!empty($secao['titulo02']) && !empty($secao['texto02'])):
@@ -82,7 +82,7 @@
                             ?></h1>
                         </div>
 
-                        <p id="txt"><?= $secao['texto01'] ?></p>
+                        <p id="txt"><?= htmlspecialchars_decode($secao['texto02']) ?></p>
                         
                         <?php endif; ?>
 
@@ -92,7 +92,7 @@
 
                 </div>
 
-            <?php elseif($secao['tiposecao'] == 2): ?>
+            <?php elseif($secao['idTipo'] == 2): ?>
 
                 <div class="sobreDivTxtImg">
 
@@ -109,7 +109,7 @@
                             ?></h1>
                         </div>
 
-                        <p id="txt"><?= $secao['texto01'] ?></p>
+                        <p id="txt"><?= htmlspecialchars_decode($secao['texto01']) ?></p>
 
                         <?php
                             if(!empty($secao['titulo02']) && !empty($secao['texto02'])):
@@ -124,7 +124,7 @@
                             ?></h1>
                         </div>
 
-                        <p id="txt"><?= $secao['texto02'] ?></p>
+                        <p id="txt"><?= htmlspecialchars_decode($secao['texto02']) ?></p>
                         
                         <?php endif; ?>
 
@@ -132,33 +132,30 @@
 
                 </div>
 
-            <?php elseif( $secao['tiposecao'] == 3): ?>
+            <?php elseif( $secao['idTipo'] == 3): ?>
 
                 <div class="realidadeDiv">
                     <div class="tit">
                         <h1 id="realidadeTit"><?= $secao['titulo01'] ?></h1>
                     </div>
 
-                    <p id="txt"><?= $secao['texto01'] ?></p>
+                    <p id="txt"><?= htmlspecialchars_decode($secao['texto01']) ?></p>
                 </div>
 
-            <?php elseif( $secao['tiposecao'] == 4): ?>
+            <?php elseif( $secao['idTipo'] == 4): ?>
 
                 <div class="sobreDiv">
 
                 <div class="tit">
-                    <h1 id="titulo02Tit">Nossas</h1>
-                    <h1 id="titulo02TitDestacado">conquistas</h1>
+                    <h1 id="titulo02Tit"><?php
+                        echo substr($secao['titulo01'], 0, strpos($secao['titulo01'], ' '));
+                    ?></h1>
+                    <h1 id="titulo02TitDestacado"><?php
+                        echo substr($secao['titulo01'], strpos($secao['titulo01'], ' ') + 1);
+                    ?></h1>
                 </div>
 
-                <p id="txt">
-                    <b>Qualificação e Registros UTILIDADE PÚBLICA MUNICIPAL</b> em 15 de setembro de 2023,
-                    através da Lei nº 9.467 foi declarado de Utilidade Pública pelo prefeito municipal Adriano
-                    Bornschein Silva.
-                    <br>
-                    <b>Inscrição no Conselho Municipal dos Direitos da Criança e do Adolescente - CMDCA</b> de
-                    Joinville, registro sob nº 117, em 14 de dezembro de 2023.
-                </p>
+                <p id="txt"><?= htmlspecialchars_decode($secao['texto01']) ?></p>
 
         </div>
 

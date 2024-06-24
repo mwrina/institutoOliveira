@@ -52,8 +52,8 @@
 
     <div class="breveDesc">
         <img id="breveDescLogo" src="imgs/icons/logo.png">
-        <p>O <b>Instituto Oliveira</b> oferece apoio às <b>famílias</b> que lidam com <br>
-        <b>crianças e adolescentes</b> enfrentando o câncer</p>
+        <p>O <b>Instituto Oliveira</b> oferece apoio às crianças, adolescentes e suas famílias <br>
+        que enfrentam o <b>tratamento do câncer infantojuvenil.</b></p>
     </div>
 
     <div class="sobre">
@@ -71,15 +71,15 @@
                 <p><?php
                 
                     include("bd/sobre.php");
-                    $secoesSobre = buscarSecoes($conn);
+                    $secaoSobre = buscarIndex($conn);
 
-                    echo $secoesSobre[0]["texto01"];             
+                    echo htmlspecialchars_decode($secaoSobre[0]["texto01"]);
                     
                     ?></p>
     
             </div>
     
-            <img id="sobreImg" src="<?= $secoesSobre[0]["img"] ?>">
+            <img id="sobreImg" src="<?= $secaoSobre[0]["img"] ?>">
 
         </div>
 

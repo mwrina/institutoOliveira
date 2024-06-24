@@ -40,6 +40,7 @@ $qtdSecoes = contarSecoes($conn);
                                 <option value="2">02. Texto à direita, imagem à esquerda. Até 2 partes.</option>
                                 <option value="3">03. Sem imagem, pouca decoração. Somente uma parte.</option>
                                 <option value="4">04. Sem imagem, texto relativamente decorado.</option>
+                                <option value="5">05. Seção para a página inicial.</option>
                             </select>
                         </div>
 

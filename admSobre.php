@@ -47,9 +47,9 @@
                     </div>
                         
                     <div class="crudBtns">
-                        <button onclick="editarSecao(<?= $secao['id']; ?>)" class="crudBtn" id="editar">Editar Projeto</button>
+                        <button onclick="editarSecao(<?= $secao['id']; ?>)" class="crudBtn" id="editar">Editar Seção</button>
                         
-                        <button onclick="confirmaExclusao(<?= $secao['id']; ?>)" class="crudBtn" id="apagar">Apagar Projeto</button>
+                        <button onclick="confirmaExclusao(<?= $secao['id']; ?>)" class="crudBtn" id="apagar">Apagar Seção</button>
                     </div>
                 </div>
 
@@ -75,7 +75,6 @@
         }
 
         function confirmaExclusao(id) {
-                    
             if(confirm("Tem certeza de que deseja apagar esta seção?")) {
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
@@ -88,9 +87,8 @@
                         }
                     }
                 };
-                xhr.open('POST', 'bd/sobre.php', true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.send('deleteIdSecao=' + id);
+                xhr.open('POST', 'bd/sobre.php?deleteIdSecao=' + id, true); // Envia como GET
+                xhr.send();
             }
         }
 
