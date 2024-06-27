@@ -17,3 +17,20 @@
     ?>
 
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('alert')) {
+                const alertValue = params.get('alert');
+                switch (alertValue) {
+                    case '1':
+                        alert("Você não tem permissão para realizar esta operação.");
+                        break;
+                }
+                window.history.replaceState(null, null, window.location.pathname); // Limpa a query string da URL
+            }
+        });
+</script>
+
+</html>

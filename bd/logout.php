@@ -1,14 +1,16 @@
 <?php
-
     session_start();
+    require_once('connect.php');
 
-    //limpar variáveis da sessão
-    unset($_SESSION['id']);
-    unset($_SESSION['email']);
-    unset($_SESSION['nome']);
-    unset($_SESSION['conectado']);
+    if (isset($_SESSION['token'])) {
+        $token = $_SESSION['token'];
+        $sql = "DELETE FROM user_tokens WHERE token = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $token);
+        mysqli_stmt_execute($stmt);
+    }
 
-    //destruir sessão
+    session_unset();
     session_destroy();
-
+    header("Location: ../login.php");
     exit();

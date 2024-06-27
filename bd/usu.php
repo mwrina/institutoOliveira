@@ -1,121 +1,108 @@
 <?php
-    include("connect.php");
+include("connect.php");
 
-    function criarUsuario($conn){
+function buscarUsuarios($conn) {
+    $sql = "SELECT id, nome, ultimoAcesso, tipoUsuario FROM usuarios";
 
-        $nome = '';
-        $email = '';
-        $senha = '';
-        $confirmSenha = '';
-        $tipoUsuario = '';
+    $result = mysqli_query($conn, $sql);
 
-        if (!empty($_POST['nome'])) {
-            $nome = $_POST['nome'];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $usuarios[] = $row;
         }
-
-        if (!empty($_POST['email'])) {
-            $email = $_POST['email'];
-        }
-
-        if (!empty($_POST['senha'])) {
-            $senha = $_POST['senha'];
-        }
-
-        if (!empty($_POST['confirmaSenha'])) {
-            $confirmSenha = $_POST['confirmaSenha'];
-        }
-
-        if (!empty($_POST['tipoUsuario'])) {
-            $tipoUsuario = $_POST['tipoUsuario'];
-        }
-
-        $ultimoAcesso = "Nunca acessado";
-        
-        if ($senha == $confirmSenha) {
-            // Usando prepared statement para evitar injeção de SQL
-            $sql = "INSERT INTO usuarios (nome, email, senha, tipoUsuario, ultimoAcesso) VALUES (?, ?, ?, ?, ?)";
-            $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "sssss", $nome, $email, $senha, $tipoUsuario, $ultimoAcesso);
-            
-            if (mysqli_stmt_execute($stmt)) {
-                header("Location: ../admUsu.php");
-            } else {
-                echo "Error: " . mysqli_error($conn);
-            }
-            
-            mysqli_stmt_close($stmt);
-        } else {
-            echo "As senhas não coincidem. Tente novamente.";
-        }
+    } else {
+        echo "Erro ao buscar os usuários: " . mysqli_error($conn);
     }
 
-    function editarUsuario($conn) {
-        // Verifica se os campos necessários foram preenchidos
-        if (!empty($_POST['editIdUsu']) && !empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['senha']) && !empty($_POST['confirmSenha']) && !empty($_POST['tipoUsu'])) {
-            // Obtém os dados do formulário
-            $id = $_POST['editIdUsu'];
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
-            $confirmSenha = $_POST['confirmSenha'];
-            $tipoUsuario = $_POST['tipoUsu'];
+    return $usuarios;
+}
 
-            // Verifica se as senhas coincidem
-            if ($senha === $confirmSenha) {
-                // Atualiza os dados do usuário no banco de dados
-                $sql = "UPDATE usuarios SET nome = ?, email = ?, senha = ?, tipoUsuario = ? WHERE id = ?";
-                $stmt = mysqli_prepare($conn, $sql);
-                mysqli_stmt_bind_param($stmt, "ssssi", $nome, $email, $senha, $tipoUsuario, $id);
+function contUsuarios($conn) {
+    $sql = "SELECT COUNT(id) AS total FROM usuarios";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    return $row['total'];
+}
 
-                if (mysqli_stmt_execute($stmt)) {
-                    // Se a atualização for bem-sucedida, redireciona de volta para a página de administração
-                    header("Location: ../admUsu.php");
-                    exit();
-                } else {
-                    // Se ocorrer um erro na atualização, exibe uma mensagem de erro
-                    echo "Erro ao atualizar o usuário: " . mysqli_error($conn);
-                }
+function criarUsuario($conn) {
+    $nome = $_POST['nome'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+    $confirmSenha = $_POST['confirmaSenha'] ?? '';
+    $tipoUsuario = $_POST['tipoUsuario'] ?? '';
+    $ultimoAcesso = "Nunca acessado";
 
-                mysqli_stmt_close($stmt);
-            } else {
-                // Se as senhas não coincidirem, exibe uma mensagem de erro
-                echo "As senhas não coincidem. Tente novamente.";
-            }
-        } else {
-            // Se algum campo estiver vazio, exibe uma mensagem de erro
-            echo "Todos os campos são obrigatórios.";
-        }
-    }
-    
+    if ($senha === $confirmSenha) {
+        $senhaHashada = password_hash($senha, PASSWORD_BCRYPT);
 
-    function deletarUsuario($conn, $id) {
-        $sql = "DELETE FROM usuarios WHERE id = ?";
+        $sql = "INSERT INTO usuarios (nome, email, senha, tipoUsuario, ultimoAcesso) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "i", $id);
-                        
+        mysqli_stmt_bind_param($stmt, "sssss", $nome, $email, $senhaHashada, $tipoUsuario, $ultimoAcesso);
+
         if (mysqli_stmt_execute($stmt)) {
-            // Se a exclusão for bem-sucedida, retorne um status 200 (OK)
-            http_response_code(200);
+            header("Location: ../admUsu.php");
         } else {
-            // Se ocorrer um erro na exclusão, retorne um status 500 (Erro interno do servidor)
-            http_response_code(500);
-            echo "Error: " . mysqli_error($conn);
+            echo "Erro ao criar usuário: " . mysqli_error($conn);
         }
-        
+
         mysqli_stmt_close($stmt);
+    } else {
+        echo "As senhas não coincidem. Tente novamente.";
     }
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['deleteIdUsu'])) {
-            deletarUsuario($conn, $_POST['deleteIdUsu']);
-        } elseif (isset($_POST['editIdUsu'])) {
-            editarUsuario($conn);
+function editarUsuario($conn) {
+    $id = $_POST['editIdUsu'] ?? '';
+    $nome = $_POST['nome'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+    $confirmSenha = $_POST['confirmSenha'] ?? '';
+    $tipoUsuario = $_POST['tipoUsu'] ?? '';
+
+    if ($senha === $confirmSenha) {
+        $senhaHashada = password_hash($senha, PASSWORD_BCRYPT);
+
+        $sql = "UPDATE usuarios SET nome = ?, email = ?, senha = ?, tipoUsuario = ? WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ssssi", $nome, $email, $senhaHashada, $tipoUsuario, $id);
+
+        if (mysqli_stmt_execute($stmt)) {
+            header("Location: ../admUsu.php");
+            exit();
         } else {
-            echo "Nenhum parâmetro válido enviado.";
+            echo "Erro ao atualizar o usuário: " . mysqli_error($conn);
         }
-    }
-    
 
-    if (isset($_POST['criarUsuario'])) {
-        criarUsuario($conn);
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "As senhas não coincidem. Tente novamente.";
     }
+}
+
+function deletarUsuario($conn, $id) {
+
+    $sql = "DELETE FROM usuarios WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+
+    if (mysqli_stmt_execute($stmt)) {
+        http_response_code(200);
+    } else {
+        http_response_code(500);
+        echo "Erro ao deletar usuário: " . mysqli_error($conn);
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['deleteIdUsu'])) {
+        deletarUsuario($conn, $_POST['deleteIdUsu']);
+    } elseif (isset($_POST['editIdUsu'])) {
+        editarUsuario($conn);
+    } elseif (isset($_POST['criarUsuario'])) {
+        criarUsuario($conn);
+    } else {
+        echo "Nenhum parâmetro válido enviado.";
+    }
+}

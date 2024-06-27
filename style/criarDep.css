@@ -55,9 +55,6 @@ main {
     background-color: rgb(217,217,217, 0.8);
 }
 
-/* =================================================== */
-/* CRIAR BLOG */
-
 .formInputs {
     margin: 0;
     padding: 0;
@@ -65,59 +62,67 @@ main {
     height: 100%;
 }
 
-.formCols {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    height: 80%;
-    margin: 0;
+.formInputs label {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 2% 0 2% 0;
 }
 
-.formCol {
-    width: 45%;
+/* =================================================== */
+/* CRIAR DEP */
+
+.cols {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 80%;
+}
+
+.col1 {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
     height: 100%;
 }
 
-label {
-    line-height: 35px;
-    font-size: 17px;
-    font-weight: 400;
-}
-
-.linTitulo {
-    margin: 2% 0 2% 0;
+.lin {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 20%;
 }
 
-.linBDesc {
-    margin: 2% 0 2% 0;
+.input {
     width: 100%;
-    height: 70%;
-}
-
-#titulo {
-    font-family: 'Fira Sans Condensed';
-    font-size: 14px;
-    font-weight: 400;
-    width: 100%;
-    height: 30%;
+    height: 40%;
+    border-radius: 10px;
     border: 1px solid #000000;
-    border-radius: 5px;
+    font-family: "Fira Sans Condensed";
+    font-size: 14px;
 }
 
-#breveDesc {
-    font-family: 'Fira Sans Condensed';
-    font-size: 14px;
-    text-align: left;
-    overflow-y: scroll;
+.linDep {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+#depoimento {
     width: 100%;
     height: 80%;
-    padding: 1%;
+    border-radius: 10px;
     border: 1px solid #000000;
-    background-color: #FFFFFF;
-    border-radius: 5px 5px 0 0;
+    padding: 1%;
+    font-family: "Fira Sans Condensed";
+    font-size: 14px;
+}
+
+.col2 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
 }
 
 #inserirImg {
@@ -125,35 +130,19 @@ label {
 }
 
 #btnImg {
+    width: 100%;
+    height: 100%;
     border: none;
     background-color: rgb(217,217,217, 0);
 }
 
 #imgBtn {
-    width: 100%;
+    width: 130%;
     height: 100%;
 }
 
-.lin {
-    width: 100%;
-    height: 50%;
-}
-
-#texto {
-    font-family: 'Fira Sans Condensed';
-    font-size: 14px;
-    text-align: left;
-    overflow-y: scroll;
-    width: 100%;
-    height: 90%;
-    padding: 1%;
-    border: 1px solid #000000;
-    background-color: #FFFFFF;
-    border-radius: 5px 5px 0 0;
-}   
-
 .btn {
-    padding: 7% 0 5% 0;
+    padding: 5% 0 4% 0;
     width: 100%;
     height: 10%;
     display: flex;

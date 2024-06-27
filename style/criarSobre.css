@@ -25,9 +25,6 @@ main {
     background-size: 45% 60%;
 }
 
-/* =================================================== */
-/* CRIAR PROJETO */
-
 .containerPaginaAdm {
     box-sizing: border-box;
     margin: 3% 0 0 0;
@@ -46,7 +43,7 @@ main {
 .form {
     box-sizing: border-box;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin: 3% 5% 5% 5%;
     padding: 3%;
     height: 85%;
@@ -67,6 +64,9 @@ main {
     font-weight: 400;
     margin: 2% 0 2% 0;
 }
+
+/* =================================================== */
+/* CRIAR SEÇÃO */
 
 .tipoOrdem {
     width: 100%;

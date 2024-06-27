@@ -25,9 +25,6 @@ main {
     background-size: 45% 60%;
 }
 
-/* =================================================== */
-/* CRIAR USUÁRIO */
-
 .container {
     box-sizing: border-box;
     background-blend-mode:pass-through;
@@ -54,6 +51,9 @@ main {
     border-radius: 20px;
     background-color: rgb(217,217,217, 0.8);
 }
+
+/* =================================================== */
+/* CRIAR USUÁRIO */
 
 .lin {
     margin: 1% 2% 1% 2%;

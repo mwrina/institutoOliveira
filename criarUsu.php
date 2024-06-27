@@ -1,3 +1,16 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if ($_SESSION['tipoUsuario'] !== 'adm') {
+    header('Location: adm.php?alert=1');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

@@ -1,6 +1,15 @@
 <?php
     include("bd/connect.php");
 
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    if ($_SESSION['tipoUsuario'] !== 'adm') {
+        header('Location: adm.php?alert=1');
+        exit();
+    }
+
     if(isset($_GET['editIdUsu'])) {
         $id = $_GET['editIdUsu'];
 
@@ -58,7 +67,7 @@
                 </div>
                 <div class="lin">
                     <label for="nome">Senha:</label> <br>
-                    <input type="text" id="senha" name="senha" value="<?= $usuario['senha']; ?>">
+                    <input type="text" id="senha" name="senha">
                 </div>
                 <div class="lin">
                     <label for="nome">Confirmar senha:</label> <br>
