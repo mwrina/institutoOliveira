@@ -292,6 +292,7 @@ body {
 }
 
 #projTit {
+    font-family: "Fira Sans Condensed";
     width: 100%;
     font-size: 18px;
     font-weight: 700;
@@ -299,6 +300,7 @@ body {
 }
 
 #projDesc {
+    font-family: "Fira Sans Condensed";
     width: 100%;
     height: 30%;
     font-size: 16px;
@@ -409,7 +411,14 @@ body {
     display: flex;
     justify-content: space-evenly;
     vertical-align: center;
+    width: 100%;
+    height: 40%;
     padding: 10% 0 10% 0;
+}
+
+.depTit {
+    width: 25%;
+    height: 100%;
 }
 
 #depTit {
@@ -426,6 +435,9 @@ body {
 }
 
 .depDiv {
+    box-sizing: border-box;
+    width: 25%;
+    height: 250px;
     border-bottom: 1px solid #33E46D;
 }
 
@@ -435,13 +447,15 @@ body {
 }
 
 #depImg {
-    width: 40%;
+    width: 30%;
     height: 100%;
      /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
      box-shadow: 5px 5px 0px 0px #33E46D;
 }
 
 .depTxt {
+    width: 100%;
+    height: 100%;
     margin: 0 5% 0 5%;
 }
 
@@ -462,6 +476,12 @@ body {
 #depIcon {
     width: 20%;
     height: 100%;
+}
+
+#depoimento {
+    box-sizing: border-box;
+    overflow-y: hidden;
+    width: 100%;
 }
 
 /* ================================================================= */
@@ -528,17 +548,23 @@ body {
 
 #blogImg {
     width: 100%;
+    height: 200px;
+    overflow-y: hidden;
     /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
     box-shadow: 7px 7px 0px 0px #33E46D;
 }
 
 #blogNome {
-    font-size: 20px;
-    font-weight: 700;
+    font-family: "Fira Sans Condensed";
+    font-size: 18px;
+    font-weight: 500;
     margin: 5% 0 0 0;
+    width: 100%;
 }
 
 #blogTxt {
-    font-size: 16px;
+    font-family: "Fira Sans Condensed";
+    font-size: 14px;
     font-weight: 400;
+    width: 100%;
 }

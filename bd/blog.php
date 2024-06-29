@@ -34,6 +34,17 @@ function buscar4Blogs($conn) {
     return $blogs;
 }
 
+function buscarBlogPorId($conn, $id) {
+    $sql = "SELECT * FROM blogs WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $blog = mysqli_fetch_assoc($result);
+
+    return $blog;
+}
+
 function criarBlog($conn) {
     if (!empty($_POST['titulo']) && !empty($_POST['breveDesc']) && !empty($_POST['texto']) && !empty($_FILES['img']['name'])) {
         $titulo = $_POST['titulo'];
@@ -48,7 +59,7 @@ function criarBlog($conn) {
         $file_type = mime_content_type($tempname);
 
         if (!in_array($file_type, $allowed_types)) {
-            echo "Tipo de arquivo não permitido. Apenas JPEG e PNG são permitidos.";
+            header("Location: criarBlog.php?alert=3");
             return;
         }
 
@@ -63,15 +74,15 @@ function criarBlog($conn) {
             if (move_uploaded_file($tempname, '../'.$folder)) {
                 header("Location: ../admBlog.php");
             } else {
-                echo "Erro ao mover o arquivo para a pasta de destino.";
+                header("Location: criarBlog.php?alert=4");
             }
         } else {
-            echo "Erro ao inserir no banco de dados: " . mysqli_error($conn);
+            header("Location: criarBlog.php?alert=5");
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "Por favor, preencha todos os campos.";
+        header("Location: criarBlog.php?alert=1");
     }
 }
 
@@ -79,7 +90,7 @@ function editarBlog($conn) {
     if (isset($_POST['editIdBlog'])) {
         $id = $_POST['editIdBlog'];
 
-        if (!empty($_POST['titulo']) && !empty($_POST['breveDesc']) && !empty($_POST['texto']) && !empty($_FILES['img']['name'])) {
+        if (!empty($_POST['titulo']) && !empty($_POST['breveDesc']) && !empty($_POST['texto'])) {
             $titulo = $_POST['titulo'];
             $breveDesc = $_POST['breveDesc'];
             $texto = $_POST['texto'];
@@ -108,7 +119,7 @@ function editarBlog($conn) {
                 $file_type = mime_content_type($tempname);
         
                 if (!in_array($file_type, $allowed_types)) {
-                    echo "Tipo de arquivo não permitido. Apenas JPEG e PNG são permitidos.";
+                    header("Location: criarBlog.php?alert=3");
                     return;
                 }
 
@@ -128,15 +139,15 @@ function editarBlog($conn) {
             if (mysqli_stmt_execute($stmt)) {
                 header("Location: ../admBlog.php");
             } else {
-                echo "Erro ao atualizar o post do Blog: " . mysqli_error($conn);
+                header("Location: criarBlog.php?alert=4");
             }
 
             mysqli_stmt_close($stmt);
         } else {
-            echo "Por favor, preencha todos os campos obrigatórios.";
+            header("Location: criarBlog.php?alert=2");
         }
     } else {
-        echo "ID do blog não especificado.";
+        header("Location: criarBlog.php?alert=1");
     }
 }
 

@@ -196,52 +196,43 @@
 
     </div>
 
+    <?php 
+        include("bd/deps.php");
+        $depoimentos = buscarDepsExibidos($conn);
+        if(!empty($depoimentos)): 
+    ?>
+
     <div class="depoimentos">
         <div class="depTit">
             <h1 id="depTit">Depoimentos</h1>
-            <p id="depDesc">Lorem ipsum dolor sit amet, consectetur adipiscing <br>
-             elit. Donec id cursus neque, malesuada consectetur <br>
-             lectus. Quisque nulla tortor, consectetur a urna a, <br>
-             congue cursus enim. </p>
+            <p id="depDesc">Alguns depoimentos dados por pessoas envolvidas com o Instituto.</p>
         </div>
+
+        <?php
+            foreach($depoimentos as $depoimento):
+        ?>
 
         <div class="depDiv">
 
             <div class="depLin1">
-                <img id="depImg" src="imgs/mariaRamos.png">
+                <img id="depImg" src="<?= $depoimento['img'] ?>">
                 <div class="depTxt">
-                    <p id="depNome">Maria Ramos</p>
-                    <p id="depOcupacao">Financeiro</p>
+                    <p id="depNome"><?= $depoimento['nome'] ?></p>
+                    <p id="depOcupacao"><?= $depoimento['ocupacao'] ?></p>
                 </div>
                 <img id="depIcon" src="imgs/icons/depIcon.png">
             </div>
 
-            <p>Lorem ipsum dolor sit amet, consectetur <br>
-            adipiscing elit. Donec id cursus neque, malesuada <br>
-            consectetur lectus. Quisque nulla tortor, <br>
-            consectetur a urna a, congue cursus enim. </p>
+            <p id="depoimento"><?= $depoimento['depoimento'] ?></p>
 
         </div>
 
-        <div class="depDiv">
-            
-            <div class="depLin1">
-                <img id="depImg" src="imgs/beatrizSchmidt.png">
-                <dep class="depTxt">
-                    <p id="depNome">Beatriz Schmidt</p>
-                    <p id="depOcupacao">Estudante</p>   
-                </dep>
-                <img id="depIcon" src="imgs/icons/depIcon.png">
-            </div>
+    <?php
+            endforeach;
+        endif;
+    ?>
 
-            <p>Lorem ipsum dolor sit amet, consectetur <br>
-            adipiscing elit. Donec id cursus neque, malesuada <br>
-            consectetur lectus. Quisque nulla tortor, <br>
-            consectetur a urna a, congue cursus enim. </p>
-
-        </div>
-
-    </div>
+</div>
 
     <div class="blog">
 
@@ -264,7 +255,7 @@
             <div class="blogDiv">
                 <button type="button" class="blogBtn" data-blog-id="<?= htmlspecialchars($blog['id']) ?>">
                     <div class="blogImgs">
-                        <img id="blogImg" src="<?= $blog['img'] ?>" alt="Criança com câncer usando um lenço na cabeça e abraçando sua mãe. Ambas sorrindo.">
+                        <img id="blogImg" src="<?= $blog['img'] ?>">
                         <img id="coracaoBlog" src="imgs/icons/coracao.png">
                     </div>
                     <p id="blogNome"><?= $blog['titulo'] ?></p>

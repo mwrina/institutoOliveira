@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
     <link rel="stylesheet" href="style/admDep.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="stylesheet" href="style/containerAdm.css">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
 <body>
@@ -46,15 +47,22 @@
                         </div>
                         
                         <div class="crudBtns">
-                            <button onclick="editarDepoimento(<?= $depoimento['id_dep']; ?>)" class="crudBtn" id="editar">Editar Usuário</button>
+                            <button onclick="editarDepoimento(<?= $depoimento['id_dep']; ?>)" class="crudBtn" id="editar">Editar Depoimento</button>
                             
-                            <button onclick="confirmaExclusao(<?= $depoimento['id_dep']; ?>)" class="crudBtn" id="apagar">Apagar Usuário</button>
+                            <button onclick="confirmaExclusao(<?= $depoimento['id_dep']; ?>)" class="crudBtn" id="apagar">Apagar Depoimento</button>
                         </div>
 
                     </span>
                     <span class="col2">
                         <p id="exibirTxt">Exibir?</p>
-                        <input type="checkbox" name="exibir" id="chkExibir<?= $depoimento['id']; ?>" onchange="alterarExibicao(<?= $depoimento['id_dep']; ?>, this.checked)"></input>
+                        <input 
+                            type="checkbox" 
+                            name="exibir" 
+                            class="chkExibir"
+                            id="chkExibir<?= $depoimento['id_dep']; ?>" 
+                            onchange="alterarExibicao(<?= $depoimento['id_dep']; ?>, this.checked)"
+                            <?= $depoimento['mostrarIndex'] == 1 ? 'checked' : '' ?>
+                        ></input>
                     </span>
                 </div>
 
@@ -73,56 +81,70 @@
     </main>
     
     <script>
-        
+
         function editarDepoimento(id) {
-            if (confirm("Tem certeza de que deseja editar este usuário?")) {
-                window.location.href = "editarDep.php?editIdUsu=" + id;
+            if (confirm("Tem certeza de que deseja editar este depoimento?")) {
+                window.location.href = "editarDep.php?editIdDep=" + id;
             }
         }
 
         function confirmaExclusao(id) {
-            if (confirm("Tem certeza de que deseja apagar este usuário?")) {
-
-                if(<?php echo $qtdUsu; ?> > 1) {
-                    var xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState == XMLHttpRequest.DONE) {
-                            if (xhr.status == 200) {
-                                console.log("Usuário excluído com sucesso.");
-                                location.reload();
-                            } else {
-                                console.error('Ocorreu um erro na solicitação.');
-                            }
+            if (confirm("Tem certeza de que deseja apagar este depoimento?")) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == XMLHttpRequest.DONE) {
+                        if (xhr.status == 200) {
+                            console.log("depoimento excluído com sucesso.");
+                            location.reload();
+                        } else {
+                            console.error('Ocorreu um erro na solicitação.');
                         }
-                    };
-                    xhr.open('POST', 'bd/usu.php', true);
-                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    xhr.send('deleteIdUsu=' + id);
-                } else {
-                    // Mostra um alerta específico se houver apenas um usuário cadastrado
-                    alert("Impossível realizar exclusão. Só há um usuário cadastrado, se ele for eliminado não será possível fazer login no sistema posteriormente.");
-                }
+                    }
+                };
+                xhr.open('POST', 'bd/deps.php', true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.send('deleteIdDep=' + id);
             }
         }
 
         function alterarExibicao(id, isChecked) {
+
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == XMLHttpRequest.DONE) {
+                    console.log('xhr.status:', xhr.status);
                     if (xhr.status == 200) {
                         console.log("Estado de exibição atualizado com sucesso.");
+                        var checkbox = document.getElementById('chkExibir' + id);
+                        checkbox.checked = isChecked;
                     } else {
-                        console.error('Ocorreu um erro na solicitação.');
+                        console.error('Ocorreu um erro na solicitação: ' + xhr.responseText);
+                        alert('Erro ao atualizar o estado de exibição: ' + xhr.responseText);
+                        location.reload();
                     }
                 }
             };
 
             xhr.open('POST', 'bd/deps.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.send('idDep=' + id + '&mostrarIndex=' + (isChecked ? 's' : 'n'));
+            xhr.send('idDep=' + id + '&mostrarIndex=' + (isChecked ? '1' : '0'));
         }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('alert')) {
+            const alertValue = params.get('alert');
+            switch (alertValue) {
+                case '1':
+                    alert("Você só pode ter 2 depoimentos exibidos na página inicial.");
+                    break;
+            }
+            window.history.replaceState(null, null, window.location.pathname);
+        }
+    });
 
         
     </script>
 
 </body>
+</html>

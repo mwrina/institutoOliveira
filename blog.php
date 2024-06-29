@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="style/topoPgs.css">
     <link rel="stylesheet" href="style/blogs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Sobre o Instituto - Instituto Oliveira</title>
     <link rel="shortcut icon" href="ico/logo.ico" type="image/x-icon">
 </head>

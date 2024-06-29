@@ -5,7 +5,15 @@ session_start();
 $email = $_POST['email'] ?? '';
 $senha = $_POST['senha'] ?? '';
 
+function deleteExpiredTokens($conn) {
+    $sql = "DELETE FROM user_tokens WHERE expires_at < NOW()";
+    mysqli_query($conn, $sql);
+}
+
 if (!empty($email) && !empty($senha)) {
+
+    deleteExpiredTokens($conn);
+
     $sql = "SELECT * FROM usuarios WHERE email = ? LIMIT 1";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -27,7 +35,7 @@ if (!empty($email) && !empty($senha)) {
 
             // Gerar token
             $token = bin2hex(random_bytes(32));
-            $expires_at = date('Y-m-d H:i:s', strtotime('+1 hour')); // Expira em 1 hora
+            $expires_at = date('Y-m-d H:i:s', strtotime('+1 hours')); // Expira em 2 horas
 
             // Inserir token na tabela de tokens
             $sql_token = "INSERT INTO user_tokens (user_id, token, expires_at) VALUES (?, ?, ?)";

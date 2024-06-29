@@ -18,7 +18,7 @@ if ($_SESSION['tipoUsuario'] !== 'adm') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
     <link rel="stylesheet" href="style/criarUsu.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
 <body>

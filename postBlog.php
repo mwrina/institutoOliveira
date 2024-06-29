@@ -1,47 +1,18 @@
 <?php
     include("bd/connect.php");
-    include("bd/proj.php");
+    include("bd/blog.php");
 
     // Inicia o buffer de saída
     ob_start();
 
     if (isset($_GET['blogId'])) {
-        $idBlog = intval($_GET['blogId']);
-
-
-        $sql = "SELECT dataCriacao, titulo, breveDesc, texto, img FROM blogs WHERE id = ?";
-        
-        $stmt = mysqli_prepare($conn, $sql);
-        if (!$stmt) {
-            echo "Erro ao preparar a consulta: " . mysqli_error($conn) . "<br>";
-            exit();
-        }
-
-        mysqli_stmt_bind_param($stmt, "i", $idBlog);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                $blog = mysqli_fetch_assoc($result);
-            } else {
-                ob_end_flush();
-                header("Location: blog.php");
-                exit();
-            }
-        } else {
-            echo "Erro ao buscar o projeto: " . mysqli_error($conn) . "<br>";
-        }
-
-        mysqli_stmt_close($stmt);
+        $id = intval($_GET['blogId']);
     } else {
-        ob_end_flush();
-        header("Location: blog.php");
+        header("Location: admBlog.php");
         exit();
     }
 
-    // Envia os dados do buffer de saída
-    ob_end_flush();
+    $blog = buscarBlogPorId($conn, $id);
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +25,8 @@
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
-    <title>Projetos - Instituto Oliveira</title>
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
+    <title>Blog - Instituto Oliveira</title>
 </head>
 
 <body>
@@ -101,8 +72,8 @@
 
         <div class="imgTxt">
 
-            <div class="imgProj">
-                <img id="imgProj" src="<?= $blog['img'] ?>">
+            <div class="img">
+                <img id="img" src="<?= $blog['img'] ?>">
             </div>
 
             <div class="txt">
@@ -112,7 +83,7 @@
         </div>
 
         <div class="botaoVoltarContainer">
-            <button class="voltar">
+            <button type="button" class="voltar">
                 <i class="material-icons" id="voltarIcon">arrow_back_ios</i>
                 <p id="btnTxt">Voltar</p>
             </button>
@@ -123,3 +94,13 @@
     <?php
         include('footer.php');
     ?>
+
+</body>
+
+<script>
+    document.querySelector(".voltar").addEventListener('click', () => {
+        window.location.href = "blog.php";
+    })
+</script>
+
+</html>

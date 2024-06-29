@@ -30,7 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
     <link rel="stylesheet" href="style/editarProj.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
 <body>
@@ -74,7 +74,7 @@
 
                             <input type="file" name="img01" id="inserirImg01">
                             <button type="button" id="btnImg01">
-                                <img src="imgs/icons/imgIcon.png" id="imgBtn">
+                                <img src="<?= !empty($projeto['img01']) ? $projeto['img01'] : "imgs/icons/imgIcon.png" ?>" id="imgBtn">
                             </button>
                         </div>
 
@@ -92,7 +92,7 @@
 
                             <input type="file" name="img02" id="inserirImg02">
                             <button type="button" id="btnImg02">
-                                <img src="imgs/icons/imgIcon.png" id="imgBtn">
+                            <img src="<?= !empty($projeto['img02']) ? $projeto['img02'] : "imgs/icons/imgIcon.png" ?>" id="imgBtn">
                             </button>
                         </div>
 

@@ -25,7 +25,7 @@ if (isset($_GET['editIdSecao'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
     <link rel="stylesheet" href="style/criarSobre.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
 <body>
@@ -67,17 +67,17 @@ if (isset($_GET['editIdSecao'])) {
                             <div class="col">
                                 <div class="linTit">
                                     <label for="titulo01">Titulo da primeira seção *: </label>
-                                    <input type="text" id="titulo01" name="titulo01" value="<?= $secao['titulo01'] ?>">
+                                    <input type="text" id="titulo01" name="titulo01" value="<?= $secao['titulo01'] ?>" required>
                                 </div>
                                 <div class="linTxt">
                                     <label for="texto01">Texto da primeira seção *: </label>
-                                    <textarea id="texto01" name="texto01"><?= str_replace(["<br>", "<br/>", "<br />"], "\n", htmlspecialchars_decode($secao['texto01'])); ?></textarea>                                </div>
+                                    <textarea id="texto01" name="texto01" required><?= str_replace(["<br>", "<br/>", "<br />"], "\n", htmlspecialchars_decode($secao['texto01'])); ?></textarea>                                </div>
                             </div>
                             <div class="col">
                                 <label for="inserirImg">Escolha uma imagem:</label>
                                 <input type="file" name="img" id="inserirImg">
                                 <button type="button" id="btnImg">
-                                    <img src="<?= $secao['img'] ?>" id="imgBtn">
+                                <img src="<?= !empty($secao['img']) ? $secao['img'] : "imgs/icons/imgIcon.png" ?>" id="imgBtn">
                                 </button>
                             </div>
                         </div>

@@ -1,25 +1,14 @@
 <?php
-    include("bd/connect.php");
+    include("bd/blog.php");
 
     if (isset($_GET['editIdBlog'])) {
         $id = $_GET['editIdBlog'];
-    
-        $sql = "SELECT titulo, breveDesc, texto FROM blogs WHERE id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    
-        if ($result && $result->num_rows > 0) {
-            $blog = $result->fetch_assoc();
-        } else {
-            header("Location: admBlog.php");
-            exit();
-        }
     } else {
         header("Location: admBlog.php");
-        exit();
+        exit;
     }
+
+    $blog = buscarBlogPorId($conn, $id);
     
 ?>
     
@@ -30,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/sidebar.css">
     <link rel="stylesheet" href="style/criarBlog.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Instituto Oliveira - Administração</title>
 </head>
 <body>
@@ -56,16 +45,14 @@
                             </div>
                             <div class="linBDesc">
                                 <label for="breveDesc">Descrição breve do post:</label><br>
-                                <textarea name="breveDesc" id="breveDesc" required><?=
-                                    str_replace('<br />', "\n", htmlspecialchars_decode($blog['breveDesc'], ENT_QUOTES))
-                                ?></textarea>
+                                <textarea name="breveDesc" id="breveDesc" required><?= str_replace('<br />', "\n", htmlspecialchars_decode($blog['breveDesc'], ENT_QUOTES)); ?></textarea>
                             </div>
                         </div>
                         <div class="formCol">
                             <label for="inserirImg">Escolha uma imagem:</label>
-                            <input type="file" name="img" id="inserirImg" required>
+                            <input type="file" name="img" id="inserirImg">
                             <button type="button" id="btnImg">
-                                <img src="imgs/icons/imgIcon.png" id="imgBtn">
+                                <img src="<?= !empty($blog['img']) ? $blog['img'] : "imgs/icons/imgIcon.png" ?>" id="imgBtn">
                             </button>
                         </div>
                     </div>  

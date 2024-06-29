@@ -15,8 +15,8 @@ if(!isset($_SESSION['redessociais'])){
 <div class="preFooter">
     <img id="logoPreFooter" src="imgs/icons/logoCompletaBranca.png">
     <div class="VenhaFazerSuaParte">
-        <h1 id="preFooterTxt">Venha fazer sua</h1>
-        <h1 id="preFooterTxtDestacado">parte</h1>
+        <h1 id="preFooterTxt">Venha </h1>
+        <h1 id="preFooterTxtDestacado">participar</h1>
     </div>
     <p>Acreditamos na transformação e evolução das pessoas, porque as elas não são
         definidas pela enfermidade ou pelas dificuldades que estão enfrentando. O nosso olhar
@@ -77,7 +77,7 @@ if(!isset($_SESSION['redessociais'])){
         <div class="footerDiv">
             <h1 id="footerTit">Faça sua parte</h1>
             <a id="link" href="https://api.whatsapp.com/send?1=pt_BR&phone=554799605023">Quero ajudar</a> <br>
-            <a id="link" href="https://api.whatsapp.com/send?1=pt_BR&phone=554799605023">Seja um voluntário</a>
+            <a id="link" href="https://api.whatsapp.com/send?1=pt_BR&phone=554799605023">Clique aqui e seja um voluntário</a>
         </div>
 
     </div>
