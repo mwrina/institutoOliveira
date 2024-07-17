@@ -1,0 +1,88 @@
+/* CONFIGS GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Fira Sans Condensed";
+}
+
+/* ================================================================= */
+
+/* PÁGINA */
+
+.blogDivTxtImg {
+    width: 100%;
+    margin: 7% 0 5% 0;
+}
+
+.divTxtImg {
+    display: flex;
+    justify-content: left;
+    margin: 7%;
+    width: 90%;
+    height: 10%;
+}
+
+.img {
+    width: 30%;
+    height: 100%;
+}
+
+#img {
+    width: 100%;
+    height: 100%;
+    /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+    box-shadow: 7px 7px 0px 0px #33E46D;
+    padding: 0;
+}
+
+.txtBlog {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 0 0 5%;
+}
+
+#blogTit {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 0 1% 0;
+}
+
+#criadoEm {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 24px;
+}
+
+#blogDesc {
+    font-size: 16px;
+    margin: 2% 0 2% 0;
+    line-height: 20px;
+}
+
+.blogBtn {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 20%;
+    font-family: "Fira Sans Condensed";
+    font-weight: 600;
+    background-color: #33E46D;
+    color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+}
+
+.txtBtn {
+    margin: 5% 0 0 0;
+}
+
+#saibaMaisIcon {
+    padding: 3.5% 0 0 7%;
+    font-size: 20px;
+}

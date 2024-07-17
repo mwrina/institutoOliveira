@@ -1,0 +1,216 @@
+/* CONFIGS GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Fira Sans Condensed";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #FFF5EA;
+}
+
+main {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    background-image: url("../imgs/icons/logoBranca.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45% 60%;
+}
+
+.containerPaginaAdm {
+    box-sizing: border-box;
+    margin: 3% 0 0 0;
+    padding: 3%;
+    height: 90%;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#containerTit {
+    font-size: 26px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.form {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow-y: auto;
+    margin: 3% 5% 5% 5%;
+    padding: 3%;
+    height: 85%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: rgb(217,217,217, 0.8);
+}
+
+.formInputs {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* =================================================== */
+/* CRIAR PROJETO */
+
+.formCols {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 80%;
+    margin: 0;
+}
+
+.formCol {
+    width: 45%;
+    height: 100%;
+    line-height: 35px;
+}
+
+.linNome {
+    margin: 2% 0 2% 0;
+    width: 100%;
+    height: 20%;
+}
+
+.linBDesc {
+    margin: 2% 0 2% 0;
+    width: 100%;
+    height: 70%;
+}
+
+.formCol label {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+#nome {
+    font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    height: 30%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+#breveDesc {
+    font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    text-align: left;
+    overflow-y: scroll;
+    width: 100%;
+    height: 80%;
+    padding: 1%;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+#inserirImg01 {
+    display: none;
+}
+
+#btnImg01 {
+    border: none;
+    background-color: rgb(217,217,217, 0);
+}
+
+#imgBtn01 {
+    width: 100%;
+    height: 100%;
+}
+
+.lin {
+    width: 100%;
+    height: 50%;
+    line-height: 35px;
+}
+
+.lin label {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+#secao01 {
+    font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    text-align: left;
+    overflow-y: scroll;
+    width: 100%;
+    height: 85%;
+    padding: 1%;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+.formCols2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 80%;
+    margin: 7% 0 0 0;
+}
+
+#inserirImg02 {
+    display: none;
+}
+
+#btnImg02 {
+    border: none;
+    background-color: rgb(217,217,217, 0);
+}
+
+#imgBtn02 {
+    width: 100%;
+    height: 100%;
+}
+
+#secao02 {
+    font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    text-align: left;
+    overflow-y: scroll;
+    width: 100%;
+    height: 80%;
+    padding: 1%;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
+}
+
+.btn {
+    padding: 2% 0 5% 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+#submitBtn {
+    background-color: #33E46D;
+    font-family: 'Fira Sans Condensed';
+    color: #FFFFFF;
+    border: 0;
+    margin: 0;
+    width: 40%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    position:relative;
+}

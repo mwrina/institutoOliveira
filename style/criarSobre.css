@@ -1,0 +1,221 @@
+/* CONFIGS GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Fira Sans Condensed";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #FFF5EA;
+}
+
+main {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    background-image: url("../imgs/icons/logoBranca.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45% 60%;
+}
+
+.containerPaginaAdm {
+    box-sizing: border-box;
+    margin: 3% 0 0 0;
+    padding: 3%;
+    height: 90%;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#containerTit {
+    font-size: 26px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.form {
+    box-sizing: border-box;
+    align-items: center;
+    overflow-y: auto;
+    margin: 3% 5% 5% 5%;
+    padding: 3%;
+    height: 85%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: rgb(217,217,217, 0.8);
+}
+
+.formInputs {
+    width: 100%;
+    height: 200%;
+    display: flex;
+    flex-direction: column;
+}
+
+.formInputs label {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 2% 0 2% 0;
+}
+
+/* =================================================== */
+/* CRIAR SEÇÃO */
+
+.tipoOrdem {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.colTipoOrdem {
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+}
+
+#select {
+    width: 100%;
+    height: 40%;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+.txt01Img {
+    width: 100%;
+    height: 40%;
+}
+
+.cols {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col {
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.linTit {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#titulo01 {
+    font-family: 'Fira Sans Condensed';
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.linTxt {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+#texto01 {
+    font-family: 'Fira Sans Condensed';
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#inserirImg {
+    display: none;
+}
+
+#btnImg {
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+}
+
+#imgBtn {
+    width: 100%;
+    height: 100%;
+}
+
+
+.lins {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0 0 0;
+    width: 100%;
+    height: 45%;
+}
+
+.linTit02 {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#titulo02 {
+    font-family: 'Fira Sans Condensed';
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.linTxt02 {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+#texto02 {
+    font-family: 'Fira Sans Condensed';
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+
+#submitBtn {
+    background-color: #33E46D;
+    font-family: 'Fira Sans Condensed';
+    color: #FFFFFF;
+    border: 0;
+    margin: 0;
+    width: 40%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 500;
+}
+

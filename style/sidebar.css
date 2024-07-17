@@ -1,0 +1,123 @@
+.sidebar-container a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-container a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-container a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-container a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar-container {
+    background-color: #000000;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 20%;
+    color: #FFFFFF;
+    font-family: "Fira Sans Condensed";
+}
+
+.sidebarLogo {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 15% 0 10% 0;
+}
+
+#logo {
+    width: 20%;
+    height: 50%;
+}
+
+#logoTxt {
+    width: 50%;
+    height: 50%;
+}
+
+.sidebarContent {
+    width: 100%;
+    height: 60%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.collapsible {
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+    border: none;
+    padding: 18px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.collapsible:after {
+    content: '\1F782';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+  
+.active:after {
+    content: '\1F783';
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #000000;
+    line-height: 35px;
+    font-size: 16px;
+}
+
+.logout-container {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    bottom: 10%;
+    margin: 0 25% 0 25%;
+    width: 50%;
+    height: 5%;
+}
+
+#logout {
+    background-color: #33E46D;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.usuLogado {
+    display: inline-flex;
+    position: fixed;
+    bottom: 0;
+    padding: 0 0 10px 10px;
+}
+
+#usuLogadoIcon {
+    height: 20px;
+    width: 20px;
+}
+
+#usuLogadoTxt {
+    margin: 0 0 0 10px;
+}

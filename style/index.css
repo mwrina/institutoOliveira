@@ -1,0 +1,570 @@
+/* CONFIGS GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    font-family: "Fira Sans Condensed";
+}
+
+/* ================================================================= */
+/* TOPO DA TELA */
+
+.top {
+    background-color: #FFF5EA;
+    display: flex;  
+    justify-content: space-between;
+    width: 100%;
+    height: 450px;
+    /* topo direita inferior esquerda */
+    margin: 0;
+    padding: 0;
+}
+
+.topEsq {
+    width: 35%;
+    margin: 0;
+}
+
+#quadradosEsq {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.topCentro {
+    width: 45%;
+    height: 100%;
+    padding: 12% 0 0 10%;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+}
+
+.topSlogan01 {
+    display: flex;
+    align-content: flex-end;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 17%;
+}
+
+#topCuidar {
+    font-family: "Chilanka";
+    color:#33E46D;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+#topCuidarImg {
+    margin: 10% 0 0 5%;
+    width: 25%;
+    height: 60%;
+}
+
+.topSlogan02 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 17%;
+}
+
+#topEAlemDa {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+#topCura {
+    font-family: "Chilanka";
+    color:#33E46D;
+    font-weight: 400;
+    font-size: 37px;
+    margin: 10% 0 0 5%;
+}
+
+.topDir {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+}
+
+#quadradosDir {
+    width: 100%;
+    height: 50%;
+}
+
+
+
+
+/* ================================================================= */
+/* BREVE DESCRIÇÃO DO INSTITUTO */
+
+.breveDesc {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.breveDesc p {
+    font-size: 16px;
+}
+
+#breveDescLogo {
+    width: 50px;
+    height: 50px;
+}
+
+/* ================================================================= */
+/* SOBRE O INSTITUTO */
+
+.sobre {
+    width: 90%;
+    margin: 5%;
+}
+
+.sobreGeral {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.sobreTxt {
+    width: 50%;
+}
+
+.sobreTit {
+    display: flex;
+    margin-bottom: -1%;
+}
+
+#sobreTitDestacado {
+    font-size: 35px;
+    font-family: "Chilanka";
+    color: #33E46D;
+    font-weight: 500;
+    padding-top: 7px;
+}
+
+#sobreTit {
+    margin-left: 10px;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+
+#sobreImg {
+    width: 45%;
+    /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+    box-shadow: 10px 10px 0px 0px #33E46D;
+    margin-top: 2%;
+}
+
+/* ================================================================= */
+/* NÚMEROS DO INSTITUTO */
+
+.nums {
+    width: 100%;
+    background-color: #33E46D;
+}
+
+.numsTit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#numsTitDestacado {
+    font-size: 35px;
+    font-family: "Chilanka";
+    color: #FFFFFF;
+    font-weight: 500;
+    padding-top: 0.5%;
+    margin-right: 1%;
+}
+
+#numsTit {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.numsDivs {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 100%;
+    padding: 2% 10% 7% 10%;
+}
+
+.numDiv {
+    box-sizing: border-box;
+    width: 22%;
+    height: 50%;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+}
+
+#num {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-size: 100px;
+    font-weight: 800;
+}
+
+#descNum {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 0;
+    margin: 0;
+}
+
+#numInfinito {
+    align-self: baseline;
+    width: 68%;
+}
+
+
+/* ================================================================= */
+/* NOSSOS PROJETOS */
+
+.projetos {
+    width: 100%;
+    /* topo direita inferior esquerda */
+    margin: 3% 0 7% 0;
+}
+
+.projetosTit {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 5%;
+}
+
+#projetosTitDestacado {
+    font-size: 35px;
+    font-family: "Chilanka";
+    color: #33E46D;
+    font-weight: 500;
+    padding-top: 0.5%;
+    margin-left: 1%;
+}
+
+#projetosTit {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.projDivs {
+    width: 100%;
+    display: flex;
+    overflow-y: hidden;
+}
+
+.projBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.projDiv {
+    width: 20%;
+    height: 70%;
+    flex: 0 0 auto;
+    margin: 0 2.5% 1% 2.5%; 
+    text-align: center;
+}
+
+#projImg {
+    width: 100%;
+    height: 50%;
+    /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+    box-shadow: 7px 7px 0px 0px #33E46D;
+}
+
+#projTit {
+    font-family: "Fira Sans Condensed";
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+#projDesc {
+    font-family: "Fira Sans Condensed";
+    width: 100%;
+    height: 30%;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: normal;
+}
+
+/* ================================================================= */
+/* CUIDAR É ALÉM DA CURA -- PRECISA ARRUMAR AS LINHAS COLORIDAS*/
+
+.cuidarAlemDaCura {
+    text-align: center;
+    width: 100%;
+    /* topo direita inferior esquerda */
+    padding: 5% 0 5% 0;
+    margin: 0;
+    border-top: 5px solid;
+    border-bottom: 5px solid;
+    background-color: #FFF5EA;
+    /* FF3.6+ */
+    border-image: -moz-linear-gradient(left, #F43779 0%, #F43779 20%,
+                #33E46D 20%, #33E46D 20%, #33E46D 40%,
+                #00B1FF 40%, #00B1FF 40%,
+                #33E46D 40%,
+                #00B1FF 40%, #00B1FF 40%, #00B1FF 60%,
+                #FF9439 60%, #FF9439 80%,
+                #F43779 80%, #F43779 80%, #F43779 100%);
+/* Chrome,Safari4+ */
+    border-image: -webkit-gradient(linear, left top, right top, color-stop(0%,#F43779), color-stop(20%,#F43779),
+                    color-stop(20%,#33E46D), color-stop(20%,#33E46D), color-stop(40%,#33E46D),
+                    color-stop(40%,#00B1FF), color-stop(40%,#00B1FF), 
+                    color-stop(40%,#33E46D), 
+                    color-stop(40%,#00B1FF), color-stop(40%,#00B1FF), color-stop(60%,#00B1FF),
+                    color-stop(60%,#FF9439), color-stop(80%,#FF9439),
+                    color-stop(80%,#F43779), color-stop(80%,#F43779), color-stop(100%,#F43779)) 1 stretch repeat;
+    /* Chrome10+,Safari5.1+ */
+    border-image: -webkit-linear-gradient(left, #F43779 0%,#F43779 20%,
+                #33E46D 20%,#33E46D 20%,#33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,
+                #33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,#00B1FF 60%,
+                #FF9439 60%,#FF9439 80%,
+                #F43779 80%,#F43779 80%,#F43779 100%) 1 stretch repeat; 
+    /* Opera 11.10+ */                                            
+    border-image: -o-linear-gradient(left, #F43779 0%,#F43779 20%,
+                #33E46D 20%,#33E46D 20%,#33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,
+                #33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,#00B1FF 60%,
+                #FF9439 60%,#FF9439 80%,
+                #F43779 80%,#F43779 80%,#F43779 100%) 1 stretch repeat;
+    /* IE10+ */
+    border-image: -ms-linear-gradient(left, #F43779 0%,#F43779 20%,
+                #33E46D 20%,#33E46D 20%,#33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,
+                #33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,#00B1FF 60%,
+                #FF9439 60%,#FF9439 80%,
+                #F43779 80%,#F43779 80%,#F43779 100%) 1 stretch repeat;
+    /* W3C */
+    border-image: linear-gradient(to right, #F43779 0%,#F43779 20%,
+                #33E46D 20%,#33E46D 20%,#33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,
+                #33E46D 40%,
+                #00B1FF 40%,#00B1FF 40%,#00B1FF 60%,
+                #FF9439 60%,#FF9439 80%,    
+                #F43779 80%,#F43779 80%,#F43779 100%) 1 stretch repeat;
+}
+
+.cuidarTit {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#cuidar {
+    font-size: 40px;
+    font-family: "Chilanka";
+    color: #33E46D;
+    font-weight: 500;
+    margin: 0.5% 0 0 0;
+}
+
+#eAlemDa {
+    font-size: 40px;
+    font-weight: 500;
+    /* topo direita inferior esquerda */
+    margin: 0 1% 0 1%;
+}
+
+#cura {
+    font-size: 40px;
+    font-family: "Chilanka";
+    color: #33E46D;
+    font-weight: 500;
+    margin: 0.5% 0 0 0;
+}
+
+#slogan {
+    font-weight: 400;
+    margin-bottom: 3%;
+}
+
+/* ================================================================= */
+/* DEPOIMENTOS */
+
+.depoimentos {
+    display: flex;
+    justify-content: space-evenly;
+    vertical-align: center;
+    width: 100%;
+    height: 40%;
+    padding: 10% 0 10% 0;
+}
+
+.depTit {
+    width: 25%;
+    height: 100%;
+}
+
+#depTit {
+    font-size: 35px;
+    font-family: "Chilanka";
+    color: #33E46D;
+    font-weight: 500;
+    margin: 0;
+}
+
+#depDesc {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.depDiv {
+    box-sizing: border-box;
+    width: 25%;
+    height: 250px;
+    border-bottom: 1px solid #33E46D;
+}
+
+.depLin1 {
+    display: flex;
+    justify-content: left;
+}
+
+#depImg {
+    width: 30%;
+    height: 100%;
+     /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+     box-shadow: 5px 5px 0px 0px #33E46D;
+}
+
+.depTxt {
+    width: 100%;
+    height: 100%;
+    margin: 0 5% 0 5%;
+}
+
+#depNome {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+#depOcupacao {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 10% 0 0 0;
+    padding: 0;
+}
+
+#depIcon {
+    width: 20%;
+    height: 100%;
+}
+
+#depoimento {
+    box-sizing: border-box;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+/* ================================================================= */
+/* BLOG */
+
+.blog {
+    /* topo direita inferior esquerda */
+    padding: 10% 0 10% 0;
+    background-color: #FFF5EA;
+}
+
+.blogBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.blogTit {
+    display: flex;
+    justify-content: center;
+}
+
+#blogTit {
+    font-size: 40px;
+    font-weight: 500;
+    /* topo direita inferior esquerda */
+    margin: 0 0.5% 0 0px;
+}
+
+#blogTitDestacado {
+    font-size: 40px;
+    font-family: "Chilanka";
+    color: #33E46D;
+    font-weight: 500;
+    margin: 0.5% 0 0 0;
+}
+
+.blogDivs {
+    width: 100%;
+    margin: 5% 0 0 0;
+    display: flex;
+    overflow-y: hidden;
+}
+
+.blogDiv {
+    width: 20%;
+    height: 70%;
+    flex: 0 0 auto;
+    margin: 0 2.5% 1% 2.5%; 
+    text-align: center;
+}
+
+.blogImgs {
+    display: flex;
+    height: 50%;
+}
+
+#coracaoBlog {
+    width: 15%;
+    height: 15%;
+    margin-left: -105%;
+}
+
+#blogImg {
+    width: 100%;
+    height: 200px;
+    overflow-y: hidden;
+    /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+    box-shadow: 7px 7px 0px 0px #33E46D;
+}
+
+#blogNome {
+    font-family: "Fira Sans Condensed";
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5% 0 0 0;
+    width: 100%;
+}
+
+#blogTxt {
+    font-family: "Fira Sans Condensed";
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+}

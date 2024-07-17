@@ -1,0 +1,88 @@
+.listaLinha {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 400;
+    width: 98%;
+    height: 10%;
+    margin: 1% 0 1% 0;
+    padding: 1% 1% 0 1%;
+    border-radius: 5px;
+}
+
+.col1 {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    width: 80%;
+    padding: 0 1% 0 1%;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.infos {
+    display: flex;
+    justify-content: left;
+    width: 60%;
+}
+
+.listaLinha p {
+    width: 35%;
+}
+
+#id {
+    width: 10%;
+}
+
+.crudBtns {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    height: 100%;
+    margin: 1% 0 0 0;
+}
+
+#crudBtnCointainer {
+    width: 50%;
+}
+
+.crudBtn {
+    border: none;
+    font-family: "Fira Sans Condensed";
+    font-size: 10px;
+    font-weight: 400;
+    border-radius: 2px;
+    margin-top: 2%;
+    padding: 2%;
+    width: 48%;
+    height: 70%;
+}
+
+#editar {
+    color: #000000;
+    background-color: #33E46D;
+}
+
+#apagar {
+    background-color: #D20000;
+    color: #FFFFFF;
+}
+
+.col2 {
+    box-sizing: border-box;
+    width: 15%;
+    display: flex;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 0 1% 0 1%;
+    background-color: #FFFFFF;
+}
+
+.chkExibir {
+    width: 20%;
+    margin: 0 0 0 20%;
+}

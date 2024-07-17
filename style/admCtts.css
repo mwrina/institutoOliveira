@@ -1,0 +1,136 @@
+.nomeSecao-container {
+    margin: 2% 0 0% 0;
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#nomeSecao {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.add {
+    background-color: #33E46D;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 0;
+    font-size: 22px;
+    width: 3.5%;
+    height: 100%;
+    border: 0;
+    border-radius: 5px;
+}
+
+.formEndereco {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    padding: 2% 2.5% 2% 2.5%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.formEndLin {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 2% 0 0 0;
+    width: 100%;
+}
+
+.formEndCampo {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin: 0 2.5% 0 2.5%;
+}
+
+#formEndLabel {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 2% 0;
+}
+
+#formEndInput {
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 1.5%;
+    border: 1px solid #000000;
+}
+
+.listaLinha {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    width: 98;
+    height: 10%;
+    margin: 1% 0 1% 0;
+    padding: 1% 1% 0 1%;
+    border-radius: 5px;
+}
+
+.listaLinha p {
+    width: 70%;
+    height: 100%;
+    padding: 0;
+    margin: 1%;
+}
+
+#campo {
+    width: fit-content;
+}
+
+#nomeCampo {
+    font-weight: 600;
+}
+
+.campos-container {
+    display: flex;
+    justify-content: left;
+    width: 70%;
+}
+
+.crudBtns {
+    display: flex;
+    width: 30%;
+}
+
+.editarBtn {
+    border: none;
+    font-family: "Fira Sans Condensed";
+    font-size: 11px;
+    font-weight: 400;
+    border-radius: 2px;
+    padding: 2%;
+    width: 45%;
+    height: 75%;
+    margin: 0 0 0 5%;
+    color: #000000;
+    background-color: #33E46D;
+}
+
+.apagarBtn {
+    border: none;
+    font-family: "Fira Sans Condensed";
+    font-size: 11px;
+    font-weight: 400;
+    border-radius: 2px;
+    padding: 2%;
+    width: 45%;
+    height: 75%;
+    margin: 0 0 0 5%;
+    color: #FFFFFF;
+    background-color: #D20000;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3% 0 0 0;
+    width: 100%;
+}
