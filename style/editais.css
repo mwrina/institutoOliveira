@@ -48,23 +48,24 @@ body {
 }
 
 .editaisBtn1 {
+    text-align: center;
     font-family: "Fira Sans Condensed";
     background-color: #33E46D;
+    font-size: 15px;
+    font-weight: 400;
     width: 20%;
-    font-size: 14px;
-    font-weight: 600;
     border: 0;
     border-radius: 20px;
     padding: 1%;
 }
 
 .editaisBtn2 {
+    text-align: center;
     font-family: "Fira Sans Condensed";
     background-color: #000000;
-    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 400;
     width: 20%;
-    font-size: 14px;
-    font-weight: 600;
     border: 0;
     border-radius: 20px;
     padding: 1%;

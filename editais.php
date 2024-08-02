@@ -1,3 +1,9 @@
+<?php
+include("bd/editais.php");
+$editais = getEditais($conn);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -54,26 +60,32 @@
 
         <div class="editaisTxtBtns">
             <p id="download">Faça o download dos editais:</p>
-
             <div class="editais">
-                <div class="editaisLin">
-                    <button type="button" class="editaisBtn1" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn2" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn2" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn1" id="">Edital N° ?</button>
-                </div>
-                <div class="editaisLin">
-                    <button type="button" class="editaisBtn1" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn2" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn2" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn1" id="">Edital N° ?</button>
-                </div>
-                <div class="editaisLin">
-                    <button type="button" class="editaisBtn1" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn2" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn2" id="">Edital N° ?</button>
-                    <button type="button" class="editaisBtn1" id="">Edital N° ?</button>
-                </div>
+                <?php
+                $classToggle = true; // Usado para alternar entre as classes
+                foreach($editais as $index => $edital) {
+                    if ($index % 4 == 0) {
+                        echo '<div class="editaisLin">';
+                    }
+
+                    $class = $classToggle ? "editaisBtn1" : "editaisBtn2";
+                    $caminho = htmlspecialchars($edital['caminho']);
+                    $nome = htmlspecialchars($edital['edital']);
+
+                    echo '<a href="' . $caminho . '" class="' . $class . '" download>' . $nome . '</a>';
+
+                    $classToggle = !$classToggle; // Alterna a classe
+
+                    if ($index % 4 == 3) {
+                        echo '</div>';
+                    }
+                }
+
+                // Fechar a última linha se não estiver completa
+                if ($index % 4 != 3) {
+                    echo '</div>';
+                }
+                ?>
             </div>
         </div>
 

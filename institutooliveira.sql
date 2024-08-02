@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/06/2024 às 18:17
+-- Tempo de geração: 02/08/2024 às 21:20
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -75,6 +75,32 @@ INSERT INTO `depoimentos` (`id_dep`, `nome`, `ocupacao`, `depoimento`, `mostrarI
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `editais`
+--
+
+CREATE TABLE `editais` (
+  `id` int(11) NOT NULL,
+  `edital` varchar(50) NOT NULL,
+  `caminho` varchar(70) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `editais`
+--
+
+INSERT INTO `editais` (`id`, `edital`, `caminho`) VALUES
+(4, 'exemplo-de-pdf 1.pdf', 'arquivos/editais/exemplo-de-pdf 1.pdf'),
+(5, 'exemplo-de-pdf 2.pdf', 'arquivos/editais/exemplo-de-pdf 2.pdf'),
+(6, 'exemplo-de-pdf 3.pdf', 'arquivos/editais/exemplo-de-pdf 3.pdf'),
+(7, 'exemplo-de-pdf 4.pdf', 'arquivos/editais/exemplo-de-pdf 4.pdf'),
+(8, 'exemplo-de-pdf 5.pdf', 'arquivos/editais/exemplo-de-pdf 5.pdf'),
+(9, 'exemplo-de-pdf 6.pdf', 'arquivos/editais/exemplo-de-pdf 6.pdf'),
+(10, 'exemplo-de-pdf 7.pdf', 'arquivos/editais/exemplo-de-pdf 7.pdf'),
+(11, 'exemplo-de-pdf 8.pdf', 'arquivos/editais/exemplo-de-pdf 8.pdf');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `endereco`
 --
 
@@ -101,17 +127,18 @@ INSERT INTO `endereco` (`id`, `endereco`, `cidade`, `estado`, `cep`) VALUES
 
 CREATE TABLE `numeros` (
   `id` int(11) NOT NULL,
-  `atendimentos` int(11) DEFAULT NULL,
-  `doadores` int(11) DEFAULT NULL,
-  `familias` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `campo` varchar(50) NOT NULL,
+  `valor` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `numeros`
 --
 
-INSERT INTO `numeros` (`id`, `atendimentos`, `doadores`, `familias`) VALUES
-(1, 125, 456, 789);
+INSERT INTO `numeros` (`id`, `campo`, `valor`) VALUES
+(1, 'Atendimentossss', 123),
+(2, 'Doadores Ativos', 456),
+(3, 'Famílias Acolhidas', 789);
 
 -- --------------------------------------------------------
 
@@ -224,8 +251,7 @@ CREATE TABLE `user_tokens` (
 --
 
 INSERT INTO `user_tokens` (`id`, `user_id`, `token`, `expires_at`) VALUES
-(16, 3, '057708c880da932d427b9610cb69e161684a67e29693e4b7bf9bd12bcebe6149', '2024-06-29 17:03:15'),
-(17, 3, '18234e80adee68e2d1c047d0eba1ce9090951e6611ef7035179fc23086ba72f8', '2024-06-29 19:12:06');
+(22, 3, '55409293916d53b3eaa153cd72e6800c9b02fe7ec9570aa70b2d987d08d80e56', '2024-08-02 22:02:46');
 
 -- --------------------------------------------------------
 
@@ -247,7 +273,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipoUsuario`, `ultimoAcesso`) VALUES
-(3, 'administrador', 'adm@adm', '$2y$10$vog5cnGOmRCxZblp0mtm/OM96qbM98nuAg2Igt86z5fvhF2Xr3wH2', 'adm', '2024-06-29'),
+(3, 'administrador', 'adm@adm', '$2y$10$vog5cnGOmRCxZblp0mtm/OM96qbM98nuAg2Igt86z5fvhF2Xr3wH2', 'adm', '2024-08-02'),
 (6, 'usuário', 'usu@usu', '$2y$10$F9TcUu4iV97fZA1SiXX9Jel4WbDXoBcXB0gll63obYsrG5WfYO.52', 'usu', '0000-00-00');
 
 --
@@ -265,6 +291,12 @@ ALTER TABLE `blogs`
 --
 ALTER TABLE `depoimentos`
   ADD PRIMARY KEY (`id_dep`);
+
+--
+-- Índices de tabela `editais`
+--
+ALTER TABLE `editais`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `endereco`
@@ -332,6 +364,12 @@ ALTER TABLE `depoimentos`
   MODIFY `id_dep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT de tabela `editais`
+--
+ALTER TABLE `editais`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
@@ -341,7 +379,7 @@ ALTER TABLE `endereco`
 -- AUTO_INCREMENT de tabela `numeros`
 --
 ALTER TABLE `numeros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `projetos`
@@ -365,7 +403,7 @@ ALTER TABLE `sobreoinstituto`
 -- AUTO_INCREMENT de tabela `user_tokens`
 --
 ALTER TABLE `user_tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

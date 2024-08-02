@@ -36,6 +36,47 @@ function criarEdital($conn){
     }
 }
 
+function deletarEdital($conn, $id) {
+    //DELETAR PDF DOS ARQUIVOS
+    $sql = "SELECT caminho FROM editais WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $file);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    if($file) {
+        if (file_exists('../' . $file)) {
+            if (!unlink('../' . $file)) {
+                header("Location: ../admEditais.php?alert=1");
+                return;
+            }
+        } else {
+            header("Location: ../admEditais.php?alert=2");
+            return;
+        }
+    } else {
+        header("Location: ../admEditais.php?alert=3");
+        return;
+    }
+
+    //DELETAR DO BD
+    $sql = "DELETE FROM editais WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+
+    if (mysqli_stmt_execute($stmt)) {
+        http_response_code(200);
+    } else {
+        http_response_code(500);
+        header("Location: ../admEditais.php?alert=4");
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
 function getEditais($conn){
     $editais = [];
     $sql = "SELECT * FROM editais ORDER BY edital";
@@ -55,7 +96,10 @@ function getEditais($conn){
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['criarEdital'])) {
         criarEdital($conn);
-     } else {
+     } elseif (isset($_POST['deleteIdEdital'])) {
+        $id = $_POST['deleteIdEdital'];
+        deletarEdital($conn, $id);
+    } else {
         echo "Nenhum parâmetro válido enviado.";
     }
 }
