@@ -11,7 +11,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/sobreOInstituto.css">
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
@@ -19,7 +18,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Sobre o Instituto - Instituto Oliveira</title>
-    <link rel="shortcut icon" href="ico/logo.ico" type="image/x-icon">
 </head>
 
 <body>

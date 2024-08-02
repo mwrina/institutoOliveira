@@ -70,7 +70,8 @@ if(!isset($_SESSION['redessociais'])){
             <a id="link" href="sobreOInstituto.php">Sobre o instituto</a> <br>
             <a id="link" href="projetos.php">Projetos</a> <br>
             <a id="link" href="blog.php">Blog do instituto</a> <br>
-            <a id="link" href="https://api.whatsapp.com/send?1=pt_BR&phone=554799605023">Contatos</a> <br>
+            <a id="link" href="editais.php">Editais</a> <br>
+            <a id="link" href="transparencia.php">Transparência</a> <br>
             <a id="link" href="login.php">Página do Administrador</a>
         </div>
 

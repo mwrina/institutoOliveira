@@ -79,6 +79,13 @@
                 <a href="admDep.php">Depoimentos existentes</a> <br>
                 <a href="criarDep.php">Criar novo depoimento</a>
             </div>
+            <button class="collapsible">
+                Editais
+            </button>
+            <div class="content">
+                <a href="admEditais.php">Editais existentes</a> <br>
+                <a href="criarEdital.php">Criar novo edital</a>
+            </div>
             <a href="admCtts.php"><button class="collapsible">
                 Informações de contato
             </button></a>
