@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="style/topoPgs.css">
     <link rel="stylesheet" href="style/transparencia.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
-    <title>Sobre o Instituto - Instituto Oliveira</title>
+    <title>Transparência - Instituto Oliveira</title>
 </head>
 
 <body>
@@ -25,7 +28,7 @@
     <div class="top">
         
         <div class="topEsq">
-            <h1 id="topTit">Editais</h1>
+            <h1 id="topTit">Transparência</h1>
             <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
@@ -57,57 +60,64 @@
                 <p id="download">Faça o download agora mesmo:</p>
 
                 <div class="transparencia">
-                    <div class="editaisCol">
-                        <button type="button" class="editaisBtn1" id="">JAN/24</button>
-                        <button type="button" class="editaisBtn1" id="">FEV/24</button>
-                        <button type="button" class="editaisBtn1" id="">MAR/24</button>
-                        <button type="button" class="editaisBtn1" id="">ABR/24</button>
+                    <div class="transpCol">
+                        <button type="button" class="transpBtn1" id="">JAN/24</button>
+                        <button type="button" class="transpBtn1" id="">FEV/24</button>
+                        <button type="button" class="transpBtn1" id="">MAR/24</button>
+                        <button type="button" class="transpBtn1" id="">ABR/24</button>
                     </div>
-                    <div class="editaisCol">
-                        <button type="button" class="editaisBtn2" id="">MAI/24</button>
-                        <button type="button" class="editaisBtn2" id="">JUN/24</button>
-                        <button type="button" class="editaisBtn2" id="">JUL/24</button>
-                        <button type="button" class="editaisBtn2" id="">AGO/24</button>
+                    <div class="transpCol">
+                        <button type="button" class="transpBtn2" id="">MAI/24</button>
+                        <button type="button" class="transpBtn2" id="">JUN/24</button>
+                        <button type="button" class="transpBtn2" id="">JUL/24</button>
+                        <button type="button" class="transpBtn2" id="">AGO/24</button>
                     </div>
-                    <div class="editaisCol">
-                        <button type="button" class="editaisBtn2" id="">SET/24</button>
-                        <button type="button" class="editaisBtn2" id="">OUT/24</button>
-                        <button type="button" class="editaisBtn2" id="">NOV/24</button>
-                        <button type="button" class="editaisBtn2" id="">DEZ/24</button>
+                    <div class="transpCol">
+                        <button type="button" class="transpBtn2" id="">SET/24</button>
+                        <button type="button" class="transpBtn2" id="">OUT/24</button>
+                        <button type="button" class="transpBtn2" id="">NOV/24</button>
+                        <button type="button" class="transpBtn2" id="">DEZ/24</button>
                     </div>
-                    <div class="editaisCol">
-                        <button type="button" class="editaisBtn1" id="">2023</button>
-                        <button type="button" class="editaisBtn1" id="">2022</button>
-                        <button type="button" class="editaisBtn1" id="">2021</button>
-                        <button type="button" class="editaisBtn1" id="">2020</button>
+                    <div class="transpCol">
+                        <button type="button" class="transpBtn1" id="">2023</button>
+                        <button type="button" class="transpBtn1" id="">2022</button>
+                        <button type="button" class="transpBtn1" id="">2021</button>
+                        <button type="button" class="transpBtn1" id="">2020</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="agradecimentosDiv">
-
             <h1 id="tit">Agradecimentos</h1>
-
-            <div class="agradecimentos">
-                <div class="agradecimento">
-                    <img src="imgs/transparencia/quadrado-preto.png" id="img">
-                    <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. Quisque nulla tortor, consectetur a urna a, congue cursus enim. </p>
-                </div>
-                <div class="agradecimento">
-                    <img src="imgs/transparencia/quadrado-preto.png" id="img">
-                    <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. Quisque nulla tortor, consectetur a urna a, congue cursus enim. </p>
-                </div>
-                <div class="agradecimento">
-                    <img src="imgs/transparencia/quadrado-preto.png" id="img">
-                    <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. Quisque nulla tortor, consectetur a urna a, congue cursus enim. </p>
-                </div>
-                <div class="agradecimento">
-                    <img src="imgs/transparencia/quadrado-preto.png" id="img">
-                    <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id cursus neque, malesuada consectetur lectus. Quisque nulla tortor, consectetur a urna a, congue cursus enim. </p>
+            <div class="carousel-wrap">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 1" id="img">
+                        <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="item">
+                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 2" id="img">
+                        <p id="descAgrad">Donec id cursus neque, malesuada consectetur lectus.</p>
+                    </div>
+                    <div class="item">
+                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 3" id="img">
+                        <p id="descAgrad">Quisque nulla tortor, consectetur a urna a, congue cursus enim.</p>
+                    </div>
+                    <div class="item">
+                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 4" id="img">
+                        <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="item">
+                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 5" id="img">
+                        <p id="descAgrad">Donec id cursus neque, malesuada consectetur lectus.</p>
+                    </div>
+                    <div class="item">
+                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 6" id="img">
+                        <p id="descAgrad">Quisque nulla tortor, consectetur a urna a, congue cursus enim.</p>
+                    </div>
                 </div>
             </div>
-
         </div>
 
     </div>
@@ -116,10 +126,35 @@
         include("footer.php");
     ?>
 
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                navText: [
+                    "<i class='fa fa-caret-left'></i>",
+                    "<i class='fa fa-caret-right'></i>"
+                ],
+                autoplay: true,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+        });
+    </script>
 
-<script>
-    
-</script>
+</body>
 
 </html>

@@ -28,7 +28,7 @@
     <main>
 
         <div class="container">
-            <h1 id="containerTit">Lista de Seções - Sobre o Instituto</h1>
+            <h1 id="containerTit">Lista de Seções Sobre o Instituto</h1>
 
             <div class="containerLista">
 

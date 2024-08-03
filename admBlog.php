@@ -29,7 +29,7 @@
     <main>
 
         <div class="container">
-            <h1 id="containerTit">Lista de Projetos Cadastrados</h1>
+            <h1 id="containerTit">Lista de Blogs Cadastrados</h1>
 
             <div class="containerLista">
 

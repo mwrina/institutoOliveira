@@ -86,6 +86,14 @@
                 <a href="admEditais.php">Editais existentes</a> <br>
                 <a href="criarEdital.php">Criar novo edital</a>
             </div>
+            <button class="collapsible">
+                Transparência
+            </button>
+            <div class="content">
+                <a href="admTransp.php">Registros existentes</a> <br>
+                <a href="criarRelatorio.php">Criar novo relatório</a> <br>
+                <a href="criarAgrad.php">Criar novo agradecimento</a>
+            </div>
             <a href="admCtts.php"><button class="collapsible">
                 Informações de contato
             </button></a>
