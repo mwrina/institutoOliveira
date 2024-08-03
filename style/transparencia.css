@@ -47,13 +47,13 @@ body {
     justify-content: space-between;
 }
 
-.editaisCol {
+.transpCol {
     width: 20%;
     display: flex;
     flex-direction: column;
 }
 
-.editaisBtn1 {
+.transpBtn1 {
     font-family: "Fira Sans Condensed";
     background-color: #33E46D;
     width: 100%;
@@ -65,7 +65,7 @@ body {
     margin: 1.25% 0 1.25% 0;
 }
 
-.editaisBtn2 {
+.transpBtn2 {
     font-family: "Fira Sans Condensed";
     background-color: #000000;
     color: #FFFFFF;
@@ -92,15 +92,19 @@ body {
     margin: 7% 0 5% 0;
 }
 
-.agradecimentos {
+.carousel-wrap {
     display: flex;
     justify-content: space-between;
-    width: 70%;
-    margin: 0 15% 0 15%;
+    width: 75%;
+    margin: 0 12.5% 0 12.5%;
 }
 
-.agradecimento {
-    width: 30%;
+.owl-carousel {
+    position: relative;
+}
+
+.item {
+    width: 90%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -109,6 +113,34 @@ body {
 #img {
     width: 100%;
     border-radius: 300px;
+}
+
+.owl-nav {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.owl-nav > div {
+    pointer-events: all;
+}
+
+.owl-nav .owl-prev {
+    position: absolute;
+    left: -50px; 
+}
+
+.owl-nav .owl-next {
+    position: absolute;
+    right: -30px;
+}
+
+.owl-nav i {
+    font-size: 52px;
+    color: #cdcbcd;
 }
 
 

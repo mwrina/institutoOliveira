@@ -54,6 +54,27 @@
     overflow-y: auto;
 }
 
+/* Para navegadores baseados no WebKit */
+.sidebarContent::-webkit-scrollbar {
+    width: 3px; /* Largura da barra de rolagem */
+}
+
+.sidebarContent::-webkit-scrollbar-track {
+    background: #000000; /* Cor do trilho da barra de rolagem */
+}
+
+.sidebarContent::-webkit-scrollbar-thumb {
+    background-color: #555555; /* Cor da barra de rolagem */
+    border-radius: 10px; /* Borda arredondada */
+    border: 2px solid #000000; /* Cor de fundo ao redor da barra de rolagem */
+}
+
+/* Para navegadores baseados no Gecko (Firefox) */
+.sidebarContent {
+    scrollbar-width: thin; /* Largura da barra de rolagem */
+    scrollbar-color: #555555 #000000; /* Cor da barra de rolagem e trilho */
+}
+
 .collapsible {
     background-color: #000000;
     color: #FFFFFF;
