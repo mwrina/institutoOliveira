@@ -74,6 +74,34 @@
         document.getElementById('btnImg').addEventListener('click', function() {
             document.getElementById('inserirImg').click();
         });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const params = new URLSearchParams(window.location.search);
+            if (params.has('alert')) {
+                const alertValue = params.get('alert');
+                switch (alertValue) {
+                    case '1':
+                        alert("ID do blog não especificado.");
+                        break;
+                    case '2':
+                        alert("Por favor, preencha todos os campos obrigatórios.");
+                        break;
+                    case '3':
+                        alert("Tipo de arquivo não permitido. Apenas JPEG e PNG são permitidos.");
+                        break;
+                    case '4':
+                        alert("Erro ao deletar imagem antiga.");
+                        break;
+                    case '5':
+                        alert("Erro ao adicionar imagem.");
+                        break;
+                    case '6':
+                    alert("Erro ao editar blog.");
+                    break;
+                }
+                window.history.replaceState(null, null, window.location.pathname); // Limpa a query string da URL
+            }
+        });
     </script>
 
 </body>

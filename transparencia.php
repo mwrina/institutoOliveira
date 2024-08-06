@@ -1,3 +1,9 @@
+<?php
+    include("bd/transp.php");
+    $agradecimentos = getAgrads($conn);
+    $relatorios = getTransp($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -57,65 +63,52 @@
             <h1 id="tit">Relatório Mensal</h1>
 
             <div class="transpTxtBtns">
-                <p id="download">Faça o download agora mesmo:</p>
+                <p id="download">Faça o download dos relatórios agora mesmo:</p>
+                <div class="transp">
+                <?php
+                $classToggle = true; // Usado para alternar entre as classes
+                foreach($relatorios as $index => $relatorio) {
+                    if ($index % 4 == 0) {
+                        echo '<div class="transpLin">';
+                    }
 
-                <div class="transparencia">
-                    <div class="transpCol">
-                        <button type="button" class="transpBtn1" id="">JAN/24</button>
-                        <button type="button" class="transpBtn1" id="">FEV/24</button>
-                        <button type="button" class="transpBtn1" id="">MAR/24</button>
-                        <button type="button" class="transpBtn1" id="">ABR/24</button>
-                    </div>
-                    <div class="transpCol">
-                        <button type="button" class="transpBtn2" id="">MAI/24</button>
-                        <button type="button" class="transpBtn2" id="">JUN/24</button>
-                        <button type="button" class="transpBtn2" id="">JUL/24</button>
-                        <button type="button" class="transpBtn2" id="">AGO/24</button>
-                    </div>
-                    <div class="transpCol">
-                        <button type="button" class="transpBtn2" id="">SET/24</button>
-                        <button type="button" class="transpBtn2" id="">OUT/24</button>
-                        <button type="button" class="transpBtn2" id="">NOV/24</button>
-                        <button type="button" class="transpBtn2" id="">DEZ/24</button>
-                    </div>
-                    <div class="transpCol">
-                        <button type="button" class="transpBtn1" id="">2023</button>
-                        <button type="button" class="transpBtn1" id="">2022</button>
-                        <button type="button" class="transpBtn1" id="">2021</button>
-                        <button type="button" class="transpBtn1" id="">2020</button>
-                    </div>
+                    $class = $classToggle ? "transpBtn1" : "transpBtn2";
+                    $caminho = htmlspecialchars($relatorio['caminho']);
+                    $nome = htmlspecialchars($relatorio['relatorio']);
+
+                    echo '<a href="' . $caminho . '" class="' . $class . '" download>' . $nome . '</a>';
+
+                    $classToggle = !$classToggle; // Alterna a classe
+
+                    if ($index % 4 == 3) {
+                        echo '</div>';
+                    }
+                }
+
+                // Fechar a última linha se não estiver completa
+                if ($index % 4 != 3) {
+                    echo '</div>';
+                }
+                ?>
                 </div>
             </div>
         </div>
 
+        <?php if (!empty($agradecimentos)) ?>
+        
         <div class="agradecimentosDiv">
             <h1 id="tit">Agradecimentos</h1>
             <div class="carousel-wrap">
                 <div class="owl-carousel owl-theme">
+
+                    <?php foreach($agradecimentos as $agradecimento): ?>
+
                     <div class="item">
-                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 1" id="img">
-                        <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <img src="<?= $agradecimento['img'] ?>" id="img">
+                        <p id="descAgrad"><?= $agradecimento['agradecimento'] ?></p>
                     </div>
-                    <div class="item">
-                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 2" id="img">
-                        <p id="descAgrad">Donec id cursus neque, malesuada consectetur lectus.</p>
-                    </div>
-                    <div class="item">
-                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 3" id="img">
-                        <p id="descAgrad">Quisque nulla tortor, consectetur a urna a, congue cursus enim.</p>
-                    </div>
-                    <div class="item">
-                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 4" id="img">
-                        <p id="descAgrad">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="item">
-                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 5" id="img">
-                        <p id="descAgrad">Donec id cursus neque, malesuada consectetur lectus.</p>
-                    </div>
-                    <div class="item">
-                        <img src="imgs/transparencia/quadrado-preto.png" alt="Agradecimento 6" id="img">
-                        <p id="descAgrad">Quisque nulla tortor, consectetur a urna a, congue cursus enim.</p>
-                    </div>
+                   
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

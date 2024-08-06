@@ -1,3 +1,28 @@
+<?php
+    include("bd/connect.php");
+
+    if (isset($_GET['editIdAgrad'])) {
+        $id = $_GET['editIdAgrad'];
+    
+        $sql = "SELECT * FROM agradecimentos WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        if ($result && $result->num_rows > 0) {
+            $agradecimento = $result->fetch_assoc();
+        } else {
+            header("Location: admAgrad.php?alert=8");
+            exit();
+        }
+    } else {
+        header("Location: admAgrad.php?alert=9");
+        exit();
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,19 +42,20 @@
         
     <main>
         <div class="containerPaginaAdm">
-            <h1 id="containerTit">Cadastro de Agradecimento</h1>
+            <h1 id="containerTit">Edição de Agradecimento</h1>
             <form class="form" method="post" action="bd/transp.php" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $agradecimento['id'] ?>">
                 <div class="formInputs">
                     <div class="formCols">
                         <div class="formCol">
                             <div class="linAgradecimento">
                                 <label for="agradecimento">Agradecimento: </label> <br>
-                                <input type="text" name="agradecimento" id="agradecimento" required>
+                                <input type="text" name="agradecimento" id="agradecimento" value="<?= $agradecimento['agradecimento'] ?>"required>
                             </div>
                         </div>
                         <div class="formCol">
                             <label for="inserirImg">Escolha uma imagem:</label>
-                            <input type="file" name="img" id="inserirImg" required>
+                            <input type="file" name="img" id="inserirImg">
                             <button type="button" id="btnImg">
                                 <img src="imgs/icons/imgIcon.png" id="imgBtn">
                             </button>
@@ -37,7 +63,7 @@
                     </div>  
                     
                     <div class="btn">
-                        <input type="submit" id="submitBtn" name="criarAgrad" value="Criar Agradecimento">
+                        <input type="submit" id="submitBtn" name="editarAgrad" value="Editar Agradecimento">
                     </div>
                 </div>  
             </form>
@@ -55,7 +81,7 @@
                 const alertValue = params.get('alert');
                 switch (alertValue) {
                     case '1':
-                        alert("ID do blog não especificado.");
+                        alert("Você não preencheu todos os campos");
                         break;
                     case '2':
                         alert("Tipo de arquivo não permitido. Apenas JPEG e PNG são permitidos.");
@@ -64,7 +90,7 @@
                         alert("Erro ao adicionar imagem.");
                         break;
                     case '4':
-                    alert("Erro ao adicionar novo agradecimento.");
+                    alert("Erro ao editar agradecimento.");
                     break;
                 }
                 window.history.replaceState(null, null, window.location.pathname); // Limpa a query string da URL

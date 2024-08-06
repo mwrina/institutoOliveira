@@ -54,8 +54,8 @@
             document.getElementById('inserirImg').click();
         });
 
-        document.addEventListener('DOMContentLoaded', (event) => {
-        const params = new URLSearchParams(window.location.search);
+    document.addEventListener('DOMContentLoaded', (event) => {
+    const params = new URLSearchParams(window.location.search);
         if (params.has('alert')) {
             const alertValue = params.get('alert');
             switch (alertValue) {
