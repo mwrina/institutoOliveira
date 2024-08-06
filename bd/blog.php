@@ -126,9 +126,13 @@ function editarBlog($conn) {
                 // Deletar a imagem antiga
                 if (file_exists('../'.$img_antiga)) {
                     unlink('../'.$img_antiga);
+                } else {
+                    header("Location: criarBlog.php?alert=4");
                 }
 
                 move_uploaded_file($tempname, '../'.$folder);
+            } else {
+                header("Location: editarBlog.php?alert=5");
             }
 
             // Atualiza o projeto no banco de dados
@@ -139,15 +143,15 @@ function editarBlog($conn) {
             if (mysqli_stmt_execute($stmt)) {
                 header("Location: ../admBlog.php");
             } else {
-                header("Location: criarBlog.php?alert=4");
+                header("Location: editarBlog.php?alert=6");
             }
 
             mysqli_stmt_close($stmt);
         } else {
-            header("Location: criarBlog.php?alert=2");
+            header("Location: editarBlog.php?alert=2");
         }
     } else {
-        header("Location: criarBlog.php?alert=1");
+        header("Location: editarBlog.php?alert=1");
     }
 }
 
@@ -161,8 +165,8 @@ function deletarBlog($conn, $id) {
     mysqli_stmt_close($stmt);
 
     if ($img) {
-        if (file_exists($img)) {
-            if (!unlink($img)) {
+        if (file_exists('../' . $img)) {
+            if (!unlink('../' . $img)) {
                 echo "Erro ao deletar a imagem: $img";
                 return;
             }
