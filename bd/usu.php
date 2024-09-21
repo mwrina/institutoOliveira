@@ -2,7 +2,7 @@
 include("connect.php");
 
 function buscarUsuarios($conn) {
-    $sql = "SELECT id, nome, ultimoAcesso, tipoUsuario FROM usuarios";
+    $sql = "SELECT * FROM usuarios";
 
     $result = mysqli_query($conn, $sql);
 
