@@ -11,7 +11,6 @@ $nums = getNums($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
@@ -42,7 +41,7 @@ $nums = getNums($conn);
                     <h1 id="topCura">cura</h1>
                 </div>
                 <div class="btnContainer">
-                    <button type="button" id="qroAjudarBtn">QUERO AJUDAR</button>
+                    <button type="button" id="qroAjudarBtn1">QUERO AJUDAR</button>
                 </div>
             </div>
 
@@ -59,7 +58,7 @@ $nums = getNums($conn);
 
     <div class="breveDesc">
         <img id="breveDescLogo" src="imgs/icons/logo.png">
-        <p>O <b>Instituto Oliveira</b> oferece apoio às crianças, adolescentes e suas famílias <br>
+        <p>O <b>Instituto Oliveira</b> oferece apoio às crianças, adolescentes e suas famílias
         que enfrentam o <b>tratamento do câncer infantojuvenil.</b></p>
     </div>
 
@@ -104,23 +103,19 @@ $nums = getNums($conn);
         </div>
 
         <div class="numsDivs">
-
             <?php foreach($nums as $num): ?>
-
-            <div class="numDiv">
-                <p id="num"><?php echo htmlspecialchars($num['valor'], ENT_QUOTES, 'UTF-8'); ?></p>
-                <p id="descNum"><?php echo htmlspecialchars($num['campo'], ENT_QUOTES, 'UTF-8'); ?></p>
-            </div>
-
+                <div class="numDiv">
+                    <p class="num"><?php echo htmlspecialchars($num['valor'], ENT_QUOTES, 'UTF-8'); ?></p>
+                    <p class="descNum"><?php echo htmlspecialchars($num['campo'], ENT_QUOTES, 'UTF-8'); ?></p>
+                </div>
             <?php endforeach; ?>
 
             <div class="numDiv">
-                <img id="numInfinito" src="imgs/icons/infinito.png">
-                
-                <p id="descNum">Abraços dados</p>
+                <img class="numInfinito" src="imgs/icons/infinito.png">
+                <p class="descNum">Abraços dados</p>
             </div>
-
         </div>
+
 
     </div>
 
@@ -161,10 +156,8 @@ $nums = getNums($conn);
 
         </div>
 
-        
-
         <div class="btnContainer">
-            <button class="btn" onclick="redirectProjetos()">Conheça mais projetos</button>
+            <button id="saibaMaisBtn" onclick="redirectProjetos()">Conheça mais projetos</button>
         </div>
     </div>
 
@@ -177,7 +170,9 @@ $nums = getNums($conn);
         
         <p id="slogan">Seja um azeite. Faça a sua doação!</p>
 
-        <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+        <div class="btnContainer">
+            <button id="saibaMaisBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+        </div>
 
     </div>
 
