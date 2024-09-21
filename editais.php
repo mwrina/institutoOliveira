@@ -15,6 +15,7 @@ $editais = getEditais($conn);
     <link rel="stylesheet" href="style/editais.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
+    <script src="js/redirects.js"></script>
     <title>Sobre o Instituto - Instituto Oliveira</title>
 </head>
 
@@ -35,7 +36,7 @@ $editais = getEditais($conn);
             <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button id="qroAjudarBtn1" onclick="redirectWhatsApp()">QUERO AJUDAR</button>
         </div>
 
         <div class="topDir">
@@ -69,8 +70,8 @@ $editais = getEditais($conn);
                     }
 
                     $class = $classToggle ? "editaisBtn1" : "editaisBtn2";
-                    $caminho = htmlspecialchars($edital['caminho']);
-                    $nome = htmlspecialchars($edital['edital']);
+                    $caminho = htmlspecialchars(string: $edital['caminho']);
+                    $nome = htmlspecialchars(string: $edital['edital']);
 
                     echo '<a href="' . $caminho . '" class="' . $class . '" download>' . $nome . '</a>';
 

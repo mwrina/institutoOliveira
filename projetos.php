@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style/topoPgs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
+    <script src="js/redirects.js"></script>
     <title>Projetos - Instituto Oliveira</title>
 </head>
 
@@ -28,7 +29,7 @@
             <h1 id="topTit">Projetos</h1>
             <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button class="btnPadrao" id="qroAjudarBtn1" onclick="redirectWhatsApp()">QUERO AJUDAR</button>
         </div>
         <div class="topDir">
             <img id="topQuadradosDir" src="imgs/quadradosDir.png">
@@ -45,16 +46,20 @@
         <?php if (!empty($projetos)): ?>
             <?php foreach ($projetos as $projeto): ?>
                 <div class="divTxtImg">
-                    <div class="img">
-                        <img src="<?= htmlspecialchars($projeto['img01']) ?>" id="img">
-                    </div>
-                    <div class="txtProj">
-                        <h1 id="projTit"><?= htmlspecialchars($projeto['nome']) ?></h1>
-                        <p id="descProj"><?= $projeto['breveDesc'] ?></p>
-                        <button type="button" class="projBtn" data-projeto-id="<?= htmlspecialchars($projeto['id']) ?>">
-                            <div class="txtBtn">Saiba Mais</div>
-                            <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
-                        </button>
+                    
+                    <img src="<?= htmlspecialchars($projeto['img01']) ?>" id="img">
+
+                    <div class="txtBtnProj">
+                        <div class="txtProj">
+                            <h1 id="projTit"><?= htmlspecialchars($projeto['nome']) ?></h1>
+                            <p id="descProj"><?= $projeto['breveDesc'] ?></p>
+                        </div>
+                        <div class="btn">
+                            <button type="button" class="projBtn" data-projeto-id="<?= htmlspecialchars($projeto['id']) ?>">
+                                <p>Saiba Mais</p>
+                                <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -64,8 +69,9 @@
     </div>
 
     <?php include("footer.php"); ?>
+</body>
 
-    <script>
+<script>
         document.addEventListener("DOMContentLoaded", function() {
             // Obtém todos os botões "Saiba Mais"
             var saibaMaisBtns = document.querySelectorAll('.projBtn');
@@ -83,5 +89,5 @@
             });
         });
     </script>
-</body>
+
 </html>

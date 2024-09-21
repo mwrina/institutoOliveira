@@ -14,7 +14,7 @@ $nums = getNums($conn);
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
-    <script src="js/index.js"></script>
+    <script src="js/redirects.js"></script>
     <title>Instituto Oliveira</title>
 </head>
 <body>
@@ -41,7 +41,7 @@ $nums = getNums($conn);
                     <h1 id="topCura">cura</h1>
                 </div>
                 <div class="btnContainer">
-                    <button type="button" id="qroAjudarBtn1">QUERO AJUDAR</button>
+                    <button type="button" id="qroAjudarBtn1" onclick="redirectWhatsApp()">QUERO AJUDAR</button>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@ $nums = getNums($conn);
         </div>
 
         <div class="btnContainer">
-            <button onclick="redirectSobre()" class="btn" id="saibaMaisBtn">Saiba mais</button>
+            <button class="btnPadrao" id="sobreBtn" onclick="redirectSobre()">Saiba mais</button>
         </div>
                 
     </div>
@@ -157,7 +157,7 @@ $nums = getNums($conn);
         </div>
 
         <div class="btnContainer">
-            <button id="saibaMaisBtn" onclick="redirectProjetos()">Conheça mais projetos</button>
+            <button class="btnPadrao" id="projBtn" onclick="redirectProjs()">Conheça mais projetos</button>
         </div>
     </div>
 
@@ -171,7 +171,7 @@ $nums = getNums($conn);
         <p id="slogan">Seja um azeite. Faça a sua doação!</p>
 
         <div class="btnContainer">
-            <button id="saibaMaisBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button class="btnPadrao" id="qroAjudarBtn" onclick="redirectWhatsApp()">QUERO AJUDAR</button>
         </div>
 
     </div>
@@ -258,7 +258,7 @@ $nums = getNums($conn);
         </div>
 
         <div class="btnContainer">
-            <button class="btn" onclick="redirectBlog()" id="blogBtn">Veja mais posts no nosso blog!</button>
+            <button class="btnPadrao" id="blogBtn" onclick="redirectBlogs()">Veja mais posts no nosso blog!</button>
         </div>
 
     </div>

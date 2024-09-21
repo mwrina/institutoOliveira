@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style/blogs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
+    <script src="js/redirects.js"></script>
     <title>Sobre o Instituto - Instituto Oliveira</title>
 </head>
 
@@ -37,7 +38,7 @@
             <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button id="qroAjudarBtn1" onclick="redirectWhatsApp()">QUERO AJUDAR</button>
         </div>
 
         <div class="topDir">
@@ -65,16 +66,18 @@
                     <div class="img">
                         <img src="<?= $blog['img'] ?>" id="img">
                     </div>
-                    <div class="txtBlog">
-                        <div class="titDesc">
+                    <div class="txtBtnBlog">
+                        <div class="txtBlog">
                             <h1 id="blogTit"><?= $blog['titulo'] ?></h1>
-                            <p id="criadoEm">Criado em: <?= $blog['dataCriacao'] ?></p>
-                            <p id="blogDesc"><?= $blog['breveDesc'] ?></p>
+                                <p id="criadoEm">Criado em: <?= $blog['dataCriacao'] ?></p>
+                                <p id="blogDesc"><?= $blog['breveDesc'] ?></p>
+                            </div>
+                        <div class="btn">
+                            <button type="button" class="blogBtn" data-blog-id="<?= htmlspecialchars($blog['id']) ?>">
+                                <p>Saiba Mais</p>
+                                <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
+                            </button>
                         </div>
-                        <button type="button" class="blogBtn" data-blog-id="<?= $blog['id'] ?>">
-                            <div class="txtBtn">Saiba Mais</div>
-                            <i class="material-icons" id="saibaMaisIcon">open_in_new</i>
-                        </button>
                     </div>
                 </div>
 
@@ -91,6 +94,8 @@
         include("footer.php");
     ?>
 
+</body>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
     var saibaMaisBtns = document.querySelectorAll('.blogBtn');
@@ -102,6 +107,5 @@
             });
         });
     });
-    </script>
-
-</body>
+</script>
+</html>

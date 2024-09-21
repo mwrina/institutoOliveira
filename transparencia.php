@@ -38,7 +38,7 @@
             <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button id="qroAjudarBtn1" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
         </div>
 
         <div class="topDir">
@@ -73,8 +73,8 @@
                     }
 
                     $class = $classToggle ? "transpBtn1" : "transpBtn2";
-                    $caminho = htmlspecialchars($relatorio['caminho']);
-                    $nome = htmlspecialchars($relatorio['relatorio']);
+                    $caminho = htmlspecialchars(string: $relatorio['caminho']);
+                    $nome = htmlspecialchars(string: $relatorio['relatorio']);
 
                     echo '<a href="' . $caminho . '" class="' . $class . '" download>' . $nome . '</a>';
 

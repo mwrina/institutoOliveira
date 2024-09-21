@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
+    <script src="js/redirects.js"></script>
     <title>Sobre o Instituto - Instituto Oliveira</title>
 </head>
 
@@ -33,7 +34,7 @@
             <h1 id="topTitDestacado">instituto</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button class="btnPadrao" id="qroAjudarBtn1" onclick="redirectWhatsApp()">QUERO AJUDAR</button>
         </div>
 
         <div class="topDir">
