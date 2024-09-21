@@ -3,74 +3,152 @@
 
 /* TOPO */
 
-.top {
-    display: flex;
-    justify-content: space-between;
-    background-image: url("../imgs/icons/logoBranca.png");
-    background-size: 25% 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    background-color: #FFF5EA;
-    /* TOPO DIREITA BAIXO ESQUERDA */
-    padding: 100px 0 100px 0;
+@media (min-width: 800px) {
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        background-image: url("../imgs/icons/logoBranca.png");
+        background-size: 25% 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        background-color: #FFF5EA;
+        /* TOPO DIREITA BAIXO ESQUERDA */
+        padding: 100px 0 100px 0;
+    }
+    
+    .topEsq {
+        box-sizing: border-box;
+        padding-left: 15%;
+        padding-top: 60px;
+        width: 35%;
+        height: 50%;
+    }
+    
+    #topTit {
+        font-size: 45px;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+    }
+    
+    #topTitDestacado {
+        font-size: 45px;
+        font-weight: 500;
+        color: #33E46D;
+        font-family: "Chilanka";   
+        margin: 0;
+    }
+    
+    #topSlogan {
+        margin: 0 0 20px 0;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    
+    .topDir {
+        box-sizing: border-box;
+        text-align: right;
+        width: 30%;
+        height: 50%;
+        margin-top: -100px;
+    }
+    
+    #topQuadradosDir {
+        width: 225px;
+        height: 225px;
+    }
+    
 }
 
-.topEsq {
-    box-sizing: border-box;
-    padding-left: 15%;
-    padding-top: 60px;
-    width: 35%;
-    height: 50%;
+@media (max-width: 799px) {
+    
+    .top {
+        display: flex;
+        justify-content: space-between;
+        background-image: url("../imgs/icons/logoBranca.png");
+        background-size: 60% 80%;
+        background-repeat: no-repeat;
+        background-position: right;
+        width: 100%;
+        background-color: #FFF5EA;
+        /* TOPO DIREITA BAIXO ESQUERDA */
+        padding: 100px 0 100px 0;
+    }
+    
+    .topEsq {
+        box-sizing: border-box;
+        padding-left: 5%;
+        padding-top: 45px;
+        width: 100%;
+        height: 50%;
+    }
+    
+    #topTit {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+    }
+    
+    #topTitDestacado {
+        font-size: 40px;
+        font-weight: 500;
+        color: #33E46D;
+        font-family: "Chilanka";   
+        margin: 0;
+    }
+    
+    #topSlogan {
+        margin: 0 0 20px 0;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    
+    .topDir {
+        display: none;
+    }
+    
 }
 
-#topTit {
-    font-size: 45px;
-    font-weight: 700;
-    margin: 0 0 5px 0;
-}
-
-#topTitDestacado {
-    font-size: 45px;
-    font-weight: 500;
-    color: #33E46D;
-    font-family: "Chilanka";   
-    margin: 0;
-}
-
-#topSlogan {
-    margin: 0 0 20px 0;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.topDir {
-    box-sizing: border-box;
-    text-align: right;
-    width: 30%;
-    height: 50%;
-    margin-top: -100px;
-}
-
-#topQuadradosDir {
-    width: 225px;
-    height: 225px;
-}
 
 /* ================================================================= */
 /* BREVE DESCRIÇÃO DO INSTITUTO */
 
-.breveDesc {
-    /* TOPO DIREITA BAIXO ESQUERDA */
-    margin: 50px 0 50px 0;
-    text-align: center;
+@media (min-width: 800px) {
+
+    .breveDesc {
+        /* TOPO DIREITA BAIXO ESQUERDA */
+        margin: 50px 0 50px 0;
+        text-align: center;
+    }
+    
+    .breveDesc p {
+        font-size: 16px;
+    }
+    
+    #breveDescLogo {
+        width: 50px;
+        height: 50px;
+    }
+    
 }
 
-.breveDesc p {
-    font-size: 16px;
+@media (max-width: 799px) {
+
+    .breveDesc {
+        /* TOPO DIREITA BAIXO ESQUERDA */
+        margin: 50px 0 50px 0;
+        text-align: center;
+    }
+    
+    .breveDesc p {
+        font-size: 14px;
+    }
+    
+    #breveDescLogo {
+        width: 45px;
+        height: 45px;
+    }
+
 }
 
-#breveDescLogo {
-    width: 50px;
-    height: 50px;
-}

@@ -9,70 +9,139 @@ body {
 }
 
 /* ================================================================= */
-/* QUEM SOMOS */
+/* ESTILO 1 */
 
-.sobreDivTxtImg {
-    display: inline-flex;
-    justify-content: space-between;
-    margin: 2% 5% 2% 5%;
-    vertical-align: text-top;
+@media (min-width: 800px) {
+
+    .sobreDivTxtImg {
+        display: inline-flex;
+        justify-content: space-between;
+        margin: 2% 5% 2% 5%;
+        vertical-align: text-top;
+    }
+    
+    .txt {
+        width: 50%;
+    }
+    
+    .tit {
+        display: flex;
+    }
+    
+    #titDestacado {
+        font-size: 35px;
+        font-family: "Chilanka";
+        color: #33E46D;
+        font-weight: 500;
+        padding: 7px 0 0 0;
+        margin: 0;
+    }
+    
+    #tit {
+        font-size: 35px;
+        font-weight: 400;
+        margin: 0 0 0 10px;
+    }
+    
+    #txt {
+        font-size: 16px;
+        margin: 15px 0 20px 0;
+        line-height: 25px;
+    }
+    
+    #titulo02Tit {
+        font-size: 35px;
+        font-weight: 400;
+        margin: 0;
+    }
+    
+    #titulo02TitDestacado {
+        font-size: 35px;
+        font-family: "Chilanka";
+        color: #33E46D;
+        font-weight: 500;
+        padding: 7px 0 0 0;
+        margin: 0 0 0 10px;
+    }
+    
+    #img {
+        width: 40%;
+        height: 10%;
+        /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+        box-shadow: 7px 7px 0px 0px #33E46D;
+        margin: 0;
+        padding: 0;
+    }    
+
 }
 
-.txt {
-    width: 50%;
-}
+@media (max-width: 799px) {
 
-.tit {
-    display: flex;
-}
+    .sobreDivTxtImg {
+        display: flex;
+        flex-direction: column;
+        vertical-align: text-top;
+        margin: 2.5% 5% 2.5% 5%;
+    }
+    
+    .txt {
+        width: 100%;
+        margin: 2% 0 2% 0;
+    }
+    
+    .tit {
+        display: flex;
+    }
+    
+    #titDestacado {
+        font-size: 30px;
+        font-family: "Chilanka";
+        color: #33E46D;
+        font-weight: 500;
+        padding: 7px 0 0 0;
+        margin: 0;
+    }
+    
+    #tit {
+        font-size: 30px;
+        font-weight: 400;
+        margin: 0 0 0 10px;
+    }
+    
+    #txt {
+        font-size: 14px;
+        margin: 0;
+        line-height: 25px;
+    }
+    
+    #titulo02Tit {
+        font-size: 30px;
+        font-weight: 400;
+        margin: 0;
+    }
+    
+    #titulo02TitDestacado {
+        font-size: 30px;
+        font-family: "Chilanka";
+        color: #33E46D;
+        font-weight: 500;
+        padding: 7px 0 0 0;
+        margin: 0 0 0 10px;
+    }
+    
+    #img {
+        width: 100%;
+        /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
+        box-shadow: 7px 7px 0px 0px #33E46D;
+        margin: 15px 0 15px 0;
+        padding: 0;
+    }    
 
-#titDestacado {
-    font-size: 35px;
-    font-family: "Chilanka";
-    color: #33E46D;
-    font-weight: 500;
-    padding: 7px 0 0 0;
-    margin: 0;
 }
-
-#tit {
-    font-size: 35px;
-    font-weight: 400;
-    margin: 0 0 0 10px;
-}
-
-#txt {
-    font-size: 16px;
-    margin: 15px 0 20px 0;
-    line-height: 25px;
-}
-
-#titulo02Tit {
-    font-size: 35px;
-    font-weight: 400;
-    margin: 0;
-}
-
-#titulo02TitDestacado {
-    font-size: 35px;
-    font-family: "Chilanka";
-    color: #33E46D;
-    font-weight: 500;
-    padding: 7px 0 0 0;
-    margin: 0 0 0 10px;
-}
-
-#img {
-    width: 40%;
-    height: 10%;
-    /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
-    box-shadow: 7px 7px 0px 0px #33E46D;
-    margin: 0;
-    padding: 0;
-}
+ 
 
 /* ================================================================= */
-/* REALIDADE DO CANCER */
+/* ESTILO 2 */
 
 .realidadeDiv {
     /* topo direita inferior esquerda */
@@ -88,12 +157,7 @@ body {
 }
 
 /* ================================================================= */
-/* NOSSO DIFERENCIAL */
-
-
-
-/* ================================================================= */
-/* NOSSAS CONQUISTAS */
+/* ESTILO 3 */
 
 .sobreDiv {
     margin: 2% 5% 5% 5%;

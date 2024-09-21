@@ -7,7 +7,7 @@
     }
     
     #qroAjudarBtn1 {
-        width: 25%;
+        width: 40%;
         height: 100%;
         padding: 2.5% 0 2.5% 0;
         font-family: "Fira Sans Condensed";
@@ -18,23 +18,10 @@
         cursor: pointer;
     }
 
-    #saibaMaisBtn {
-        width: 20%;
-        height: 100%;
-        margin: 5% 0 0 0;
-        padding: 1% 0 1% 0;
-        font-family: "Fira Sans Condensed";
-        font-weight: 600;
-        background-color: #33E46D;
-        color: #FFFFFF;
-        border: 0;
-        cursor: pointer;
-    }
-
-    #blogBtn {
+    .btnPadrao {
         width: 25%;
         height: 100%;
-        padding: 1% 0 1% 0;
+        padding: 1%;
         font-family: "Fira Sans Condensed";
         font-weight: 600;
         background-color: #33E46D;
@@ -66,39 +53,28 @@
         font-size: 14px;
     }
     
-    #qroAjudarBtn {
+    #qroAjudarBtn1 {
         font-family: "Fira Sans Condensed";
         cursor: pointer;
         width: 25%;
         height: 100%;
-        padding: 2.5% 0 2.5% 0;
+        padding: 1% 0 1% 0;
         font-weight: 600;
         background-color: #33E46D;
         color: #FFFFFF;
         border: 0;
     }
 
-    #saibaMaisBtn {
+    .btnPadrao {
         width: 25%;
         height: 100%;
-        padding: 1.5% 0 1.5% 0;
+        padding: 2%;
         font-family: "Fira Sans Condensed";
         font-weight: 600;
         background-color: #33E46D;
         color: #FFFFFF;
         border: 0;
-        cursor: pointer;
-    }
-
-    #blogBtn {
-        width: 30%;
-        height: 100%;
-        padding: 1.5% 0 1.5% 0;
-        font-family: "Fira Sans Condensed";
-        font-weight: 600;
-        background-color: #33E46D;
-        color: #FFFFFF;
-        border: 0;
+        z-index: 100000;
         cursor: pointer;
     }
     

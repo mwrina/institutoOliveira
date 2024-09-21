@@ -6,76 +6,150 @@
 body {
     margin: 0;
     font-family: "Fira Sans Condensed";
+    overflow-x: hidden;
 }
 
 /* =============================================================== */
 /* MAIN */
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    width: 100%;
-    margin: 7% 0 5% 0;
+@media (min-width: 800px) {
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        width: 100%;
+        margin: 3% 0 5% 0;
+    }
+    
+    .transp {
+        width: 70%;
+        padding: 0 15% 0 15%;
+    }
+    
+    .transpTxtBtns {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    #download {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .transparencia {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .transpLin {
+        width: 100%;
+        margin: 0 0 2.5% 0;
+        display: flex;
+        gap: 15px;
+    }
+    
+    .transpBtn1 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #33E46D;
+        font-size: 15px;
+        font-weight: 400;
+        width: 20%;
+        border: 0;
+        border-radius: 20px;
+        padding: 1%;
+    }
+    
+    .transpBtn2 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #000000;
+        font-size: 15px;
+        font-weight: 400;
+        width: 20%;
+        border: 0;
+        border-radius: 20px;
+        padding: 1%;
+    }
+    
 }
 
-/* =============================================================== */
-/* TRANSP */
+@media (max-width: 799px) {
 
-.transp {
-    width: 70%;
-    padding: 0 15% 0 15%;
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        width: 100%;
+        margin: 3% 0 5% 0;
+    }
+    
+    .transpTxtBtns {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    #download {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .transparencia {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .transp {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        padding: 0 15% 0 15%;
+        gap: 15px;
+    }
+
+    .transpLin {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .transpBtn1 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #33E46D;
+        font-size: 15px;
+        font-weight: 400;
+        width: 100%;
+        border: 0;
+        border-radius: 20px;
+        padding: 2%;
+    }
+    
+    .transpBtn2 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #000000;
+        font-size: 15px;
+        font-weight: 400;
+        width: 100%;
+        border: 0;
+        border-radius: 20px;
+        padding: 2%;
+    }    
+
 }
 
-.transpTxtBtns {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-#download {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.transparencia {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.transpLin {
-    width: 100%;
-    margin: 0 0 2.5% 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.transpBtn1 {
-    text-align: center;
-    font-family: "Fira Sans Condensed";
-    background-color: #33E46D;
-    font-size: 15px;
-    font-weight: 400;
-    width: 20%;
-    border: 0;
-    border-radius: 20px;
-    padding: 1%;
-}
-
-.transpBtn2 {
-    text-align: center;
-    font-family: "Fira Sans Condensed";
-    background-color: #000000;
-    font-size: 15px;
-    font-weight: 400;
-    width: 20%;
-    border: 0;
-    border-radius: 20px;
-    padding: 1%;
-}
 
 /* =============================================================== */
 /* AGRADECIMENTOS */
@@ -88,7 +162,8 @@ body {
     align-items: center;
     height: fit-content;
     width: 100%;
-    margin: 7% 0 0 0;
+    padding-bottom: 5%;
+    margin: 7% 0 -5% 0;
 }
 
 .carousel-wrap {
@@ -110,7 +185,8 @@ body {
 }
 
 #img {
-    width: 100%;
+    width: 300px;
+    height: 300px;
     border-radius: 300px;
 }
 
@@ -140,7 +216,4 @@ body {
 .owl-nav i {
     font-size: 52px;
     color: #cdcbcd;
-}
-
-
-
+}    

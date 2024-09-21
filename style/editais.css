@@ -11,62 +11,132 @@ body {
 /* =============================================================== */
 /* MAIN */
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    width: 100%;
-    margin: 7% 0 5% 0;
+@media (min-width: 800px) {
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        width: 100%;
+        margin: 7% 0 5% 0;
+    }
+    
+    .editaisTxtBtns {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        width: 70%;
+        margin: 0 15% 0 15%;
+    }
+    
+    #download {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .editais {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .editaisLin {
+        width: 100%;
+        margin: 0 0 2.5% 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .editaisBtn1 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #33E46D;
+        font-size: 15px;
+        font-weight: 400;
+        width: 20%;
+        border: 0;
+        border-radius: 20px;
+        padding: 1%;
+    }
+    
+    .editaisBtn2 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #000000;
+        font-size: 15px;
+        font-weight: 400;
+        width: 20%;
+        border: 0;
+        border-radius: 20px;
+        padding: 1%;
+    }
+
 }
 
-.editaisTxtBtns {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 70%;
-    margin: 0 15% 0 15%;
-}
+@media (max-width: 799px) {
 
-#download {
-    font-size: 16px;
-    font-weight: 500;
-}
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        width: 100%;
+        margin: 7% 0 5% 0;
+    }
+    
+    .editaisTxtBtns {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        width: 70%;
+        margin: 0 15% 0 15%;
+    }
+    
+    #download {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .editais {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .editaisLin {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .editaisBtn1 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #33E46D;
+        font-size: 15px;
+        font-weight: 400;
+        width: 100%;
+        border: 0;
+        border-radius: 20px;
+        padding: 2%;
+    }
+    
+    .editaisBtn2 {
+        text-align: center;
+        font-family: "Fira Sans Condensed";
+        background-color: #000000;
+        font-size: 15px;
+        font-weight: 400;
+        width: 100%;
+        border: 0;
+        border-radius: 20px;
+        padding: 2%;
+    }
 
-.editais {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.editaisLin {
-    width: 100%;
-    margin: 0 0 2.5% 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.editaisBtn1 {
-    text-align: center;
-    font-family: "Fira Sans Condensed";
-    background-color: #33E46D;
-    font-size: 15px;
-    font-weight: 400;
-    width: 20%;
-    border: 0;
-    border-radius: 20px;
-    padding: 1%;
-}
-
-.editaisBtn2 {
-    text-align: center;
-    font-family: "Fira Sans Condensed";
-    background-color: #000000;
-    font-size: 15px;
-    font-weight: 400;
-    width: 20%;
-    border: 0;
-    border-radius: 20px;
-    padding: 1%;
 }

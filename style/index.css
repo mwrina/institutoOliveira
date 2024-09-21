@@ -273,7 +273,7 @@
         width: 45%;
         /* desloc-horizontal, desloc-vertical, blur, "spread effect" */
         box-shadow: 10px 10px 0px 0px #33E46D;
-        margin-top: 2%;
+        margin: 2% 0 5% 0;
     }
     
 
