@@ -18,8 +18,8 @@
                 <button id="abrirNav"><span class="material-symbols-outlined">menu</span></button>
                 
                 <div class="navBarItems">
-                    <a class="navBarItem" href="index.php">Menu</a>
-                    <a class="navBarItem" href="sobreOInstituto.php">Sobre o instituto</a>
+                    <a class="navBarItem" href="index.php">Início</a>
+                    <a class="navBarItem" href="sobreOInstituto.php">Quem Somos</a>
                     <a class="navBarItem" href="projetos.php">Projetos</a>
                     <a class="navBarItem" href="blog.php">Blog</a>
                     <a class="navBarItem" href="editais.php">Editais</a>

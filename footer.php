@@ -66,8 +66,8 @@ if(!isset($_SESSION['redessociais'])){
         </div>
 
         <div class="footerDivLinks">
-            <a id="link" href="index.php">Menu</a> <br>
-            <a id="link" href="sobreOInstituto.php">Sobre o instituto</a> <br>
+            <a id="link" href="index.php">Início</a> <br>
+            <a id="link" href="sobreOInstituto.php">Quem Somos</a> <br>
             <a id="link" href="projetos.php">Projetos</a> <br>
             <a id="link" href="blog.php">Blog do instituto</a> <br>
             <a id="link" href="editais.php">Editais</a> <br>
@@ -84,9 +84,14 @@ if(!isset($_SESSION['redessociais'])){
     </div>
 
     <div class="copyright">
-        <p>2024 © Instituto Oliveira - Todos os direitos reservados</p>
-        <p>Termos de uso</p>
-        <p>Política de privacidade</p>
+        <div class="copyrightTxt">
+            <p>2024 © Instituto Oliveira - Todos os direitos reservados</p>
+            <p>Termos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+        <div class="creditos">
+            <p>Desenvolvimento por: Marina Rosa Oliveira | <a href="https://github.com/mwrina">GitHub</a> | <a href="https://www.linkedin.com/in/marina-rosa-oliveira-97993b242/">LinkedIn</a></p>
+        </div>
     </div>
 
 </footer>

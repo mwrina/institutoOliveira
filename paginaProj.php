@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="style/headerFooter.css">
     <link rel="stylesheet" href="style/botoes.css">
     <link rel="stylesheet" href="style/topoPgs.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/icons/logo.png">
+    <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <title>Projetos - Instituto Oliveira</title>
 </head>
 
@@ -72,7 +72,7 @@
             <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button id="qroAjudarBtn1" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
         </div>
 
         <div class="topDir">

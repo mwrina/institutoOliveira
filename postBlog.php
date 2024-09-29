@@ -44,7 +44,7 @@
             <h1 id="topTitDestacado">Oliveira</h1>
             <p id="topSlogan">Seja um azeite. Faça sua doação.</p>
 
-            <button id="qroAjudarBtn" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
+            <button id="qroAjudarBtn1" onclick="redirectWhatsapp()">QUERO AJUDAR</button>
         </div>
 
         <div class="topDir">
