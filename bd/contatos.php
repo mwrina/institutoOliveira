@@ -1,6 +1,9 @@
 <?php
 include("connect.php");
 
+// ==============================================================================================
+// ENDEREÇO
+
 function buscarEnd($conn) {
     $enderecos = [];
     $sql = "SELECT * FROM endereco";
@@ -44,7 +47,7 @@ function editarEndereco($conn) {
         mysqli_stmt_close($stmt);
 
         if ($executed) {
-            header("Location: ../admCtts.php?alert=1");
+            header("Location: ../admInfos.php?alert=1");
             exit();
         } else {
             echo "Erro ao atualizar o endereço: " . mysqli_error($conn);
@@ -53,6 +56,10 @@ function editarEndereco($conn) {
         echo "Por favor, preencha todos os campos.";
     }
 }
+
+// ==============================================================================================
+// REDES SOCIAIS
+
 
 function buscarRedes($conn) {
     $redessociais = [];
@@ -95,7 +102,7 @@ function criarRede($conn) {
 
             if (mysqli_stmt_execute($stmt)) {
                 if (move_uploaded_file($tempname, '../'.$folder)) {
-                    header("Location: ../admCtts.php");
+                    header("Location: ../admInfos.php");
                 } else {
                     echo "Erro ao mover o arquivo para a pasta de destino.";
                 }
@@ -171,7 +178,7 @@ function editarRede($conn) {
             mysqli_stmt_bind_param($stmt, "sssi", $folder, $nome, $link, $id);
 
             if (mysqli_stmt_execute($stmt)) {
-                header("Location: ../admCtts.php");
+                header("Location: ../admInfos.php");
             } else {
                 echo "Erro ao atualizar a rede social: " . mysqli_error($conn);
             }
@@ -221,6 +228,81 @@ function deletarRede($conn, $id) {
     mysqli_stmt_close($stmt);
 }
 
+// ==============================================================================================
+// CREDITOS
+
+function buscarCreditos($conn) {
+    $creditos = [];
+    $sql = "SELECT * FROM creditos";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $creditos[] = $row;
+        }
+    } else {
+        echo "Erro ao buscar os créditos: " . mysqli_error($conn);
+    }
+
+    $_SESSION['creditos'] = $creditos;
+    return $creditos;
+}
+
+function buscarCreditosPorId($conn, $id) {
+    $sql = "SELECT * FROM creditos WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $creditos = mysqli_fetch_assoc($result);
+
+    return $creditos;
+}
+
+function criarCreditos($conn) {
+
+    if (!empty($_POST['nome']) && !empty($_POST['linkGitHub']) && !empty($_POST['linkLinkedIn'])) {
+        $nome = $_POST['nome'];
+        $github = $_POST['linkGitHub'];
+        $linkedin = $_POST['linkLinkedIn'];
+
+        $sql = "INSERT INTO creditos (nome, github, linkedin) VALUES (?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "sss", $nome, $github, $linkedin);
+
+        if (mysqli_stmt_execute($stmt)) {
+            header("Location: ../admInfos.php");
+        } else {
+            header("Location: ../criarRede.php?alert=1");
+        }
+
+        mysqli_stmt_close($stmt);
+    }
+}
+
+function editarCreditos($conn) {
+
+
+
+}
+
+function deletarCreditos($conn, $id) {
+
+    $sql = "DELETE FROM creditos WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+
+    if (mysqli_stmt_execute($stmt)) {
+        http_response_code(200);
+    } else {
+        http_response_code(500);
+        header("Location: ../admInfos.php?alert=3");
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['deleteIdRede'])) {
         deletarRede($conn, $_POST['deleteIdRede']);
@@ -230,5 +312,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         criarRede($conn);
     } elseif (isset($_POST['editarEndereco'])) {
         editarEndereco($conn);
+    } elseif(isset($_POST['criarCred'])) {
+        criarCreditos($conn);
+    } elseif(isset($_POST['deleteIdCredito'])) {
+        deletarCreditos($conn, $_POST['deleteIdCredito']);
     }
 }

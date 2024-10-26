@@ -1,0 +1,103 @@
+/* CONFIGS GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Fira Sans Condensed";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #FFF5EA;
+}
+
+main {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    background-image: url("../imgs/icons/logoBranca.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45% 60%;
+}
+
+.containerPaginaAdm {
+    box-sizing: border-box;
+    margin: 3% 0 0 0;
+    padding: 3%;
+    height: 90%;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#containerTit {
+    font-size: 26px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.form {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: top;
+    overflow-y: auto;
+    margin: 3% 5% 5% 5%;
+    padding: 5% 3% 3% 3%;
+    height: 85%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: rgb(217,217,217, 0.8);
+}
+
+.formInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    margin: 0;
+}
+
+/* =================================================== */
+/* CRIAR REDE SOCIAL */
+
+.lin {
+    margin: 1% 0 1% 0;
+    width: 100%;
+    height: 20%;
+}
+
+.inputs {
+    font-family: 'Fira Sans Condensed';
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    height: 40%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.btn {
+    margin: 5% 0 0 0;
+    padding: 0 0 5% 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+#submitBtn {
+    background-color: #33E46D;
+    font-family: 'Fira Sans Condensed';
+    color: #FFFFFF;
+    border: 0;
+    margin: 0;
+    width: 40%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 500;
+}
