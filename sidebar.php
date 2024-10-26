@@ -94,13 +94,9 @@
                 <a href="criarRelatorio.php">Criar novo relatório</a> <br>
                 <a href="criarAgrad.php">Criar novo agradecimento</a>
             </div>
-            <a href="admCtts.php"><button class="collapsible">
-                Informações de contato
+            <a href="admInfos.php"><button class="collapsible">
+                Outras informações
             </button></a>
-            <a href="admNums.php"><button class="collapsible">
-                Alterar números do Instituto
-            </button></a>
-
         </div>
 
         <div class="logout-container">
