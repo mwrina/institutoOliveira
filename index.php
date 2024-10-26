@@ -1,7 +1,7 @@
 <?php
 
-include("bd/nums.php");
-$nums = getNums($conn);
+include("bd/transp.php");
+$agradecimentos = getAgrads($conn);
 
 ?>
 
@@ -12,6 +12,8 @@ $nums = getNums($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/botoes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" type="image/x-icon" href="imgs/icons/logo.png">
     <script src="js/redirects.js"></script>
@@ -95,29 +97,23 @@ $nums = getNums($conn);
                 
     </div>
 
-    <div class="nums">
+    <?php if (!empty($agradecimentos)) { ?>
 
-        <div class="numsTit">
-            <h1 id="numsTitDestacado">Números</h1>
-            <h1 id="numsTit">do Instituto</h1>
-        </div>
-
-        <div class="numsDivs">
-            <?php foreach($nums as $num): ?>
-                <div class="numDiv">
-                    <p class="num"><?php echo htmlspecialchars($num['valor'], ENT_QUOTES, 'UTF-8'); ?></p>
-                    <p class="descNum"><?php echo htmlspecialchars($num['campo'], ENT_QUOTES, 'UTF-8'); ?></p>
-                </div>
-            <?php endforeach; ?>
-
-            <div class="numDiv">
-                <img class="numInfinito" src="imgs/icons/infinito.png">
-                <p class="descNum">Abraços dados</p>
+    <div class="agradecimentosDiv">
+        <h1 id="titAgrad">Agradecimentos</h1>
+        <div class="carousel-wrap">
+            <div class="owl-carousel owl-theme">
+                <?php foreach($agradecimentos as $agradecimento): ?>
+                    <div class="item">
+                        <img src="<?= $agradecimento['img'] ?>" id="imgAgrad">
+                        <p id="descAgrad"><?= $agradecimento['agradecimento'] ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-
-
     </div>
+
+    <?php } ?>
 
     <div class="projetos">
         
@@ -270,31 +266,60 @@ $nums = getNums($conn);
 </body>
 
 <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Obtém todos os botões "Saiba Mais"
-                var projBtn = document.querySelectorAll('.projBtn');
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtém todos os botões "Saiba Mais"
+        var projBtn = document.querySelectorAll('.projBtn');
 
-                // Adiciona um ouvinte de evento de clique a cada botão
-                projBtn.forEach(function(btn) {
-                    btn.addEventListener('click', function() {
-                        // Obtém o ID do projeto do atributo data
-                        var projetoId = this.getAttribute('data-projeto-id');
-                        console.log("ID do Projeto para redirecionamento: " + projetoId);
+        // Adiciona um ouvinte de evento de clique a cada botão
+        projBtn.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Obtém o ID do projeto do atributo data
+                var projetoId = this.getAttribute('data-projeto-id');
+                console.log("ID do Projeto para redirecionamento: " + projetoId);
 
-                        // Redireciona para a página do projeto com o ID como parâmetro
-                        window.location.href = 'paginaProj.php?projetoId=' + projetoId;
-                    });
-                });
-
-                var blogBtn = document.querySelectorAll('.blogBtn');
-
-                    blogBtn.forEach(function(btn) {
-                        btn.addEventListener('click', function() {
-                            var blogId = this.getAttribute('data-blog-id');
-                            window.location.href = 'postBlog.php?blogId=' + blogId;
-                        });
-                    });
-
+                // Redireciona para a página do projeto com o ID como parâmetro
+                window.location.href = 'paginaProj.php?projetoId=' + projetoId;
             });
-        </script>
+        });
+
+        var blogBtn = document.querySelectorAll('.blogBtn');
+
+            blogBtn.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var blogId = this.getAttribute('data-blog-id');
+                    window.location.href = 'postBlog.php?blogId=' + blogId;
+                });
+            });
+
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            navText: [
+                "<i class='fa fa-caret-left'></i>",
+                "<i class='fa fa-caret-right'></i>"
+            ],
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        });
+    });
+</script>
 </html>

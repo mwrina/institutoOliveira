@@ -41,7 +41,6 @@
                         <div class="loginLin">
                             <label for="senha" id="nomeCampo">Senha</label>
                             <input type="password" class="loginCampo" id="senha" name="senha" required>
-                            <a href="esqueciMinhaSenha.php" id="esqueceuSenha">Esqueceu sua senha?</a>
                         </div>
                     </div>
 
